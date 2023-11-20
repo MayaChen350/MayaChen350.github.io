@@ -56,7 +56,6 @@ let liste = document.getElementById("todos-list");
 let addToDoButton = document.getElementById("addtodo-button");
 let eraseCookieButton = document.getElementById("erase-cookies-button");
 let allTodos = document.getElementById("todos");
-let inputTodoInput = document.getElementById("input-todo");
 
 let erasetodoCookieButton = document.getElementById(
   "erase-cookies-todo-button"
@@ -108,8 +107,10 @@ addToDoButton.addEventListener("click", () => {
   addTodoFunc();
 });
 
-inputTodoInput.addEventListener("click", () => {
-  addTodoFunc();
+document.getElementById("input-todo").addEventListener("keypress", (e) => {
+  if (e.key === 'Enter') {
+    addTodoFunc();
+  }
 });
 
 eraseCookieButton.addEventListener("click", () => {
