@@ -95,11 +95,12 @@ addToDoButton.addEventListener("click", () => {
 
     // Clear the input field
     document.getElementById("input-todo").value = "";
+    
+    if (allTodos.lastElementChild.nodeName == "P") {
+      allTodos.removeChild(allTodos.lastElementChild);
+    }
   }
 
-  if (allTodos.lastElementChild.nodeName == "P") {
-    allTodos.removeChild(allTodos.lastElementChild);
-  }
 });
 
 eraseCookieButton.addEventListener("click", () => {
