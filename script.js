@@ -56,29 +56,13 @@ let liste = document.getElementById("todos-list");
 let addToDoButton = document.getElementById("addtodo-button");
 let eraseCookieButton = document.getElementById("erase-cookies-button");
 let allTodos = document.getElementById("todos");
+let inputTodoInput = document.getElementById("input-todo");
+
 let erasetodoCookieButton = document.getElementById(
   "erase-cookies-todo-button"
 );
 
-// Retrieve todos from the cookie or use a default list
-let todos = getCookie("todos") ? getCookie("todos").split(",") : [];
-console.log(todos);
-// Display todos from the cookie
-if (todos.length > 0) {
-  for (let todo of todos) {
-    let element = document.createElement("li");
-    element.innerText = todo;
-    liste.appendChild(element);
-  }
-}
-
-if (!liste.firstChild) {
-  let element = document.createElement("p");
-  element.innerText = "todos are empty";
-  allTodos.appendChild(element);
-}
-
-addToDoButton.addEventListener("click", () => {
+const addTodoFunc = () => {
   let inputtodo = document.getElementById("input-todo").value.trim();
 
   if (inputtodo.length > 0) {
@@ -100,7 +84,32 @@ addToDoButton.addEventListener("click", () => {
       allTodos.removeChild(allTodos.lastElementChild);
     }
   }
+}
 
+// Retrieve todos from the cookie or use a default list
+let todos = getCookie("todos") ? getCookie("todos").split(",") : [];
+console.log(todos);
+// Display todos from the cookie
+if (todos.length > 0) {
+  for (let todo of todos) {
+    let element = document.createElement("li");
+    element.innerText = todo;
+    liste.appendChild(element);
+  }
+}
+
+if (!liste.firstChild) {
+  let element = document.createElement("p");
+  element.innerText = "todos are empty";
+  allTodos.appendChild(element);
+}
+
+addToDoButton.addEventListener("click", () => {
+  addTodoFunc();
+});
+
+inputTodoInput.addEventListener("click", () => {
+  addTodoFunc();
 });
 
 eraseCookieButton.addEventListener("click", () => {
