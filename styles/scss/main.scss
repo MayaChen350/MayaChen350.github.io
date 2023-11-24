@@ -1,0 +1,47 @@
+@import "utils";
+@import url(reset.css);
+
+@font-face {
+  font-family: Zarbi;
+  src: url(../../fonts/Unown.ttf);
+}
+
+:root {
+  --lavender-pink: #ffa9e7ff;
+  --violet-web-color: #ff84e8ff;
+  --french-violet: #7f2ccbff;
+  --delft-blue: #414361ff;
+  --space-cadet: #2a2d43ff;
+}
+
+html {
+  background: var(--space-cadet);
+}
+
+body {
+  color: var(--lavender-pink);
+  font-family: "Open Sans", sans-serif;
+}
+
+h1 {
+  font-family: "Zarbi";
+  color: var(--french-violet);
+  text-shadow: 1px;
+  font-size: 100px;
+  text-align: center;
+}
+
+main {
+  margin: 0 3%;
+}
+
+h2 {
+  width: fit-content;
+  border-left: var(--lavender-pink) 3px solid;
+  border-right: var(--lavender-pink) 3px solid;
+  padding: 0 10px;
+}
+
+section {
+  margin-bottom: 10px;
+}

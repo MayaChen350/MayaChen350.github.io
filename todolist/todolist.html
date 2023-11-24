@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maya's todo list</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="todolist.js" defer></script>
+  </head>
+  <body>
+    <div class="left">
+      <h1>Manage todos:</h1>
+      <div class="interactions">
+        <input
+          type="text"
+          name="input-todo"
+          id="input-todo"
+          placeholder="type your todo's name "
+        />
+
+        <div class="top-buttons">
+          <button id="addtodo-button">add todo</button>
+          <button id="erase-cookies-todo-button">erase todo</button>
+        </div>
+
+        <button id="erase-cookies-button">erase all todos</button>
+      </div>
+    </div>
+    <div class="right" id="todos">
+      <h1>My todos:</h1>
+      <ul id="todos-list"></ul>
+    </div>
+  </body>
+</html>
