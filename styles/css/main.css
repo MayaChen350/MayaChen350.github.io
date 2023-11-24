@@ -4,41 +4,44 @@
   src: url(../../fonts/Unown.ttf);
 }
 :root {
-  --lavender-pink: #ffa9e7ff;
-  --violet-web-color: #ff84e8ff;
-  --french-violet: #7f2ccbff;
-  --delft-blue: #414361ff;
-  --space-cadet: #2a2d43ff;
+  --primary-color-1: #211e1c;
+  --primary-color-2: #414361ff;
+  --secondary-color: #ff84e8ff;
+  --accent-color-1: #ffa9e7ff;
+  --accent-color-2: #7f2ccbff;
 }
 
 html {
-  background: var(--space-cadet);
+  background: var(--primary-color-1);
 }
 
 body {
-  color: var(--lavender-pink);
+  color: var(--secondary-color);
   font-family: "Open Sans", sans-serif;
 }
 
 h1 {
   font-family: "Zarbi";
-  color: var(--french-violet);
+  color: var(--secondary-color);
   text-shadow: 1px;
   font-size: 100px;
   text-align: center;
 }
 
-main {
-  margin: 0 3%;
-}
-
 h2 {
+  font-size: 25px;
   width: fit-content;
-  border-left: var(--lavender-pink) 3px solid;
-  border-right: var(--lavender-pink) 3px solid;
+  border-left: var(--secondary-color) 3px solid;
+  border-right: var(--secondary-color) 3px solid;
+  margin: 0 auto;
   padding: 0 10px;
+  margin-bottom: 7px;
 }
 
 section {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+}
+section div {
+  border: var(--accent-color-1) 1px solid;
+  margin: 0 15%;
 }/*# sourceMappingURL=main.css.map */
