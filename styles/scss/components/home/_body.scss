@@ -1,17 +1,9 @@
-@import "utils";
+@import "../global/utils";
 @import url(reset.css);
 
 @font-face {
   font-family: Zarbi;
   src: url(../../fonts/Unown.ttf);
-}
-
-:root {
-  --primary-color-1: #211e1c;
-  --primary-color-2: #414361ff;
-  --secondary-color: #ff84e8ff;
-  --accent-color-1: #ffa9e7ff;
-  --accent-color-2: #7f2ccbff;
 }
 
 html {
