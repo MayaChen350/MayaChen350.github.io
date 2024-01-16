@@ -1,0 +1,106 @@
+@import url(reset.css);
+/*Colors classes*/
+.white {
+  color: white;
+}
+
+.yellow {
+  color: var(--secondary-color-2);
+}
+
+.pink {
+  color: var(--accent-color-1);
+}
+
+body {
+  background: radial-gradient(var(--primary-color), #120032);
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.8rem;
+  color: var(--secondary-color-1);
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+}
+
+header {
+  color: #000;
+  background-color: var(--secondary-color-1);
+}
+header h1 {
+  font-family: "Sacramento";
+  font-weight: 700;
+  font-size: 7.5rem;
+  padding-left: 8rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  background: rgba(10, 0, 10, 0.35);
+}
+.left-side .social-media {
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 4rem;
+}
+.left-side .social-media #pfp {
+  border-radius: 50%;
+  height: 25rem;
+  width: 25rem;
+  margin-top: 2rem;
+}
+.left-side .social-media p {
+  padding-left: 15%;
+}
+.left-side .availabilities {
+  width: fit-content;
+  padding-top: 0.9rem;
+  padding-left: 2.3rem;
+  padding-bottom: 0.9rem;
+  padding-right: 15rem;
+  border-left: 5px var(--secondary-color-2) solid;
+}
+.left-side .dog img {
+  height: 18rem;
+  width: auto;
+  border: 2px var(--accent-color-2) solid;
+  border-radius: 10%;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+}
+.center .description {
+  padding-bottom: 4rem;
+  padding-right: 2rem;
+}
+.center .description h2 {
+  font-weight: bold;
+  font-size: 4rem;
+  padding-top: 2.5rem;
+  padding-bottom: 3rem;
+}
+.center .attributes {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.center .attributes .logo {
+  height: 6rem;
+}
+
+.timeline {
+  padding-top: 70px;
+  padding-right: 50px;
+}
+.timeline img {
+  height: 77.5vh;
+}/*# sourceMappingURL=main.css.map */

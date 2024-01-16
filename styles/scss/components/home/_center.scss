@@ -1,0 +1,28 @@
+.center {
+  display: flex;
+  flex-direction: column;
+
+  .description {
+    padding: {
+      bottom: 4rem;
+      right: 2rem;
+    }
+
+    h2 {
+      font-weight: bold;
+      font-size: 4rem;
+      padding-top: 2.5rem;
+      padding-bottom: 3rem;
+    }
+  }
+
+  .attributes {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    .logo {
+      height: 6rem;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+header {
+  color: #000;
+  background-color: var(--secondary-color-1);
+
+  h1 {
+    font-family: "Sacramento";
+    font-weight: 700;
+    font-size: 7.5rem;
+    padding: {
+      left: 8rem;
+      top: 2rem;
+      bottom: 1rem;
+    }
+  }
+}
