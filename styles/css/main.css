@@ -1,40 +1,64 @@
 @import url(reset.css);
-@import url(reset.css);
-@font-face {
-  font-family: Zarbi;
-  src: url(../../fonts/Unown.ttf);
+/*Colors classes*/
+.white {
+  color: white;
 }
-html {
-  background: var(--primary-color-1);
+
+.yellow {
+  color: var(--secondary-color-2);
 }
 
 body {
-  color: var(--secondary-color);
-  font-family: "Open Sans", sans-serif;
+  background-color: var(--primary-color);
+  font-size: 1.8rem;
+  color: var(--secondary-color-1);
 }
 
-h1 {
-  font-family: "Zarbi";
-  color: var(--secondary-color);
-  text-shadow: 1px;
-  font-size: 100px;
-  text-align: center;
+main {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 2rem;
 }
 
-h2 {
-  font-size: 25px;
-  width: fit-content;
-  border-left: var(--secondary-color) 3px solid;
-  border-right: var(--secondary-color) 3px solid;
-  margin: 0 auto;
-  padding: 0 10px;
-  margin-bottom: 7px;
+header {
+  color: #000;
+  background-color: var(--secondary-color-1);
+}
+header h1 {
+  font-family: "Open Sans";
+  font-size: 8rem;
+  padding-left: 7rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
-section {
-  margin-bottom: 5px;
+.left-side {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
 }
-section div {
-  border: var(--accent-color-1) 1px solid;
-  margin: 0 15%;
+.left-side .social-media {
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.left-side .social-media #pfp {
+  border-radius: 50%;
+  height: 25rem;
+  width: 25rem;
+}
+.left-side .social-media p {
+  padding-left: 15%;
+}
+.left-side .availabilities {
+  padding-top: 1.9rem;
+  padding-left: 2.3rem;
+  padding-bottom: 10rem;
+  border-left: 5px var(--secondary-color-2) solid;
+}
+.left-side .dog img {
+  height: 20rem;
+  width: auto;
+  border-radius: 10%;
 }/*# sourceMappingURL=main.css.map */

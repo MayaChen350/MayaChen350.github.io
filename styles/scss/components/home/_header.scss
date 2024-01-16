@@ -1,1 +1,14 @@
- 
+header {
+  color: #000;
+  background-color: var(--secondary-color-1);
+
+  h1 {
+    font-family: "Open Sans";
+    font-size: 8rem;
+    padding: {
+      left: 7rem;
+      top: 2rem;
+      bottom: 2rem;
+    }
+  }
+}

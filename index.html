@@ -11,40 +11,79 @@
       rel="stylesheet"
     />
     <style>
-      /*DEFAULT COLORS BY DEFAULT*/
       :root {
-        --primary-color-1: #211e1c;
-        --primary-color-2: #414361ff;
-        --secondary-color: #ff84e8ff;
-        --accent-color-1: #ffa9e7ff;
-        --accent-color-2: #7f2ccbff;
+        font-size: 62.5%;
+        /*DEFAULT COLORS BY DEFAULT*/
+        --primary-color: #424242;
+        --secondary-color-1: #a349a4;
+        --secondary-color-2: #ffc90e;
+        --accent-color-1: #ffaec9;
+        --accent-color-2: #c8bfe7;
       }
     </style>
   </head>
 
   <body>
-    <h1>My page</h1>
+    <header>
+      <h1>My Page</h1>
+    </header>
+
     <main>
-      <section>
-        <h2>Hello!</h2>
-        <div>
-          <h3>Welcome to my page!</h3>
+      <div class="left-side">
+        <div class="social-media">
+          <img src="images/PFP/github.jfif" id="pfp" />
+          <p id="social-media-usernam" class="yellow">GITHUB: MayaChen350</p>
+        </div>
+
+        <div class="availabilities white">
+          <p class="yellow">Availabilities:</p>
+          <p>MON</p>
+          <p>TUE</p>
+          <p>WED</p>
+          <p>THU</p>
+          <p>FRI</p>
+          <p>SAT</p>
+          <p>SUN</p>
+        </div>
+
+        <div class="dog">
+          <img
+            src="images/doggo/20240114_162341.jpg"
+            alt="Picture of my dog"
+            id="dog-picture"
+          />
+          <p>Random picture of my dog :3</p>
+        </div>
+      </div>
+
+      <div class="center">
+        <div class="description">
+          <h2>Welcome to my page!</h2>
           <p>
             hiiii! I'm a trans girl I guess. I like playing games of series like
-            Pokemon, Fire Emblem, Persona or Devil May Cry sometimes!
+            Pokemon, Fire Emblem, Persona or even Devil May Cry sometimes!
           </p>
-          <br />
-          <p>I like people however I can be socially awkward >_<</p>
         </div>
-      </section>
 
-      <section>
-        <h2>Links</h2>
-      </section>
+        <div>
+          <div>
+            <p>I do</p>
+            <img src="" alt="C# logo" />
+            <img src="" alt="HTML logo" />
+            <img src="" alt="CSS logo" />
+            <img src="" alt="SCSS logo" />
+          </div>
 
-      <section>
-        <h2>Programming timeline</h2>
-      </section>
+          <div>
+            <p>I'm learning</p>
+            <img src="" alt="Javascript logo" />
+          </div>
+        </div>
+      </div>
+
+      <div class="right-side timeline">
+        <!-- <svg></svg> -->
+      </div>
     </main>
   </body>
 </html>

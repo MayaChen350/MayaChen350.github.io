@@ -1,48 +1,11 @@
-@import "../global/utils";
-@import url(reset.css);
-
-@font-face {
-  font-family: Zarbi;
-  src: url(../../fonts/Unown.ttf);
-}
-
-html {
-  background: var(--primary-color-1);
-}
-
 body {
-  color: var(--secondary-color);
-  font-family: "Open Sans", sans-serif;
-}
-
-h1 {
-  font-family: "Zarbi";
-  color: var(--secondary-color);
-  text-shadow: 1px;
-  font-size: 100px;
-  text-align: center;
+  background-color: var(--primary-color);
+  font-size: 1.8rem;
+  color: var(--secondary-color-1);
 }
 
 main {
-}
-
-h2 {
-  font-size: 25px;
-  width: fit-content;
-  border-left: var(--secondary-color) 3px solid;
-  border-right: var(--secondary-color) 3px solid;
-  margin: 0 auto;
-  padding: 0 10px;
-  margin-bottom: 7px;
-}
-
-h3 {
-}
-
-section {
-  margin-bottom: 5px;
-  div {
-    border: var(--accent-color-1) 1px solid; //This is just to delimit for now
-    margin: 0 15%;
-  }
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 2rem;
 }
