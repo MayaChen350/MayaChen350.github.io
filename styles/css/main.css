@@ -8,6 +8,10 @@
   color: var(--secondary-color-2);
 }
 
+.pink {
+  color: var(--accent-color-1);
+}
+
 body {
   background-color: var(--primary-color);
   font-size: 1.8rem;
@@ -61,4 +65,27 @@ header h1 {
   height: 20rem;
   width: auto;
   border-radius: 10%;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+}
+.center .description {
+  padding-bottom: 20rem;
+}
+.center .description h2 {
+  font-size: 4rem;
+  padding-top: 2.5rem;
+  padding-bottom: 3rem;
+}
+.center .attributes {
+  display: flex;
+  gap: 20rem;
+}
+.center .attributes > div {
+  width: 30%;
+}
+.center .attributes .logo {
+  height: 10rem;
 }/*# sourceMappingURL=main.css.map */

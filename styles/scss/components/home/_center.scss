@@ -1,0 +1,29 @@
+.center {
+  display: flex;
+  flex-direction: column;
+
+  .description {
+    padding: {
+      bottom: 20rem;
+    }
+
+    h2 {
+      font-size: 4rem;
+      padding-top: 2.5rem;
+      padding-bottom: 3rem;
+    }
+  }
+
+  .attributes {
+    display: flex;
+    gap: 20rem;
+
+    & > div {
+      width: 30%;
+    }
+
+    .logo {
+      height: 10rem;
+    }
+  }
+}
