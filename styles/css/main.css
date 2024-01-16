@@ -13,7 +13,8 @@
 }
 
 body {
-  background-color: var(--primary-color);
+  background: radial-gradient(var(--primary-color), rgb(18, 0, 50));
+  font-family: "Nunito Sans", sans-serif;
   font-size: 1.8rem;
   color: var(--secondary-color-1);
 }
@@ -29,11 +30,12 @@ header {
   background-color: var(--secondary-color-1);
 }
 header h1 {
-  font-family: "Open Sans";
-  font-size: 8rem;
-  padding-left: 7rem;
+  font-family: "Sacramento";
+  font-weight: 700;
+  font-size: 7.5rem;
+  padding-left: 8rem;
   padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
 }
 
 .left-side {
@@ -75,6 +77,7 @@ header h1 {
   padding-bottom: 20rem;
 }
 .center .description h2 {
+  font-weight: bold;
   font-size: 4rem;
   padding-top: 2.5rem;
   padding-bottom: 3rem;
@@ -88,4 +91,8 @@ header h1 {
 }
 .center .attributes .logo {
   height: 10rem;
+}
+
+.timeline {
+  padding-top: 150px;
 }/*# sourceMappingURL=main.css.map */
