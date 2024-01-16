@@ -1,5 +1,5 @@
 body {
-  background: radial-gradient(var(--primary-color), rgb(18, 0, 50));
+  background: radial-gradient(var(--primary-color), #120032);
   font-family: "Nunito Sans", sans-serif;
   font-size: 1.8rem;
   color: var(--secondary-color-1);
@@ -8,5 +8,4 @@ body {
 main {
   display: flex;
   justify-content: space-between;
-  padding: 2rem 2rem;
 }

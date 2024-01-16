@@ -4,7 +4,8 @@
 
   .description {
     padding: {
-      bottom: 20rem;
+      bottom: 4rem;
+      right: 2rem;
     }
 
     h2 {
@@ -17,14 +18,11 @@
 
   .attributes {
     display: flex;
-    gap: 20rem;
-
-    & > div {
-      width: 30%;
-    }
+    flex-direction: column;
+    gap: 3rem;
 
     .logo {
-      height: 10rem;
+      height: 6rem;
     }
   }
 }

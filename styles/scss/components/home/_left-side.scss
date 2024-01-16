@@ -2,17 +2,20 @@
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+  background: rgba(10, 0, 10, 0.35);
 
   .social-media {
     font-size: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding-left: 4rem;
 
     #pfp {
       border-radius: 50%;
       height: 25rem;
       width: 25rem;
+      margin-top: 2rem;
     }
 
     p {
@@ -21,17 +24,21 @@
   }
 
   .availabilities {
+    width: fit-content;
     padding: {
-      top: 1.9rem;
+      top: 0.9rem;
       left: 2.3rem;
-      bottom: 10rem;
+      bottom: 0.9rem;
+      right: 15rem;
     }
+
     border-left: 5px var(--secondary-color-2) solid;
   }
 
   .dog img {
-    height: 20rem;
+    height: 18rem;
     width: auto;
+    border: 2px var(--accent-color-2) solid;
     border-radius: 10%;
   }
 }

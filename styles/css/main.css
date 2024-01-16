@@ -13,7 +13,7 @@
 }
 
 body {
-  background: radial-gradient(var(--primary-color), rgb(18, 0, 50));
+  background: radial-gradient(var(--primary-color), #120032);
   font-family: "Nunito Sans", sans-serif;
   font-size: 1.8rem;
   color: var(--secondary-color-1);
@@ -22,7 +22,6 @@ body {
 main {
   display: flex;
   justify-content: space-between;
-  padding: 2rem 2rem;
 }
 
 header {
@@ -42,30 +41,36 @@ header h1 {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+  background: rgba(10, 0, 10, 0.35);
 }
 .left-side .social-media {
   font-size: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding-left: 4rem;
 }
 .left-side .social-media #pfp {
   border-radius: 50%;
   height: 25rem;
   width: 25rem;
+  margin-top: 2rem;
 }
 .left-side .social-media p {
   padding-left: 15%;
 }
 .left-side .availabilities {
-  padding-top: 1.9rem;
+  width: fit-content;
+  padding-top: 0.9rem;
   padding-left: 2.3rem;
-  padding-bottom: 10rem;
+  padding-bottom: 0.9rem;
+  padding-right: 15rem;
   border-left: 5px var(--secondary-color-2) solid;
 }
 .left-side .dog img {
-  height: 20rem;
+  height: 18rem;
   width: auto;
+  border: 2px var(--accent-color-2) solid;
   border-radius: 10%;
 }
 
@@ -74,7 +79,8 @@ header h1 {
   flex-direction: column;
 }
 .center .description {
-  padding-bottom: 20rem;
+  padding-bottom: 4rem;
+  padding-right: 2rem;
 }
 .center .description h2 {
   font-weight: bold;
@@ -84,15 +90,17 @@ header h1 {
 }
 .center .attributes {
   display: flex;
-  gap: 20rem;
-}
-.center .attributes > div {
-  width: 30%;
+  flex-direction: column;
+  gap: 3rem;
 }
 .center .attributes .logo {
-  height: 10rem;
+  height: 6rem;
 }
 
 .timeline {
-  padding-top: 150px;
+  padding-top: 70px;
+  padding-right: 50px;
+}
+.timeline img {
+  height: 77.5vh;
 }/*# sourceMappingURL=main.css.map */
