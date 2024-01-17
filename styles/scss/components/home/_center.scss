@@ -1,6 +1,14 @@
+@import "../../abstracts/media-queries";
+
 .center {
   display: flex;
   flex-direction: column;
+
+  // media queries
+  @include xs {
+    padding: 0 2rem;
+  }
+  //
 
   .description {
     padding: {
@@ -13,6 +21,14 @@
       font-size: 4rem;
       padding-top: 2.5rem;
       padding-bottom: 3rem;
+
+      // media queries
+      @include xs {
+        font-size: 3rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      //
     }
   }
 

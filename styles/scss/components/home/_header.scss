@@ -1,3 +1,5 @@
+@import "../../abstracts/media-queries";
+
 header {
   color: #000;
   background-color: var(--secondary-color-1);
@@ -11,5 +13,18 @@ header {
       top: 2rem;
       bottom: 1rem;
     }
+
+    // media queries
+    @include xs {
+      display: none;
+      // font-size: 3rem;
+      // text-align: center;
+      // padding: {
+      //   left: 0;
+      //   top: 0rem;
+      //   bottom: 0rem;
+      // }
+    }
+    //
   }
 }

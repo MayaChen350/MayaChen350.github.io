@@ -1,3 +1,5 @@
+@import "../../abstracts/media-queries";
+
 .left-side {
   display: flex;
   flex-direction: column;
@@ -11,6 +13,13 @@
     gap: 10px;
     padding-left: 4rem;
 
+    // media queries
+    @include xs {
+      padding-left: 0;
+      align-items: center;
+    }
+    //
+
     #pfp {
       border-radius: 50%;
       height: 25rem;
@@ -20,6 +29,13 @@
 
     p {
       padding-left: 15%;
+
+      // media queries
+      @include xs {
+        padding: 0;
+        align-items: center;
+      }
+      //
     }
   }
 
@@ -31,14 +47,35 @@
       bottom: 0.9rem;
       right: 15rem;
     }
+    @include gt-xs {
+      border-left: 5px var(--secondary-color-2) solid;
+    }
 
-    border-left: 5px var(--secondary-color-2) solid;
+    // media queries
+    @include xs {
+      width: 100%;
+      font-size: 2rem;
+      padding: 0;
+      align-self: center;
+      border-top: 1px var(--secondary-color-2) dotted;
+      border-bottom: 1px var(--secondary-color-2) dotted;
+    }
+    //
   }
 
-  .dog img {
-    height: 18rem;
-    width: auto;
-    border: 2px var(--accent-color-2) solid;
-    border-radius: 10%;
+  .dog {
+    // media queries
+    @include xs {
+      /* Don't worry, the dog is at the end of the website instead :)*/
+      display: none;
+    }
+    //
+
+    img {
+      height: 18rem;
+      width: auto;
+      border: 2px var(--accent-color-2) solid;
+      border-radius: 10%;
+    }
   }
 }

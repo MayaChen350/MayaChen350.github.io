@@ -1,3 +1,5 @@
+@import "../../abstracts/media-queries";
+
 /*Colors classes*/
 .white {
   color: white;
@@ -9,4 +11,10 @@
 
 .pink {
   color: var(--accent-color-1);
+}
+/*One size only classes*/
+.mobile {
+  @include gt-xs {
+    display: none;
+  }
 }
