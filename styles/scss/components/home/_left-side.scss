@@ -1,4 +1,5 @@
 @import "../../abstracts/media-queries";
+@import "../../abstracts/image_mixins";
 
 .left-side {
   display: flex;
@@ -21,9 +22,7 @@
     //
 
     #pfp {
-      border-radius: 50%;
-      height: 25rem;
-      width: 25rem;
+      @include image-size(25rem, $circle: true);
       margin-top: 2rem;
     }
 
