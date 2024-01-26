@@ -1,5 +1,5 @@
-const socialMedias = ["GITHUB: MayaChen350", "DISCORD: giratina_shiny", "BLUESKY: giratina_shiny"];
-const socialMediaPfps = ["images/PFP/github.jfif", "images/PFP/discord.webp", "images/PFP/bluesky.png"];
+const socialMedias = ["GITHUB: MayaChen350", "DISCORD: giratina_shiny","LAST.FM: GChen3843", "BLUESKY: giratina_shiny"];
+const socialMediaPfps = ["images/PFP/github.jfif", "images/PFP/discord.webp", "images/PFP/lastfm.png", "images/PFP/bluesky.png"];
 
 const mediaUsername = document.querySelector("#social-media-username");
 const mediaPfp = document.querySelector("#pfp");
