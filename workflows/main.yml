@@ -15,4 +15,4 @@ jobs:
 
     - name: Print API Key
       env: 
-last_fm_api: ${{ secrets.LAST_FM_API_KEY }}"
+          last_fm_api: ${{ secrets.LAST_FM_API_KEY }}"
