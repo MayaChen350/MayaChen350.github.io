@@ -1,0 +1,17 @@
+name: Minimal Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Print API Key
+      run: echo "API Key: ${{ secrets.LAST_FM_API_KEYA }}"
