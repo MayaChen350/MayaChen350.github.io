@@ -14,4 +14,4 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Print API Key
-      run: echo "API Key: ${{ secrets.LAST_FM_API_KEYA }}"
+      run: echo "API Key: ${{ secrets.LAST_FM_API_KEY }}"
