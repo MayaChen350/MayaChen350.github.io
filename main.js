@@ -26,11 +26,3 @@ const socialMediaChangeTimer = setInterval(() => {
   //     } else mediaPfp.style.opacity += 0.1;
   //   }, 100);
 }, 10000);
-
-// Persona 3 reload
-// babybabybabybabybabybabybabybabybabybabybabybabybabybabybabybabybabybabybabybabybabybabybabybabybabybabybabybabybaby
-const currentDate = new Date();
-const p3rDate = new Date("2024/02/02 00:00:00");
-const countdown = document.querySelector("#countdown");
-
-countdown.innerText = Math.ceil((p3rDate - currentDate) / 60000);
