@@ -1,6 +1,6 @@
 @mixin animation($name, $duration,$delay: 0, $iteration-count: 1, $direction: normal,$timing-function: ease,$fill-mode: none) {
 
-    @keyframes $name {
+    @keyframes #$name {
         @content
     }
 
