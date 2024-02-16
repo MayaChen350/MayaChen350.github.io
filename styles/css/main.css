@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+@import url(reset.css);
+/*Colors classes*/
+.white {
+  color: white;
+}
+
+.yellow {
+  color: var(--secondary-color-2);
+}
+
+.pink {
+  color: var(--accent-color-1);
+}
+
+/*One size only classes*/
+@media screen and (min-width: 600px) {
+  .mobile {
+    display: none;
+  }
+}
+
+body {
+  background: radial-gradient(var(--primary-color), #120032);
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.8rem;
+  color: var(--secondary-color-1);
+}
+@media screen and (max-width: 599px) {
+  body {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  main {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+header {
+  color: #000;
+  background: var(--secondary-color-1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header h1 {
+  font-family: "Sacramento";
+  font-weight: 700;
+  font-size: 7.5rem;
+  padding-left: 8rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+@media screen and (max-width: 599px) {
+  header h1 {
+    display: none;
+  }
+}
+header aside {
+  background-color: var(--primary-color);
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+@media screen and (max-width: 599px) {
+  header aside {
+    font-size: 1.4rem;
+    border-bottom: 5px var(--accent-color-1) dotted;
+  }
+}
+header aside img {
+  height: 100%;
+}
+@media screen and (max-width: 599px) {
+  header aside img {
+    width: 30%;
+  }
+}
+header aside div {
+  color: rgb(255, 140, 140);
+  text-align: center;
+  font-family: "Space Mono", monospace;
+  width: 600px;
+  padding-right: 3rem;
+}
+@media screen and (max-width: 599px) {
+  header aside div {
+    width: 100%;
+  }
+}
+header aside div a {
+  font-size: 2.8rem;
+  font-weight: bold;
+}
+@media screen and (max-width: 599px) {
+  header aside div a {
+    font-size: 2.3rem;
+  }
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  background: rgba(10, 0, 10, 0.35);
+}
+.left-side .social-media {
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 4rem;
+}
+@media screen and (max-width: 599px) {
+  .left-side .social-media {
+    padding-left: 0;
+    align-items: center;
+  }
+}
+.left-side .social-media #pfp {
+  width: 25rem;
+  height: auto;
+  border-radius: 50%;
+  margin-top: 2rem;
+}
+.left-side .social-media p {
+  padding-left: 15%;
+}
+@media screen and (max-width: 599px) {
+  .left-side .social-media p {
+    padding: 0;
+    align-items: center;
+  }
+}
+.left-side .availabilities {
+  width: fit-content;
+  padding-top: 0.9rem;
+  padding-left: 2.3rem;
+  padding-bottom: 0.9rem;
+  padding-right: 15rem;
+}
+@media screen and (min-width: 600px) {
+  .left-side .availabilities {
+    border-left: 5px var(--secondary-color-2) solid;
+  }
+}
+@media screen and (max-width: 599px) {
+  .left-side .availabilities {
+    width: 100%;
+    font-size: 2rem;
+    padding: 0;
+    align-self: center;
+    border-top: 1px var(--secondary-color-2) dotted;
+    border-bottom: 1px var(--secondary-color-2) dotted;
+  }
+}
+@media screen and (max-width: 599px) {
+  .left-side .dog {
+    /* Don't worry, the dog is at the end of the website instead :)*/
+    display: none;
+  }
+}
+.left-side .dog img {
+  height: 18rem;
+  width: auto;
+  border: 2px var(--accent-color-2) solid;
+  border-radius: 10%;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 599px) {
+  .center {
+    padding: 0 2rem;
+  }
+}
+.center .description {
+  padding-bottom: 4rem;
+  padding-right: 2rem;
+}
+.center .description h2 {
+  font-weight: bold;
+  font-size: 4rem;
+  padding-top: 2.5rem;
+  padding-bottom: 3rem;
+}
+@media screen and (max-width: 599px) {
+  .center .description h2 {
+    font-size: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+.center .attributes {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.center .attributes .logo {
+  height: 6rem;
+}
+
+.timeline {
+  padding-top: 70px;
+  padding-right: 50px;
+}
+.timeline img {
+  height: 77.5vh;
+}
+@media screen and (max-width: 599px) {
+  .timeline img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.dog.mobile {
+  border-top: 5px var(--accent-color-1) dotted;
+  text-align: center;
+}
+.dog.mobile img {
+  border-radius: 10%;
+}/*# sourceMappingURL=main.css.map */
