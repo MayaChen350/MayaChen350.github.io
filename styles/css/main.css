@@ -21,7 +21,6 @@
 }
 
 body {
-  background: url(../../images/special/p3r.jpg);
   background-position-y: 190%;
   font-family: "Nunito Sans", sans-serif;
   font-size: 1.8rem;
@@ -45,7 +44,7 @@ main {
 
 header {
   color: #000;
-  background: linear-gradient(to right, var(--secondary-color-1), rgba(0, 0, 0, 0));
+  background: var(--secondary-color-1);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -63,15 +62,46 @@ header h1 {
     display: none;
   }
 }
-header div {
-  color: rgb(140, 242, 255);
+header aside {
+  background-color: var(--primary-color);
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+@media screen and (max-width: 599px) {
+  header aside {
+    font-size: 1.4rem;
+    border-bottom: 5px var(--accent-color-1) dotted;
+  }
+}
+header aside img {
+  height: 100%;
+}
+@media screen and (max-width: 599px) {
+  header aside img {
+    width: 30%;
+  }
+}
+header aside div {
+  color: rgb(255, 140, 140);
   text-align: center;
   font-family: "Space Mono", monospace;
+  width: 600px;
   padding-right: 3rem;
 }
-header div h2 {
-  text-decoration: double;
-  font-size: 6rem;
+@media screen and (max-width: 599px) {
+  header aside div {
+    width: 100%;
+  }
+}
+header aside div a {
+  font-size: 2.8rem;
+  font-weight: bold;
+}
+@media screen and (max-width: 599px) {
+  header aside div a {
+    font-size: 2.3rem;
+  }
 }
 
 .left-side {

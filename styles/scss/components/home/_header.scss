@@ -1,9 +1,10 @@
 @import "../../abstracts/media-queries";
+@import "../../abstracts/image_mixins";
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
 
 header {
   color: #000;
-  background: linear-gradient(to right, var(--secondary-color-1), #00000000);
+  background: var(--secondary-color-1);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,15 +25,52 @@ header {
     }
     //
   }
-  div {
-    color: rgb(140, 242, 255);
-    text-align: center;
-    font-family: "Space Mono", monospace;
-    padding-right: 3rem;
+  aside {
+    background-color: var(--primary-color);
+    display: flex;
+    gap: 3rem;
+    align-items: center;
 
-    h2 {
-      text-decoration: double;
-      font-size: 6rem;
+    // media queries
+    @include xs {
+      font-size: 1.4rem;
+      border-bottom: 5px var(--accent-color-1) dotted;
+    }
+    //
+
+    img {
+      height: 100%;
+
+      // media queries
+      @include xs {
+        width: 30%;
+      }
+      //
+    }
+
+    div {
+      color: rgb(255, 140, 140);
+      text-align: center;
+      font-family: "Space Mono", monospace;
+      width: 600px;
+      padding-right: 3rem;
+
+      // media queries
+      @include xs {
+        width: 100%;
+      }
+      //
+
+      a {
+        font-size: 2.8rem;
+        font-weight: bold;
+
+        // media queries
+        @include xs {
+          font-size: 2.3rem;
+        }
+        //
+      }
     }
   }
 }
