@@ -21,7 +21,7 @@ const recentTrackArtist = document.querySelector("#recent-song-artist");
 const trackUrl = document.querySelector("#track-url");
 
 const url =
-  "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=GChen3843&api_key=d7b26ab026668c5044cc4610d092bcd2&format=json";
+  "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=GChen3843&api_key=d7b26ab026668c5044cc4610d092bcd2&format=json";
 
 async function getRecentTracks() {
   const response = await fetch(url);
