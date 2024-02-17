@@ -4,3 +4,6 @@ placeholder*
 .env
 stuff
 model*.json
+# compiled scss
+/styles/css/*.css*
+!reset.css
