@@ -18,32 +18,55 @@ header {
       top: 2rem;
       bottom: 1rem;
     }
-
     // media queries
+    @include md {
+      padding: {
+        top: 1rem;
+        bottom: 0.5rem;
+      }
+    }
+
+    @include sm {
+      padding: {
+        top: 1rem;
+        bottom: 0.5rem;
+      }
+    }
+
     @include xs {
       display: none;
     }
     //
   }
-  aside {
+  aside.lastfm {
     background-color: var(--primary-color);
     display: flex;
-    gap: 3rem;
     align-items: center;
+    width: 40%;
 
     // media queries
+    @include sm {
+      font-size: 1rem;
+    }
+
     @include xs {
       font-size: 1.4rem;
       border-bottom: 5px var(--accent-color-1) dotted;
+      width: 100%;
     }
     //
 
     img {
       height: 100%;
+      padding-right: 3rem;
 
       // media queries
       @include xs {
         width: 30%;
+      }
+
+      @include sm {
+        height: 30%;
       }
       //
     }
@@ -52,12 +75,11 @@ header {
       color: rgb(255, 140, 140);
       text-align: center;
       font-family: "Space Mono", monospace;
-      width: 600px;
-      padding-right: 3rem;
+      width: 100%;
 
       // media queries
-      @include xs {
-        width: 100%;
+      @include sm {
+        padding-right: 3rem;
       }
       //
 
@@ -66,8 +88,12 @@ header {
         font-weight: bold;
 
         // media queries
-        @include xs {
-          font-size: 2.3rem;
+        @include md {
+          font-size: 2.5rem;
+        }
+
+        @include lt-md {
+          font-size: 1.7rem;
         }
         //
       }

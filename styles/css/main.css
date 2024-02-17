@@ -26,6 +26,16 @@ body {
   font-size: 1.8rem;
   color: var(--secondary-color-1);
 }
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  body {
+    font-size: 1.7rem;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  body {
+    font-size: 1.65rem;
+  }
+}
 @media screen and (max-width: 599px) {
   body {
     font-size: 1.6rem;
@@ -54,56 +64,85 @@ header h1 {
   padding-top: 2rem;
   padding-bottom: 1rem;
 }
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  header h1 {
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  header h1 {
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+  }
+}
 @media screen and (max-width: 599px) {
   header h1 {
     display: none;
   }
 }
-header aside {
+header aside.lastfm {
   background-color: var(--primary-color);
   display: flex;
-  gap: 3rem;
   align-items: center;
+  width: 40%;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  header aside.lastfm {
+    font-size: 1rem;
+  }
 }
 @media screen and (max-width: 599px) {
-  header aside {
+  header aside.lastfm {
     font-size: 1.4rem;
     border-bottom: 5px var(--accent-color-1) dotted;
-  }
-}
-header aside img {
-  height: 100%;
-}
-@media screen and (max-width: 599px) {
-  header aside img {
-    width: 30%;
-  }
-}
-header aside div {
-  color: rgb(255, 140, 140);
-  text-align: center;
-  font-family: "Space Mono", monospace;
-  width: 600px;
-  padding-right: 3rem;
-}
-@media screen and (max-width: 599px) {
-  header aside div {
     width: 100%;
   }
 }
-header aside div a {
+header aside.lastfm img {
+  height: 100%;
+  padding-right: 3rem;
+}
+@media screen and (max-width: 599px) {
+  header aside.lastfm img {
+    width: 30%;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  header aside.lastfm img {
+    height: 30%;
+  }
+}
+header aside.lastfm div {
+  color: rgb(255, 140, 140);
+  text-align: center;
+  font-family: "Space Mono", monospace;
+  width: 100%;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  header aside.lastfm div {
+    padding-right: 3rem;
+  }
+}
+header aside.lastfm div a {
   font-size: 2.8rem;
   font-weight: bold;
 }
-@media screen and (max-width: 599px) {
-  header aside div a {
-    font-size: 2.3rem;
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  header aside.lastfm div a {
+    font-size: 2.5rem;
+  }
+}
+@media screen and (max-width: 959px) {
+  header aside.lastfm div a {
+    font-size: 1.7rem;
   }
 }
 
 .left-side {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 2.5rem;
   background: rgba(10, 0, 10, 0.35);
 }
@@ -112,7 +151,6 @@ header aside div a {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding-left: 4rem;
 }
 @media screen and (max-width: 599px) {
   .left-side .social-media {
@@ -126,8 +164,24 @@ header aside div a {
   border-radius: 50%;
   margin-top: 2rem;
 }
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .left-side .social-media #pfp {
+    width: 20rem;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .left-side .social-media #pfp {
+    width: 20rem;
+  }
+}
 .left-side .social-media p {
-  padding-left: 15%;
+  text-align: center;
+}
+@media screen and (max-width: 599px) {
+  .left-side .social-media p {
+    padding: 0;
+    align-items: center;
+  }
 }
 @media screen and (max-width: 599px) {
   .left-side .social-media p {
@@ -141,6 +195,18 @@ header aside div a {
   padding-left: 2.3rem;
   padding-bottom: 0.9rem;
   padding-right: 15rem;
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .left-side .availabilities {
+    border-left: 3px var(--secondary-color-2) solid;
+    font-size: 1.5rem;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .left-side .availabilities {
+    border-left: 3px var(--secondary-color-2) solid;
+    font-size: 1.5rem;
+  }
 }
 @media screen and (min-width: 600px) {
   .left-side .availabilities {
@@ -173,6 +239,7 @@ header aside div a {
 .center {
   display: flex;
   flex-direction: column;
+  padding-left: 1.8%;
 }
 @media screen and (max-width: 599px) {
   .center {
@@ -188,6 +255,19 @@ header aside div a {
   font-size: 4rem;
   padding-top: 2.5rem;
   padding-bottom: 3rem;
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .center .description h2 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .center .description h2 {
+    font-size: 3.5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 }
 @media screen and (max-width: 599px) {
   .center .description h2 {
@@ -211,6 +291,16 @@ header aside div a {
 }
 .timeline img {
   height: 77.5vh;
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .timeline img {
+    display: none;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .timeline img {
+    display: none;
+  }
 }
 @media screen and (max-width: 599px) {
   .timeline img {

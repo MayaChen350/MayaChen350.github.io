@@ -9,6 +9,14 @@
     height: 77.5vh;
 
     // media queries
+    @include md {
+      display: none;
+    }
+
+    @include sm {
+      display: none;
+    }
+
     @include xs {
       width: 100%;
       height: auto;

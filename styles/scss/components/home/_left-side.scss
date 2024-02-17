@@ -4,6 +4,7 @@
 .left-side {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 2.5rem;
   background: rgba(10, 0, 10, 0.35);
 
@@ -12,7 +13,6 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding-left: 4rem;
 
     // media queries
     @include xs {
@@ -24,12 +24,27 @@
     #pfp {
       @include image-size(25rem, $circle: true);
       margin-top: 2rem;
+
+      // media queries
+      @include md {
+        width: 20rem;
+      }
+
+      @include sm {
+        width: 20rem;
+      }
+      //
     }
 
     p {
-      padding-left: 15%;
+      text-align: center;
 
       // media queries
+      @include xs {
+        padding: 0;
+        align-items: center;
+      }
+
       @include xs {
         padding: 0;
         align-items: center;
@@ -46,11 +61,21 @@
       bottom: 0.9rem;
       right: 15rem;
     }
+
+    // media queries
+    @include md {
+      border-left: 3px var(--secondary-color-2) solid;
+      font-size: 1.5rem;
+    }
+
+    @include sm {
+      border-left: 3px var(--secondary-color-2) solid;
+      font-size: 1.5rem;
+    }
     @include gt-xs {
       border-left: 5px var(--secondary-color-2) solid;
     }
 
-    // media queries
     @include xs {
       width: 100%;
       font-size: 2rem;

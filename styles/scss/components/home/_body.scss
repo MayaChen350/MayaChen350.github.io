@@ -7,6 +7,14 @@ body {
   color: var(--secondary-color-1);
 
   // media queries
+  @include md {
+    font-size: 1.7rem;
+  }
+
+  @include sm {
+    font-size: 1.65rem;
+  }
+
   @include xs {
     font-size: 1.6rem;
   }
