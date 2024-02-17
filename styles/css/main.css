@@ -174,17 +174,17 @@ header aside.lastfm div a {
     width: 20rem;
   }
 }
-.left-side .social-media p {
+.left-side .social-media #social-media-username {
   text-align: center;
 }
 @media screen and (max-width: 599px) {
-  .left-side .social-media p {
+  .left-side .social-media #social-media-username {
     padding: 0;
     align-items: center;
   }
 }
 @media screen and (max-width: 599px) {
-  .left-side .social-media p {
+  .left-side .social-media #social-media-username {
     padding: 0;
     align-items: center;
   }

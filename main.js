@@ -1,6 +1,13 @@
-const socialMedias = ["GITHUB: MayaChen350", "DISCORD: giratina_shiny", "LAST.FM: GChen3843"];
-const socialMediaPfps = ["images/PFP/github.jfif", "images/PFP/discord.webp", "images/PFP/lastfm.png"];
-
+const socialMedias = [
+  '<a id="social-media-username" class="yellow" href="https://github.com/MayaChen350">GITHUB: MayaChen350</a>',
+  '<a id="social-media-username" class="yellow" href="#">DISCORD: giratina_shiny</a>',
+  '<a id="social-media-username" class="yellow" href="https://www.last.fm/user/GChen3843">LAST.FM: GChen3843</a>',
+];
+const socialMediaPfps = [
+  "images/PFP/github.jfif",
+  "images/PFP/discord.webp",
+  "images/PFP/lastfm.png",
+];
 
 const mediaUsername = document.querySelector("#social-media-username");
 const mediaPfp = document.querySelector("#pfp");
@@ -9,7 +16,7 @@ let indexMedia = 0;
 const socialMediaChangeTimer = setInterval(() => {
   indexMedia = indexMedia !== socialMedias.length - 1 ? indexMedia + 1 : 0;
   mediaPfp.src = socialMediaPfps[indexMedia];
-  mediaUsername.innerText = socialMedias[indexMedia];
+  mediaUsername.innerHTML = socialMedias[indexMedia];
 }, 10000);
 
 // Last song listened to, powered by Last.fm (My beloved)
