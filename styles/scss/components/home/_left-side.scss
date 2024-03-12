@@ -1,12 +1,30 @@
 @import "../../abstracts/media-queries";
 @import "../../abstracts/image_mixins";
+@import "../../abstracts/at_mixins";
 
 .left-side {
+  width: 340px;
+  height: 100%;
+  left: 0;
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2.5rem;
   background: rgba(10, 0, 10, 0.35);
+  // animations
+  @include animation(slide-right, 2s, 0s) {
+    0% {
+      left: -500;
+    }
+  }
+  //
+
+  // media queries
+  @include xs {
+    position: static;
+  }
+  //
 
   .social-media {
     font-size: 1.5rem;
@@ -55,11 +73,12 @@
 
   .availabilities {
     width: fit-content;
+    font-size: 1em;
     padding: {
       top: 0.9rem;
       left: 2.3rem;
       bottom: 0.9rem;
-      right: 15rem;
+      right: 5rem;
     }
 
     // media queries
@@ -95,9 +114,11 @@
     }
     //
 
+    .milo,
     img {
+      background-image: url(/images/doggo/20240114_162341b.jpg);
       height: 18rem;
-      width: auto;
+      width: 309px;
       border: 2px var(--accent-color-2) solid;
       border-radius: 10%;
     }

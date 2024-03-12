@@ -19,6 +19,28 @@ const socialMediaChangeTimer = setInterval(() => {
   mediaUsername.innerHTML = socialMedias[indexMedia];
 }, 10000);
 
+const dog = document.querySelector("#dog-picture");
+const oikophobia = document.querySelector("#Oikophobia");
+
+let isPhobiaReal = false;
+
+oikophobia.addEventListener("mouseout", () => {
+  dog.style.opacity = 1;
+  isPhobiaReal = false;
+});
+
+oikophobia.addEventListener("mouseenter", () => {
+  dog.style.opacity = 1;
+  isPhobiaReal = true;
+  setTimeout(() => {
+    let int = setInterval(() => {
+      if (dog.style.opacity !== 0 && isPhobiaReal === true)
+        dog.style.opacity -= 0.003;
+      else clearInterval(int);
+    }, 100);
+  }, 5000);
+});
+
 // Last song listened to, powered by Last.fm (My beloved)
 const albumImage = document.querySelector("#album-image");
 

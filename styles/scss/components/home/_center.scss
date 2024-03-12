@@ -1,9 +1,17 @@
 @import "../../abstracts/media-queries";
+@import "../../abstracts/at_mixins";
 
 .center {
   display: flex;
   flex-direction: column;
-  padding-left: 1.8%;
+  padding-left: calc(1.8% + 340px);
+
+  // animations
+  @include animation(slide-right-center, 2s, 0s) {
+    0% {
+      padding-left: 1.8%;
+    }
+  }
 
   // media queries
   @include xs {

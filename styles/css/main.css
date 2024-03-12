@@ -140,11 +140,26 @@ header aside.lastfm div a {
 }
 
 .left-side {
+  width: 340px;
+  height: 100%;
+  left: 0;
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2.5rem;
   background: rgba(10, 0, 10, 0.35);
+  animation: slide-right 2s 0s 1 normal ease none;
+}
+@keyframes slide-right {
+  0% {
+    left: -500;
+  }
+}
+@media screen and (max-width: 599px) {
+  .left-side {
+    position: static;
+  }
 }
 .left-side .social-media {
   font-size: 1.5rem;
@@ -191,10 +206,11 @@ header aside.lastfm div a {
 }
 .left-side .availabilities {
   width: fit-content;
+  font-size: 1em;
   padding-top: 0.9rem;
   padding-left: 2.3rem;
   padding-bottom: 0.9rem;
-  padding-right: 15rem;
+  padding-right: 5rem;
 }
 @media screen and (min-width: 960px) and (max-width: 1279px) {
   .left-side .availabilities {
@@ -229,9 +245,11 @@ header aside.lastfm div a {
     display: none;
   }
 }
+.left-side .dog .milo,
 .left-side .dog img {
+  background-image: url(/images/doggo/20240114_162341b.jpg);
   height: 18rem;
-  width: auto;
+  width: 309px;
   border: 2px var(--accent-color-2) solid;
   border-radius: 10%;
 }
@@ -239,7 +257,13 @@ header aside.lastfm div a {
 .center {
   display: flex;
   flex-direction: column;
-  padding-left: 1.8%;
+  padding-left: calc(1.8% + 340px);
+  animation: slide-right-center 2s 0s 1 normal ease none;
+}
+@keyframes slide-right-center {
+  0% {
+    padding-left: 1.8%;
+  }
 }
 @media screen and (max-width: 599px) {
   .center {
