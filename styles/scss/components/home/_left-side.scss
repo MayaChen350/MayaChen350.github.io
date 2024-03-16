@@ -1,9 +1,10 @@
 @import "../../abstracts/media-queries";
 @import "../../abstracts/image_mixins";
 @import "../../abstracts/at_mixins";
+@import "../../abstracts/variables";
 
 .left-side {
-  width: 340px;
+  width: $left-side-size;
   height: 100%;
   left: 0;
   position: absolute;
@@ -26,6 +27,25 @@
   }
   //
 
+  .bio-choices {
+    text-align: center;
+    padding-top: 2.5rem;
+    display: flex;
+    gap: 2rem;
+
+    a,
+    button {
+      padding: 0.75rem;
+      background-color: var(--primary-color);
+      color: var(--secondary-color-2);
+      border-radius: 15px;
+
+      &:hover {
+        background-color: #303030;
+      }
+    }
+  }
+
   .social-media {
     font-size: 1.5rem;
     display: flex;
@@ -41,7 +61,6 @@
 
     #pfp {
       @include image-size(25rem, $circle: true);
-      margin-top: 2rem;
 
       // media queries
       @include md {

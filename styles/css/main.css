@@ -45,7 +45,6 @@ body {
 @media screen and (min-width: 600px) {
   main {
     display: flex;
-    justify-content: space-between;
   }
 }
 
@@ -161,6 +160,23 @@ header aside.lastfm div a {
     position: static;
   }
 }
+.left-side .bio-choices {
+  text-align: center;
+  padding-top: 2.5rem;
+  display: flex;
+  gap: 2rem;
+}
+.left-side .bio-choices a,
+.left-side .bio-choices button {
+  padding: 0.75rem;
+  background-color: var(--primary-color);
+  color: var(--secondary-color-2);
+  border-radius: 15px;
+}
+.left-side .bio-choices a:hover,
+.left-side .bio-choices button:hover {
+  background-color: #303030;
+}
 .left-side .social-media {
   font-size: 1.5rem;
   display: flex;
@@ -177,7 +193,6 @@ header aside.lastfm div a {
   width: 25rem;
   height: auto;
   border-radius: 50%;
-  margin-top: 2rem;
 }
 @media screen and (min-width: 960px) and (max-width: 1279px) {
   .left-side .social-media #pfp {
@@ -254,7 +269,7 @@ header aside.lastfm div a {
   border-radius: 10%;
 }
 
-.center {
+.content {
   display: flex;
   flex-direction: column;
   padding-left: calc(1.8% + 340px);
@@ -266,71 +281,43 @@ header aside.lastfm div a {
   }
 }
 @media screen and (max-width: 599px) {
-  .center {
+  .content {
     padding: 0 2rem;
   }
 }
-.center .description {
-  padding-bottom: 4rem;
-  padding-right: 2rem;
-}
-.center .description h2 {
+.content h2 {
   font-weight: bold;
-  font-size: 4rem;
+  font-size: 4.5rem;
   padding-top: 2.5rem;
   padding-bottom: 3rem;
 }
 @media screen and (min-width: 960px) and (max-width: 1279px) {
-  .center .description h2 {
+  .content h2 {
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
 }
 @media screen and (min-width: 600px) and (max-width: 959px) {
-  .center .description h2 {
+  .content h2 {
     font-size: 3.5rem;
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
 }
 @media screen and (max-width: 599px) {
-  .center .description h2 {
+  .content h2 {
     font-size: 3rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
 }
-.center .attributes {
+.content #language-menu {
   display: flex;
-  flex-direction: column;
-  gap: 3rem;
+  padding: 1rem 0 1rem 20%;
+  gap: 10rem;
 }
-.center .attributes .logo {
+.content #language-menu .logo {
   height: 6rem;
-}
-
-.timeline {
-  padding-top: 70px;
-  padding-right: 50px;
-}
-.timeline img {
-  height: 77.5vh;
-}
-@media screen and (min-width: 960px) and (max-width: 1279px) {
-  .timeline img {
-    display: none;
-  }
-}
-@media screen and (min-width: 600px) and (max-width: 959px) {
-  .timeline img {
-    display: none;
-  }
-}
-@media screen and (max-width: 599px) {
-  .timeline img {
-    width: 100%;
-    height: auto;
-  }
 }
 
 .dog.mobile {

@@ -74,3 +74,18 @@ async function getRecentTracks() {
 }
 getRecentTracks();
 const lastFm = setInterval(getRecentTracks, 60000);
+
+// define inner styling
+document.querySelector("style").innerHTML = `
+:root {
+  font-size: 62.5%;
+  /*DEFAULT COLORS BY DEFAULT*/
+  --primary-color: #424242;
+  --secondary-color-1: #cc4cce;
+  --secondary-color-2: #ffc90e;
+  --accent-color-1: #ffaec9;
+  --accent-color-2: #c8bfe7;
+  /*Window size in px*/
+  --vw-px: 1879; 
+  --vh-px: 931;
+}`;

@@ -11,15 +11,7 @@
       rel="stylesheet"
     />
     <style>
-      :root {
-        font-size: 62.5%;
-        /*DEFAULT COLORS BY DEFAULT*/
-        --primary-color: #424242;
-        --secondary-color-1: #cc4cce;
-        --secondary-color-2: #ffc90e;
-        --accent-color-1: #ffaec9;
-        --accent-color-2: #c8bfe7;
-      }
+      /*Defined in the js*/
     </style>
   </head>
 
@@ -38,6 +30,10 @@
 
     <main>
       <div class="left-side">
+        <div class="bio-choices">
+          <a href="#">Normal bio</a>
+          <a href="#">Programming</a>
+        </div>
         <div class="social-media">
           <img src="images/PFP/github.jfif" id="pfp" alt="Profile picture" />
           <a
@@ -85,40 +81,21 @@
         </div>
       </div>
 
-      <div class="center">
-        <div class="description">
-          <h2 class="pink">Welcome to my page!</h2>
-          <p>
-            Hiiii! I'm a trans girl I guess. When I'm not programming, I like
-            playing games of series like Pokemon, Fire Emblem, Persona or even
-            Devil May Cry!
-          </p>
-        </div>
+      <div class="content">
+        <h2 class="pink">Hi I'm a nerd</h2>
 
-        <div class="attributes">
-          <div>
-            <p>I do</p>
-            <img class="logo" src="images/logos/c-sharp.svg" alt="C# logo" />
-            <img class="logo" src="images/logos/HTML5.svg" alt="HTML logo" />
-            <img class="logo" src="images/logos/CSS3.svg" alt="CSS logo" />
-            <img
-              class="logo"
-              src="images/logos/sass-scss.svg"
-              alt="SCSS logo"
-            />
-            <br />
-            <img class="logo" src="images/logos/Lua.svg" alt="Lua logo" />
-          </div>
-
-          <div>
-            <p>I'm learning</p>
-            <img
-              class="logo"
-              src="images/logos/JavaScript.svg"
-              alt="Javascript logo"
-            />
-            <img class="logo" src="images/logos/C.svg" alt="C logo" />
-          </div>
+        <div id="language-menu">
+          <img class="logo" src="images/logos/c-sharp.svg" alt="C# logo" />
+          <img class="logo" src="images/logos/HTML5.svg" alt="HTML logo" />
+          <img class="logo" src="images/logos/CSS3.svg" alt="CSS logo" />
+          <img class="logo" src="images/logos/sass-scss.svg" alt="SCSS logo" />
+          <img class="logo" src="images/logos/Lua.svg" alt="Lua logo" />
+          <img
+            class="logo"
+            src="images/logos/JavaScript.svg"
+            alt="Javascript logo"
+          />
+          <img class="logo" src="images/logos/C.svg" alt="C logo" />
         </div>
       </div>
 
@@ -131,6 +108,7 @@
         <p>Random picture of my dog :3</p>
       </div>
     </main>
-    <script src="main.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/content.js"></script>
   </body>
 </html>

@@ -23,6 +23,5 @@ body {
 main {
   @include gt-xs {
     display: flex;
-    justify-content: space-between;
   }
 }
