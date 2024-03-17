@@ -3,8 +3,6 @@
 @import "../../abstracts/variables";
 
 .content {
-  display: flex;
-  flex-direction: column;
   padding-left: calc(1.8% + $left-side-size);
 
   // animations
@@ -22,7 +20,7 @@
 
   h2 {
     font-weight: bold;
-    font-size: 4.5rem;
+    font-size: 5rem;
     padding-top: 2.5rem;
     padding-bottom: 3rem;
 
@@ -50,10 +48,32 @@
     display: flex;
     padding: 1rem 0 1rem 20%;
 
-    gap: 10rem;
-
     .logo {
       height: 6rem;
+      transition: 0.5s height;
+      padding: 0 8rem 0 0;
+
+      &.clicked {
+        height: 8rem;
+      }
+
+      &:hover {
+        height: 8rem;
+      }
+    }
+  }
+
+  .description {
+    h3 {
+      font-size: 3rem;
+      color: var(--accent-color-1);
+      font-weight: bold;
+    }
+
+    div {
+      width: 75%;
+      border-left: var(--secondary-color-2) 3.5px double;
+      padding: 0.5% 0 0.5% 10px;
     }
   }
 }

@@ -270,8 +270,6 @@ header aside.lastfm div a {
 }
 
 .content {
-  display: flex;
-  flex-direction: column;
   padding-left: calc(1.8% + 340px);
   animation: slide-right-center 2s 0s 1 normal ease none;
 }
@@ -287,7 +285,7 @@ header aside.lastfm div a {
 }
 .content h2 {
   font-weight: bold;
-  font-size: 4.5rem;
+  font-size: 5rem;
   padding-top: 2.5rem;
   padding-bottom: 3rem;
 }
@@ -314,10 +312,27 @@ header aside.lastfm div a {
 .content #language-menu {
   display: flex;
   padding: 1rem 0 1rem 20%;
-  gap: 10rem;
 }
 .content #language-menu .logo {
   height: 6rem;
+  transition: 0.5s height;
+  padding: 0 8rem 0 0;
+}
+.content #language-menu .logo.clicked {
+  height: 8rem;
+}
+.content #language-menu .logo:hover {
+  height: 8rem;
+}
+.content .description h3 {
+  font-size: 3rem;
+  color: var(--accent-color-1);
+  font-weight: bold;
+}
+.content .description div {
+  width: 75%;
+  border-left: var(--secondary-color-2) 3.5px double;
+  padding: 0.5% 0 0.5% 10px;
 }
 
 .dog.mobile {
