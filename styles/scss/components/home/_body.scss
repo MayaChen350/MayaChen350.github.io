@@ -1,27 +1,27 @@
 @import "../../abstracts/media-queries";
 
 body {
-  background: radial-gradient(var(--primary-color), #120032);
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 1.8rem;
-  color: var(--secondary-color-1);
+    background: radial-gradient(var(--primary-color), #120032);
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 1.8rem;
+    color: var(--secondary-color-1);
 
-  // media queries
-  @include md {
-    font-size: 1.7rem;
-  }
+    // media queries
+    @include md {
+        font-size: 1.7rem;
+    }
 
-  @include sm {
-    font-size: 1.65rem;
-  }
+    @include sm {
+        font-size: 1.65rem;
+    }
 
-  @include xs {
-    font-size: 1.6rem;
-  }
+    @include xs {
+        font-size: 1.6rem;
+    }
 }
 
 main {
-  @include gt-xs {
-    display: flex;
-  }
+    @include gt-xs {
+        display: flex;
+    }
 }
