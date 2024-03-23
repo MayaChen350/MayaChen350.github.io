@@ -2,7 +2,86 @@
 const content = document.querySelector(".content");
 
 /////// NORMAL BIO ///////
-const normalLayout = ``;
+const normalLayout = `<div id="normal-bio">
+<div class="header">
+    <img
+        class="no-way"
+        src="https://media1.tenor.com/m/u_9b73qLsRAAAAAC/persona3-yukaritakeba.gif"
+        alt="Silly gif"
+    />
+    <div>
+        <h2>Maya the Chen</h2>
+        <h3>"Best girl"</h3>
+    </div>
+</div>
+
+<div class="main">
+    <div>
+        <h3>Maya &lt;3</h3>
+        <p>Just your average silly trans girl</p>
+    </div>
+
+    <div>
+        <h3>The cool nerd :3</h3>
+        <p>1000% real</p>
+    </div>
+
+    <div>
+        <h3>Amazing</h3>
+        <p>"Five stars"</p>
+    </div>
+
+    <div>
+        <h3>Flawless</h3>
+        <p>"Greater than great"</p>
+    </div>
+
+    <h2>Interests:</h2>
+
+    <div>
+        <ul>
+            <li>Programming (duh!)</li>
+            <li>Persona</li>
+            <li>Fire Emblem</li>
+            <li>Embedded systems</li>
+            <li>Québec</li>
+            <li>JJBA</li>
+            <li>Music</li>
+            <li>Pokémon (it's a curse)</li>
+            <li>Ace attorney</li>
+            <li>Toby Fox</li>
+            <li>Muse</li>
+            <li>2012 dubstep</li>
+            <li>Devil May Cry</li>
+            <li>Marvel</li>
+            <li>No Man's Sky</li>
+            <li>Psychology</li>
+            <li>Giratina</li>
+            <li>Clothes</li>
+            <li>Turn-based RPGs</li>
+            <li>Final Fantasy</li>
+            <li>C</li>
+            <li>J-pop</li>
+            <li>Metal</li>
+            <li>J-Metal</li>
+            <li>Ultrakill</li>
+            <li>Game modding</li>
+            <li>Opening things</li>
+            <li>Binary</li>
+            <li>Trains</li>
+            <li>Daredevil</li>
+            <li>Helping people</li>
+            <li>Working with people</li>
+            <li>Computers</li>
+            <li>Small computers</li>
+            <li>Very small computers</li>
+            <li>Arduino</li>
+            <li>Being useful</li>
+            <li>Rambling about low level programming</li>
+        </ul>
+    </div>
+</div>
+</div>`;
 
 /////// LANGUAGE BIO ///////
 const languageLayout = `
