@@ -11,11 +11,11 @@ jobs:
       uses: gha-utilities/sass-build@v0.6.0
       with:
         # Relative path(s) to SASS or SCSS file, eg. _scss/main.scss
-        source: ../styles/scss/pages/home/main.scss
+        source: /styles/scss/pages/home/main.scss
         # Path(s) compiled CSS should be saved, eg. ~/workspace_sass/assets/css/main.css
-        destination: ../styles/css/main.css
+        destination: /styles/css/main.css
         # Array (Action splits on ":"), of directories to look under for imports and used modules
-        includePaths: ../styles/scss/
+        includePaths: /styles/scss/
         # String, either "expanded", "compressed", "nested", "compact"; defaults to "compressed"
         outputStyle: "compressed" # optional
         # Integer and float precision when compiling CSS, eg. `20`
@@ -29,9 +29,9 @@ jobs:
         # Boolean, default `false` if `true` emits comments where CSS was compiled from
         sourceComments: true
         # May be boolean or string, see https://sass-lang.com/documentation/js-api#sourcemap
-        sourceMap: ../styles/css/main.css.map
+        sourceMap: /styles/css/main.css.map
         # String, does not write but is useful in combination with "sourceMap"
-        outFile: ../styles/css/main.css
+        outFile: /styles/css/main.css
         # Boolean, when `true` compiled CSS is not linked to source map
         omitSourceMapUrl: true
         # Boolean, when `true` embeds contents of Sass files that contributed to compiled CSS
