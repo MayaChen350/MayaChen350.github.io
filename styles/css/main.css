@@ -42,12 +42,6 @@ body {
   }
 }
 
-@media screen and (min-width: 600px) {
-  main {
-    display: flex;
-  }
-}
-
 header {
   color: #000;
   background: var(--secondary-color-1);
@@ -270,7 +264,7 @@ header aside.lastfm div a {
 }
 
 .content {
-  padding-left: calc(1.8% + 340px);
+  padding-left: 340px;
   animation: slide-right-center 0s 0s 1 normal ease none;
   animation: fade-in 2s 0 1 normal ease none;
 }
@@ -297,8 +291,6 @@ header aside.lastfm div a {
 .content h2 {
   font-weight: bold;
   font-size: 5rem;
-  padding-top: 2.5rem;
-  padding-bottom: 3rem;
 }
 @media screen and (min-width: 960px) and (max-width: 1279px) {
   .content h2 {
@@ -320,27 +312,61 @@ header aside.lastfm div a {
     padding-bottom: 1rem;
   }
 }
-.content #language-menu {
+
+#normal-bio .header {
+  color: var(--accent-color-1);
+  padding: 10rem 0;
+  padding-right: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10rem;
+}
+#normal-bio .header h2 {
+  font-size: 4.5rem;
+  font-weight: normal;
+  font-family: "Lumanosimo", cursive;
+}
+#normal-bio .header h3 {
+  text-align: end;
+  font-size: 2.8rem;
+  font-style: italic;
+  font-family: "Lumanosimo", cursive;
+}
+#normal-bio .header .no-way {
+  border: 1px dotted var(--secondary-color-2);
+  width: 35rem;
+  height: auto;
+}
+
+#language-bio {
+  padding-left: 1.8%;
+}
+#language-bio h2 {
+  padding-top: 2.5rem;
+  padding-bottom: 3rem;
+}
+#language-bio #language-menu {
   display: flex;
   padding: 1rem 0 1rem 20%;
 }
-.content #language-menu .logo {
+#language-bio #language-menu .logo {
   height: 6rem;
   transition: 0.5s height;
   padding: 0 8rem 0 0;
 }
-.content #language-menu .logo.clicked {
+#language-bio #language-menu .logo.clicked {
   height: 8rem;
 }
-.content #language-menu .logo:hover {
+#language-bio #language-menu .logo:hover {
   height: 8rem;
 }
-.content .description h3 {
+#language-bio .description h3 {
   font-size: 3rem;
   color: var(--accent-color-1);
   font-weight: bold;
 }
-.content .description div {
+#language-bio .description div {
   width: 75%;
   border-left: var(--secondary-color-2) 3.5px double;
   padding: 0.5% 0 0.5% 10px;

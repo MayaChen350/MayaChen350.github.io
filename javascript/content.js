@@ -5,30 +5,33 @@ const content = document.querySelector(".content");
 const normalLayout = ``;
 
 /////// LANGUAGE BIO ///////
-const languageLayout = `<h2 class="pink">Hi I'm a nerd</h2>
+const languageLayout = `
+<div id="language-bio">
+    <h2 class="pink">Hi I'm a nerd</h2>
 
-<div id="language-menu">
-  <img id="csharp" class="logo" src="images/logos/c-sharp.svg" alt="C# logo" />
-  <img id="c" class="logo" src="images/logos/C.svg" alt="C logo" />
-  <img id="html" class="logo" src="images/logos/HTML5.svg" alt="HTML logo" />
-  <img id="js" class="logo" src="images/logos/JavaScript.svg" alt="Js logo" />
-  <img id="python" class="logo" src="images/logos/Python.svg" alt="Python logo" />
-  <img id="lua" class="logo" src="images/logos/Lua.svg" alt="Lua logo" />
-  <img id="modding" class="logo" src="images/logos/Bepinex.svg" alt="Bepinex logo" />
-</div>
+    <div id="language-menu">
+        <img id="csharp" class="logo" src="images/logos/c-sharp.svg" alt="C# logo" />
+        <img id="c" class="logo" src="images/logos/C.svg" alt="C logo" />
+        <img id="html" class="logo" src="images/logos/HTML5.svg" alt="HTML logo" />
+        <img id="js" class="logo" src="images/logos/JavaScript.svg" alt="Js logo" />
+        <img id="python" class="logo" src="images/logos/Python.svg" alt="Python logo" />
+        <img id="lua" class="logo" src="images/logos/Lua.svg" alt="Lua logo" />
+        <img id="modding" class="logo" src="images/logos/Bepinex.svg" alt="Bepinex logo" />
+    </div>
 
-<div class="description">
-  <h3 id="bonjour">Bonjour!</h3>
-  <div>
-    <p>I'm a programmer :p</p>
-    <p>
-      Right now I'm prefering low level languages and have crazy ideas
-      like... opening microwaves but you can still check what I can say
-      about the languages above
-    </p>
-    <br />
-    <p>Just click on a language!</p>
-  </div>
+    <div class="description">
+        <h3 id="bonjour">Bonjour!</h3>
+        <div>
+            <p>I'm a programmer :p</p>
+            <p>
+            Right now I'm prefering low level languages and have crazy ideas
+            like... opening microwaves but you can still check what I can say
+            about the languages above
+            </p>
+            <br />
+            <p>Just click on a language!</p>
+        </div>
+    </div>
 </div>`;
 
 // Make the logo stay big
@@ -123,7 +126,7 @@ or the main reason I would use python, to make my code easier to read for most p
 </div>`,
     `        <h3>Lua</h3>
 <div>
-<p>Lua. I don't have anything against Lua, but, from its main utilities, roblox documentations are a nightmare.</p>
+<p>Lua. I don't have anything against Lua, but, from one of its utilities, roblox documentations are a nightmare.</p>
 <p>Luau can be simple, the hardest part is to know what does what what to put where and to debug...</p>
 <br />
 <p>Good luck!</p>
