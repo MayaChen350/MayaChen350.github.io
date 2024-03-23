@@ -23,6 +23,8 @@
 
     // media queries
     @include xs {
+        width: 100%;
+        height: fit-content;
         position: static;
     }
     //

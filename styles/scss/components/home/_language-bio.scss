@@ -1,5 +1,13 @@
+@import "../../abstracts/media-queries";
+
 #language-bio {
     padding-left: 1.8%;
+
+    // media queries
+    @include xs {
+        padding-left: 0%;
+    }
+    //
 
     h2 {
         padding-top: 2.5rem;
@@ -10,17 +18,73 @@
         display: flex;
         padding: 1rem 0 1rem 20%;
 
+        // media queries
+        @include sm {
+            padding: 1rem 0 1rem 5%;
+        }
+
+        @include xs {
+            padding: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        //
+
         .logo {
             height: 6rem;
             transition: 0.5s height;
             padding: 0 8rem 0 0;
 
+            //media queries
+            @include md {
+                height: 5rem;
+                padding: 0 3.5rem 0 0;
+
+                &.clicked {
+                    height: 7rem;
+                }
+
+                &:hover {
+                    height: 7rem;
+                }
+            }
+
+            @include sm {
+                height: 3rem;
+                padding: 0 2.5rem 0 0;
+
+                &.clicked {
+                    height: 4.5rem;
+                }
+
+                &:hover {
+                    height: 4.5rem;
+                }
+            }
+
+            @include xs {
+                height: 4rem;
+                padding: 0 2.5rem 0 0;
+
+                &.clicked {
+                    height: 4.5rem;
+                }
+
+                &:hover {
+                    height: 4rem;
+                }
+            }
+            //
+
             &.clicked {
                 height: 8rem;
             }
 
-            &:hover {
-                height: 8rem;
+            @include gt-xs {
+                &:hover {
+                    height: 8rem;
+                }
             }
         }
     }

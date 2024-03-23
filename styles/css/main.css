@@ -151,6 +151,8 @@ header aside.lastfm div a {
 }
 @media screen and (max-width: 599px) {
   .left-side {
+    width: 100%;
+    height: fit-content;
     position: static;
   }
 }
@@ -285,7 +287,7 @@ header aside.lastfm div a {
 }
 @media screen and (max-width: 599px) {
   .content {
-    padding: 0 2rem;
+    padding: 0;
   }
 }
 .content h2 {
@@ -322,10 +324,30 @@ header aside.lastfm div a {
   justify-content: center;
   gap: 10rem;
 }
+@media screen and (max-width: 599px) {
+  #normal-bio .header {
+    padding: 5rem 0;
+  }
+}
+@media screen and (max-width: 1279px) {
+  #normal-bio .header {
+    padding-right: 0;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  #normal-bio .header {
+    justify-content: start;
+  }
+}
 #normal-bio .header h2 {
   font-size: 4.5rem;
   font-weight: normal;
   font-family: "Lumanosimo", cursive;
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  #normal-bio .header h2 {
+    display: none;
+  }
 }
 #normal-bio .header h3 {
   text-align: end;
@@ -333,10 +355,26 @@ header aside.lastfm div a {
   font-style: italic;
   font-family: "Lumanosimo", cursive;
 }
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  #normal-bio .header h3 {
+    display: none;
+  }
+}
 #normal-bio .header .no-way {
   border: 1px dotted var(--secondary-color-2);
   width: 35rem;
   height: auto;
+}
+@media screen and (max-width: 1279px) {
+  #normal-bio .header .no-way {
+    display: none;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  #normal-bio .header .no-way {
+    display: revert;
+    margin-left: 20%;
+  }
 }
 #normal-bio .main {
   height: 53rem;
@@ -348,6 +386,17 @@ header aside.lastfm div a {
   display: flex;
   flex-direction: column;
   gap: 10rem;
+}
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  #normal-bio .main {
+    height: 58rem;
+  }
+}
+@media screen and (max-width: 599px) {
+  #normal-bio .main {
+    height: fit-content;
+    overflow-y: hidden;
+  }
 }
 #normal-bio .main h2 {
   text-align: center;
@@ -377,6 +426,11 @@ header aside.lastfm div a {
 #language-bio {
   padding-left: 1.8%;
 }
+@media screen and (max-width: 599px) {
+  #language-bio {
+    padding-left: 0%;
+  }
+}
 #language-bio h2 {
   padding-top: 2.5rem;
   padding-bottom: 3rem;
@@ -385,16 +439,67 @@ header aside.lastfm div a {
   display: flex;
   padding: 1rem 0 1rem 20%;
 }
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  #language-bio #language-menu {
+    padding: 1rem 0 1rem 5%;
+  }
+}
+@media screen and (max-width: 599px) {
+  #language-bio #language-menu {
+    padding: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+}
 #language-bio #language-menu .logo {
   height: 6rem;
   transition: 0.5s height;
   padding: 0 8rem 0 0;
 }
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  #language-bio #language-menu .logo {
+    height: 5rem;
+    padding: 0 3.5rem 0 0;
+  }
+  #language-bio #language-menu .logo.clicked {
+    height: 7rem;
+  }
+  #language-bio #language-menu .logo:hover {
+    height: 7rem;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  #language-bio #language-menu .logo {
+    height: 3rem;
+    padding: 0 2.5rem 0 0;
+  }
+  #language-bio #language-menu .logo.clicked {
+    height: 4.5rem;
+  }
+  #language-bio #language-menu .logo:hover {
+    height: 4.5rem;
+  }
+}
+@media screen and (max-width: 599px) {
+  #language-bio #language-menu .logo {
+    height: 4rem;
+    padding: 0 2.5rem 0 0;
+  }
+  #language-bio #language-menu .logo.clicked {
+    height: 4.5rem;
+  }
+  #language-bio #language-menu .logo:hover {
+    height: 4rem;
+  }
+}
 #language-bio #language-menu .logo.clicked {
   height: 8rem;
 }
-#language-bio #language-menu .logo:hover {
-  height: 8rem;
+@media screen and (min-width: 600px) {
+  #language-bio #language-menu .logo:hover {
+    height: 8rem;
+  }
 }
 #language-bio .description h3 {
   font-size: 3rem;
