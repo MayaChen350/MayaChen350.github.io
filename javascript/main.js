@@ -4,9 +4,9 @@ const socialMedias = [
     '<a id="social-media-username" class="yellow" href="https://www.last.fm/user/GChen3843">LAST.FM: GChen3843</a>',
 ];
 const socialMediaPfps = [
-    "images/PFP/github.jfif",
-    "images/PFP/discord.webp",
-    "images/PFP/lastfm.png",
+    "https://lustrous-croquembouche-c24038.netlify.app/github.jfif",
+    "https://lustrous-croquembouche-c24038.netlify.app/discord.webp",
+    "https://lustrous-croquembouche-c24038.netlify.app/lastfm.png",
 ];
 
 const mediaUsername = document.querySelector("#social-media-username");
