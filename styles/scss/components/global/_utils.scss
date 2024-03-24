@@ -2,19 +2,19 @@
 
 /*Colors classes*/
 .white {
-  color: white;
+    color: white;
 }
 
 .yellow {
-  color: var(--secondary-color-2);
+    color: var(--secondary-color-2);
 }
 
 .pink {
-  color: var(--accent-color-1);
+    color: var(--accent-color-1);
 }
 /*One size only classes*/
 .mobile {
-  @include gt-xs {
-    display: none;
-  }
+    @include gt-xs {
+        display: none;
+    }
 }
