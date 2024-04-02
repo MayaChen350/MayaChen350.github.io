@@ -36,9 +36,14 @@ const normalLayout = `<div id="normal-bio">
         <p>"Greater than great"</p>
     </div>
 
+    <div>
+        <h3>Monsieur Vile.</h3>
+        <p>"ur page didnt lie u are best girl"</p>
+    </div>
+
     <h2>Interests:</h2>
 
-    <div>
+    <div class="list">
         <ul>
             <li>Programming (duh!)</li>
             <li>Persona</li>
@@ -48,14 +53,19 @@ const normalLayout = `<div id="normal-bio">
             <li>JJBA</li>
             <li>Music</li>
             <li>Pokémon (it's a curse)</li>
+            <li>Discord</li>
             <li>Ace attorney</li>
             <li>Toby Fox</li>
+            <li>The color yellow</li>
             <li>Muse</li>
             <li>2012 dubstep</li>
             <li>Devil May Cry</li>
             <li>Marvel</li>
+            <li>Hayxu</li>
+            <li>Programming</li>
             <li>No Man's Sky</li>
             <li>Psychology</li>
+            <li>Meeting people</li>
             <li>Giratina</li>
             <li>Clothes</li>
             <li>Turn-based RPGs</li>
@@ -63,20 +73,36 @@ const normalLayout = `<div id="normal-bio">
             <li>C</li>
             <li>J-pop</li>
             <li>Metal</li>
+            <li>Gengar</li>
             <li>J-Metal</li>
             <li>Ultrakill</li>
+            <li>Programming</li>
+            <li>Staying alive</li>
+            <li>Having my family in safety</li>
             <li>Game modding</li>
             <li>Opening things</li>
             <li>Binary</li>
+            <li>Vending machines</li>
+            <li>Akechi Persona 5</li>
             <li>Trains</li>
             <li>Daredevil</li>
+            <li>Solving problems</li>
             <li>Helping people</li>
             <li>Working with people</li>
+            <li>Coding</li>
             <li>Computers</li>
             <li>Small computers</li>
             <li>Very small computers</li>
             <li>Arduino</li>
+            <li>Water (best drink)</li>
+            <li>People's lore</li>
             <li>Being useful</li>
+            <li>
+                <a
+                    href="https://open.spotify.com/intl-fr/artist/1FjCkczi8HeIJJCDaGJzOJ?si=owoPs487SCCL8tcyL_hWGQ"
+                    >That type of music</a
+                >
+            </li>
             <li>Rambling about low level programming</li>
         </ul>
     </div>

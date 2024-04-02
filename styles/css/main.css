@@ -415,8 +415,14 @@ header aside.lastfm div a {
   text-align: right;
   padding-right: 7%;
 }
-#normal-bio .main ul {
+#normal-bio .main .list {
+  padding: 0 !important;
+  display: flex;
+  justify-content: center;
+}
+#normal-bio .main .list ul {
   width: 90%;
+  text-align: center;
   display: flex;
   justify-content: center;
   gap: 2rem;

@@ -114,12 +114,19 @@
             padding-right: $side-padding;
         }
 
-        ul {
-            width: 90%;
+        .list {
+            padding: 0 !important;
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
+
+            ul {
+                width: 90%;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                gap: 2rem;
+                flex-wrap: wrap;
+            }
         }
     }
 }
