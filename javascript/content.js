@@ -97,11 +97,11 @@ const normalLayout = `<div id="normal-bio">
             <li>Water (best drink)</li>
             <li>People's lore</li>
             <li>Being useful</li>
-            <li>
-                <a
-                    href="https://open.spotify.com/intl-fr/artist/1FjCkczi8HeIJJCDaGJzOJ?si=owoPs487SCCL8tcyL_hWGQ"
-                    >That type of music</a
-                >
+            <li style="text-decoration: underline">
+            <a
+                href="https://open.spotify.com/playlist/6yUhYsNx2FKz0VHKy6WgAU?si=19c501ab980e40e6"
+                >Music</a
+            >
             </li>
             <li>Rambling about low level programming</li>
         </ul>
