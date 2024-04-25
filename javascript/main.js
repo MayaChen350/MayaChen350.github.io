@@ -1,3 +1,45 @@
+let windowWidth;
+let windowHeight;
+let heightBlackBox;
+
+const start = () => {
+    let windowWidth = window.innerWidth;
+    let windowHeight =
+        document.querySelector("body > header").clientHeight +
+        document.querySelector("body > main > div.left-side").clientHeight;
+    let heightBlackBox =
+        windowHeight -
+        document.querySelector("#normal-bio > div.header").scrollHeight -
+        document.querySelector("body > header").clientHeight;
+    // define inner styling
+    document.querySelector("style").innerHTML = `
+        :root {
+          font-size: 62.5%;
+          /*DEFAULT COLORS BY DEFAULT*/
+          --primary-color: #424242;
+          --secondary-color-1: #cc4cce;
+          --secondary-color-2: #ffc90e;
+          --accent-color-1: #ffaec9;
+          --accent-color-2: #c8bfe7;
+          /*Window size in px*/
+          --vw-px: ${windowWidth}; 
+          --vh-px: ${windowHeight};
+        }
+        /*Set the black box size*/
+        /*${windowHeight} - ${
+        document.querySelector("#normal-bio > div.header").clientHeight
+    } - ${document.querySelector("body > header").clientHeight}*/
+        #normal-bio .main {
+            height: ${heightBlackBox}px;
+        }`;
+};
+
+start();
+
+// Execute when the window is resized
+addEventListener("resize", (event) => start());
+addEventListener("animationend ", (event) => start());
+
 const socialMedias = [
     '<a id="social-media-username" class="yellow" href="https://github.com/MayaChen350">GITHUB: MayaChen350</a>',
     '<a id="social-media-username" class="yellow" href="#">DISCORD: giratina_shiny</a>',
@@ -71,21 +113,7 @@ async function getRecentTracks() {
     recentTrackArtist.innerText = mostRecentTrack.artist["#text"];
 
     trackUrl.setAttribute("href", mostRecentTrack.url);
+    start();
 }
 getRecentTracks();
 const lastFm = setInterval(getRecentTracks, 60000);
-
-// define inner styling
-document.querySelector("style").innerHTML = `
-:root {
-  font-size: 62.5%;
-  /*DEFAULT COLORS BY DEFAULT*/
-  --primary-color: #424242;
-  --secondary-color-1: #cc4cce;
-  --secondary-color-2: #ffc90e;
-  --accent-color-1: #ffaec9;
-  --accent-color-2: #c8bfe7;
-  /*Window size in px*/
-  --vw-px: ${window.innerWidth}; 
-  --vh-px: ${window.innerHeight};
-}`;

@@ -71,7 +71,6 @@
     }
 
     .main {
-        height: 53rem;
         width: 100%;
         font-size: 2.5rem;
         background: #000000;
@@ -82,14 +81,9 @@
         flex-direction: column;
         gap: 10rem;
 
-        // media queries
-        @include md {
-            height: 58rem;
-        }
-
         @include xs {
-            height: fit-content;
-            overflow-y: hidden;
+            height: fit-content !important;
+            overflow-y: hidden !important;
         }
         //
 

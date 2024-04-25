@@ -377,7 +377,6 @@ header aside.lastfm div a {
   }
 }
 #normal-bio .main {
-  height: 53rem;
   width: 100%;
   font-size: 2.5rem;
   background: #000000;
@@ -387,15 +386,10 @@ header aside.lastfm div a {
   flex-direction: column;
   gap: 10rem;
 }
-@media screen and (min-width: 960px) and (max-width: 1279px) {
-  #normal-bio .main {
-    height: 58rem;
-  }
-}
 @media screen and (max-width: 599px) {
   #normal-bio .main {
-    height: fit-content;
-    overflow-y: hidden;
+    height: fit-content !important;
+    overflow-y: hidden !important;
   }
 }
 #normal-bio .main h2 {
