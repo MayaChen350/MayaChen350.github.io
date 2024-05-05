@@ -61,7 +61,7 @@ const normalLayout = `<div id="normal-bio">
             <li>2012 dubstep</li>
             <li>Devil May Cry</li>
             <li>Marvel</li>
-            <li>Hayxu</li>
+            <li>My friends</li>
             <li>Programming</li>
             <li>No Man's Sky</li>
             <li>Psychology</li>
