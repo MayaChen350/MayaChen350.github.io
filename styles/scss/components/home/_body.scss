@@ -1,3 +1,5 @@
+@import "../../abstracts/variables";
+
 :root {
     --pink-text-color: #ff00c7;
     --pink-text-color-2: #fa00c3;
@@ -6,5 +8,10 @@
 }
 
 html {
-    background-image: url("/images/Circuit\ Board.svg");
+    background-image: url("/images/bg.svg");
+    font-family: "Gayathri";
+
+    #page-content {
+        margin-left: $recent-song-track-width;
+    }
 }
