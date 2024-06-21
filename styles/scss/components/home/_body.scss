@@ -1,21 +1,10 @@
-@import "../../abstracts/media-queries";
+:root {
+    --pink-text-color: #ff00c7;
+    --pink-text-color-2: #fa00c3;
+    --blue-text-color: #00f0ff;
+    --green-text-color: #50fa00;
+}
 
-body {
-    background: radial-gradient(var(--primary-color), #120032);
-    font-family: "Nunito Sans", sans-serif;
-    font-size: 1.8rem;
-    color: var(--secondary-color-1);
-
-    // media queries
-    @include md {
-        font-size: 1.7rem;
-    }
-
-    @include sm {
-        font-size: 1.65rem;
-    }
-
-    @include xs {
-        font-size: 1.6rem;
-    }
+html {
+    background-image: url("/images/Circuit\ Board.svg");
 }
