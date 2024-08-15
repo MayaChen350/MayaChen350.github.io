@@ -28,7 +28,6 @@ async function getRecentTracks() {
     recentTrackArtist.innerText = mostRecentTrack.artist["#text"];
 
     recentTrackLink.setAttribute("href", mostRecentTrack.url);
-    start();
 }
 getRecentTracks();
 const lastFm = setInterval(getRecentTracks, 60000);

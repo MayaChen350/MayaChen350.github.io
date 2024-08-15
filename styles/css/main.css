@@ -29,6 +29,7 @@
 html {
   background-image: url("/images/bg.svg");
   font-family: "Gayathri";
+  color: var(--pink-text-color);
 }
 html #page-content {
   margin-left: 200px;
@@ -61,4 +62,37 @@ html #page-content {
 }
 #recent-song-tab .content #recent-song-track {
   font-weight: bold;
+}
+
+#home-view {
+  display: flex;
+  justify-content: flex-end;
+  height: 97vh;
+}
+#home-view #front {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 12%;
+  padding-right: 18%;
+}
+#home-view #front h1 {
+  font-family: "Handjet";
+  font-size: 40px;
+  text-decoration: underline;
+  color: var(--blue-text-color);
+  letter-spacing: 5px;
+  padding: 25px 0;
+}
+#home-view #front h2 {
+  font-size: 36px;
+  text-decoration: underline;
+  padding: 45px 0;
+  width: 400px;
+}
+#home-view a {
+  color: var(--blue-text-color);
+  align-self: flex-end;
+  padding: 25px;
 }/*# sourceMappingURL=main.css.map */

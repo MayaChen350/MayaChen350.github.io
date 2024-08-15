@@ -1,8 +1,8 @@
 @import "../../abstracts/variables";
 
 :root {
-    --pink-text-color: #ff00c7;
-    --pink-text-color-2: #fa00c3;
+    --pink-text-color: #ff00c7; // Subtitle
+    --pink-text-color-2: #fa00c3; // Main Text
     --blue-text-color: #00f0ff;
     --green-text-color: #50fa00;
 }
@@ -10,6 +10,7 @@
 html {
     background-image: url("/images/bg.svg");
     font-family: "Gayathri";
+    color: var(--pink-text-color);
 
     #page-content {
         margin-left: $recent-song-track-width;
