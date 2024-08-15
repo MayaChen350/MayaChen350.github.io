@@ -40,14 +40,38 @@ start();
 addEventListener("resize", (event) => start());
 addEventListener("animationend ", (event) => start());
 
+// Discord pfp
+async function getDiscordPfp() {
+    const response = await fetch(
+        "https://api.lanyard.rest/v1/users/491212588768821281"
+    );
+
+    const text = await response.text();
+    const json = JSON.parse(text);
+
+    const avatarID = json.data.discord_user.avatar;
+    console.log(
+        "https://cdn.discordapp.com/avatars/491212588768821281/" +
+            avatarID +
+            ".webp?size=256"
+    );
+
+    socialMediaPfps[1] =
+        "https://cdn.discordapp.com/avatars/491212588768821281/" +
+        avatarID +
+        ".webp?size=256";
+}
+
+getDiscordPfp();
+
 const socialMedias = [
     '<a id="social-media-username" class="yellow" href="https://github.com/MayaChen350">GITHUB: MayaChen350</a>',
     '<a id="social-media-username" class="yellow" href="#">DISCORD: giratina_shiny</a>',
     '<a id="social-media-username" class="yellow" href="https://www.last.fm/user/GChen3843">LAST.FM: GChen3843</a>',
 ];
-const socialMediaPfps = [
+let socialMediaPfps = [
     "https://lustrous-croquembouche-c24038.netlify.app/github.jfif",
-    "https://lustrous-croquembouche-c24038.netlify.app/discord.webp",
+    "",
     "https://lustrous-croquembouche-c24038.netlify.app/lastfm.png",
 ];
 
