@@ -41,6 +41,14 @@ const normalLayout = `<div id="normal-bio">
         <p>"ur page didnt lie u are best girl"</p>
     </div>
 
+    <div>
+        <h3>My bf</h3>
+        <p>"The best girlfriend in the world"</p>
+        <p>
+            "every thing with you is so much better in life"
+        </p>
+    </div>
+
     <h2>Interests:</h2>
 
     <div class="list">
@@ -85,6 +93,7 @@ const normalLayout = `<div id="normal-bio">
             <li>Vending machines</li>
             <li>Akechi Persona 5</li>
             <li>Trains</li>
+            <li>Splatoon</li>
             <li>Daredevil</li>
             <li>Solving problems</li>
             <li>Helping people</li>
