@@ -11,10 +11,12 @@ document.body.innerHTML = '<div id="app"></div>';
 // Render your React component instead
 const root = createRoot(document.getElementById("app"));
 root.render(
-    <Router>
-        <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="*" element={<NotFound />} />
-        </Routes>
-    </Router>
+    <>
+        <Router>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="*" element={<NotFound />} />
+            </Routes>
+        </Router>
+    </>
 );

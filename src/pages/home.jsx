@@ -1,7 +1,11 @@
 import React from "react";
+import LastFmStatus from "../components/home/lastFmStatus";
 
-function Home() {
-    return <h2>Home</h2>;
+export default function Home() {
+    return (
+        <>
+            <LastFmStatus />
+            <h2>Home</h2>
+        </>
+    );
 }
-
-export default Home;
