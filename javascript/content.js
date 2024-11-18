@@ -112,7 +112,7 @@ const normalLayout = `<div id="normal-bio">
                 >Music</a
             >
             </li>
-            <li>Rambling about low level programming</li>
+            <li>Yapping about low level programming</li>
         </ul>
     </div>
 </div>
