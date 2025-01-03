@@ -2,6 +2,16 @@ let windowWidth;
 let windowHeight;
 let heightBlackBox;
 
+var primaryColorHue = 0;
+var secondaryColorOneHue = 299;
+var secondaryColorTwoHue = 47;
+var accentColorOneHue = 340;
+var accentColorTwoHue = 253;
+
+var lastFmColorHue = 255;
+
+const setColors = () => {};
+
 const start = () => {
     let windowWidth = window.innerWidth;
     let windowHeight =
@@ -16,11 +26,11 @@ const start = () => {
         :root {
           font-size: 62.5%;
           /*DEFAULT COLORS BY DEFAULT*/
-          --primary-color: #424242;
-          --secondary-color-1: #cc4cce;
-          --secondary-color-2: #ffc90e;
-          --accent-color-1: #ffaec9;
-          --accent-color-2: #c8bfe7;
+          --primary-color:hsl(${primaryColorHue}, 0.00%, 25.90%);
+          --secondary-color-1:hsl(${secondaryColorOneHue}, 57.00%, 55.30%);
+          --secondary-color-2:hsl(${secondaryColorTwoHue}, 100.00%, 52.70%);
+          --accent-color-1:hsl(${accentColorOneHue}, 100.00%, 84.10%);
+          --accent-color-2:hsl(${accentColorTwoHue}, 45.50%, 82.70%);
           /*Window size in px*/
           --vw-px: ${windowWidth}; 
           --vh-px: ${windowHeight};
@@ -31,7 +41,11 @@ const start = () => {
     } - ${document.querySelector("body > header").clientHeight}*/
         #normal-bio .main {
             height: ${heightBlackBox}px;
-        }`;
+        }
+        .last-fm-font-color {
+          color: rgb(${lastFmColorHue}, 140, 140) !important;
+        }    
+        `;
 };
 
 start();
@@ -141,3 +155,19 @@ async function getRecentTracks() {
 }
 getRecentTracks();
 const lastFm = setInterval(getRecentTracks, 60000);
+
+const setNewColors = () => {
+    let newRotation = Math.floor(Math.random() * 360);
+
+    primaryColorHue = (primaryColorHue + newRotation) % 360;
+    secondaryColorOneHue = (secondaryColorOneHue + newRotation) % 360;
+    secondaryColorTwoHue = (secondaryColorTwoHue + newRotation) % 360;
+    accentColorOneHue = (accentColorOneHue + newRotation) % 360;
+    accentColorTwoHue = (accentColorTwoHue + newRotation) % 360;
+    lastFmColorHue = (lastFmColorHue + newRotation) % 360;
+
+    start();
+};
+
+// Random colors every 3h
+setInterval(setNewColors, 10800000);
