@@ -1,7 +1,7 @@
 @import "../global/theme";
 
 .last-fm-status {
-    background-color: #424242;
+    background-color: $accentColor;
     display: flex;
     align-items: center;
     font-size: 1.4rem;
@@ -14,7 +14,7 @@
     }
     div {
         line-height: 1.5;
-        color: rgb(255, 140, 140);
+        color: $textColor;
         text-align: center;
         font-family: "Space Mono", monospace;
         width: 100%;

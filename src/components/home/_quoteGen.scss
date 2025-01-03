@@ -1,0 +1,6 @@
+@import "/node_modules/rfs/scss";
+
+.quote-gen {
+    @include font-size(2rem !important);
+    padding: 10% 10%;
+}
