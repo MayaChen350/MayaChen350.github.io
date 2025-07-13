@@ -42,10 +42,10 @@ const normalLayout = `<div id="normal-bio">
     </div>
 
     <div>
-        <h3>My bf</h3>
-        <p>"The best girlfriend in the world"</p>
+        <h3>Awesome dev of famous XenyriaMc and paintsquad who I asked for a rating</h3>
+        <p>"umm"</p>
         <p>
-            "every thing with you is so much better in life"
+            "5 out of 5 mayas?"
         </p>
     </div>
 
@@ -63,14 +63,16 @@ const normalLayout = `<div id="normal-bio">
             <li>Pokémon (it's a curse)</li>
             <li>Discord</li>
             <li>Ace attorney</li>
+            <li>Writing lore</li>
+            <li>The Belle Époque</li>
             <li>Toby Fox</li>
             <li>The color yellow</li>
             <li>Muse</li>
             <li>2012 dubstep</li>
             <li>Devil May Cry</li>
             <li>Marvel</li>
-            <li>My friends</li>
-            <li>Programming</li>
+            <li>My friends :D</li>
+            <li>Functional Programming</li>
             <li>No Man's Sky</li>
             <li>Psychology</li>
             <li>Meeting people</li>
@@ -78,21 +80,24 @@ const normalLayout = `<div id="normal-bio">
             <li>Clothes</li>
             <li>Turn-based RPGs</li>
             <li>Final Fantasy</li>
-            <li>C</li>
+            <li>Assembly for ARMv7-A</li>
+            <li>Fox Stevenson</li>
             <li>J-pop</li>
             <li>Metal</li>
             <li>Gengar</li>
             <li>J-Metal</li>
             <li>Ultrakill</li>
-            <li>Programming</li>
+            <li>Lemon Demon</li>
+            <li>Reverse Engineering</li>
             <li>Staying alive</li>
             <li>Having my family in safety</li>
             <li>Game modding</li>
-            <li>Opening things</li>
-            <li>Binary</li>
+            <li>Danganronpa</li>
+            <li>Nine Inch Nails</li>
+            <li>Bytes</li>
             <li>Vending machines</li>
             <li>Akechi Persona 5</li>
-            <li>Trains</li>
+            <li>Furina</li>
             <li>Splatoon</li>
             <li>Daredevil</li>
             <li>Solving problems</li>
@@ -112,11 +117,13 @@ const normalLayout = `<div id="normal-bio">
                 >Music</a
             >
             </li>
-            <li>Yapping about low level programming</li>
+            <li>Yapping about functional programming</li>
         </ul>
     </div>
 </div>
 </div>`;
+
+content.innerHTML = normalLayout
 
 /////// LANGUAGE BIO ///////
 const languageLayout = `
@@ -134,17 +141,6 @@ const languageLayout = `
     </div>
 
     <div class="description">
-        <h3 id="bonjour">Bonjour!</h3>
-        <div>
-            <p>I'm a programmer :p</p>
-            <p>
-            Right now I'm prefering low level languages and have crazy ideas
-            like... opening microwaves but you can still check what I can say
-            about the languages above
-            </p>
-            <br />
-            <p>Just click on a language!</p>
-        </div>
     </div>
 </div>`;
 
@@ -174,17 +170,19 @@ const bonjourBonsoir =
           };
 
 // Default content
-const languageTextDefault = `<h3 id="bonjour">Bonjour!</h3>
+const languageTextDefault = 
+`<h3 id="bonjour">Bonjour!</h3>
 <div>
-  <p>I'm a programmer :p</p>
-  <p>
-    Right now I'm prefering low level languages and have crazy ideas
-    like... opening microwaves but you can still check what I can say
-    about the languages above
-  </p>
-  <br />
-  <p>Just click on a language!</p>
+<p>I'm a programmer :p</p>
+<p>
+This section is severely outdated... but you can still check what I was saying
+about the languages above 2 years ago
+</p>
+<br />
+<p>Just click on a language!</p>
 </div>`;
+
+document.querySelector(".description").innerHTML = languageTextDefault
 
 // Language contents
 const languageTexts = [

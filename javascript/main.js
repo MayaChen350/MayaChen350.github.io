@@ -84,7 +84,7 @@ const socialMedias = [
     '<a id="social-media-username" class="yellow" href="https://www.last.fm/user/GChen3843">LAST.FM: GChen3843</a>',
 ];
 let socialMediaPfps = [
-    "https://lustrous-croquembouche-c24038.netlify.app/github.jfif",
+    "https://avatars.githubusercontent.com/u/145165822",
     "",
     "https://lustrous-croquembouche-c24038.netlify.app/lastfm.png",
 ];
