@@ -182,8 +182,6 @@ about the languages above 2 years ago
 <p>Just click on a language!</p>
 </div>`;
 
-document.querySelector(".description").innerHTML = languageTextDefault
-
 // Language contents
 const languageTexts = [
     `        <h3>C#</h3>
@@ -271,6 +269,7 @@ const linkLogoContent = () =>
 // Choose the content
 document.querySelector("#btn-nerd-bio").addEventListener("click", () => {
     content.innerHTML = languageLayout;
+    document.querySelector(".description").innerHTML = languageTextDefault
     // Add the functions
     logoFunction();
     bonjourBonsoir();
