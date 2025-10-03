@@ -37,8 +37,8 @@ const normalLayout = `<div id="normal-bio">
     </div>
 
     <div>
-        <h3>Monsieur Vile.</h3>
-        <p>"ur page didnt lie u are best girl"</p>
+        <h3>Uhhhhh</h3>
+        <p>"✋︎☞︎ ✋︎ 👎︎☜︎👍︎✋︎👎︎☜︎ ✋︎ ☞︎☜︎☜︎👎︎ ✋︎ ✌︎ 👍︎✌︎☞︎☜︎ ✋︎ ☞︎☜︎☜︎👎︎ ✋︎ ✌︎ ✋︎👍︎☜︎ 👍︎✌︎☞︎☜︎ ✋︎☞︎ 👍︎✌︎☞︎☜︎ 👌︎☜︎ ✌︎ ☞︎✌︎👎︎ 👍︎✌︎☞︎☜︎ 👌︎✌︎👎︎ 👌︎☜︎ 👍︎✌︎☞︎☜︎"</p>
     </div>
 
     <div>
@@ -279,3 +279,4 @@ document.querySelector("#btn-nerd-bio").addEventListener("click", () => {
 document
     .querySelector("#btn-normal-bio")
     .addEventListener("click", () => (content.innerHTML = normalLayout));
+
