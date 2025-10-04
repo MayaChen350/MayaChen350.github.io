@@ -1,4 +1,5 @@
 import com.varabyte.kobweb.gradle.application.util.configAsKobwebApplication
+import kotlinx.html.link
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
@@ -7,13 +8,27 @@ plugins {
     alias(libs.plugins.kobwebx.markdown)
 }
 
-group = "io.github.mayachen350"
+group = "io.github.mayachen350.website"
 version = "1.0-SNAPSHOT"
 
 kobweb {
     app {
         index {
-            description.set("Powered by Kobweb")
+            head.add {
+                link(href = "/reset.css", rel = "stylesheet")
+
+                // Google font
+                link(href = "https://fonts.googleapis.com", rel = "preconnect")
+                link(href = "https://fonts.gstatic.com", rel = "preconnect") {
+                    attributes["crossorigin"] = "anonymous"
+                }
+                link(
+                    href = "https://fonts.googleapis.com/css2?family=Space+Mono&display=swapfamily=Nunito+Sans:wght@200&family=Sacramento&display=swap&family=Lumanosimo&display=swap",
+                    rel = "stylesheet"
+                )
+            }
+            // TODO: Add favicon one day
+            description.set("My page!!! Did you know that in terms of computer science, Porygon is...")
         }
     }
 }
@@ -21,7 +36,7 @@ kobweb {
 kotlin {
     // This example is frontend only. However, for a fullstack app, you can uncomment the includeServer parameter
     // and the `jvmMain` source set below.
-    configAsKobwebApplication("mayachen350" /*, includeServer = true*/)
+    configAsKobwebApplication("website" /*, includeServer = true*/)
 
     sourceSets {
 //        commonMain.dependencies {

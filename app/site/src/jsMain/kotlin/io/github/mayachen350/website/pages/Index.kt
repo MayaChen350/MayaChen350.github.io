@@ -1,4 +1,4 @@
-package io.github.mayachen350.pages
+package io.github.mayachen350.website.pages
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.css.StyleVariable
@@ -33,10 +33,10 @@ import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.css.vh
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Text
-import io.github.mayachen350.HeadlineTextStyle
-import io.github.mayachen350.SubheadlineTextStyle
-import io.github.mayachen350.components.layouts.PageLayoutData
-import io.github.mayachen350.toSitePalette
+import io.github.mayachen350.website.HeadlineTextStyle
+import io.github.mayachen350.website.SubheadlineTextStyle
+import io.github.mayachen350.website.components.layouts.PageLayoutData
+import io.github.mayachen350.website.toSitePalette
 
 // Container that has a tagline and grid on desktop, and just the tagline on mobile
 val HeroContainerStyle = CssStyle {
@@ -77,7 +77,7 @@ fun initHomePage(ctx: InitRouteContext) {
 }
 
 @Page
-@Layout(".components.layouts.PageLayout")
+@Layout(".components.layouts.MayaLayout")
 @Composable
 fun HomePage() {
     Row(HeroContainerStyle.toModifier()) {

@@ -1,4 +1,4 @@
-package io.github.mayachen350
+package io.github.mayachen350.website
 
 import com.varabyte.kobweb.compose.css.ScrollBehavior
 import com.varabyte.kobweb.compose.css.TextAlign

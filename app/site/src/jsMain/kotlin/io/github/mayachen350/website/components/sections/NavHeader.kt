@@ -1,4 +1,4 @@
-package io.github.mayachen350.components.sections
+package io.github.mayachen350.website.components.sections
 
 import androidx.compose.runtime.*
 import com.varabyte.kobweb.browser.dom.ElementTarget
@@ -32,8 +32,8 @@ import com.varabyte.kobweb.silk.style.breakpoint.displayUntil
 import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.*
-import io.github.mayachen350.components.widgets.IconButton
-import io.github.mayachen350.toSitePalette
+import io.github.mayachen350.website.components.widgets.IconButton
+import io.github.mayachen350.website.toSitePalette
 
 val NavHeaderStyle = CssStyle.base {
     Modifier.fillMaxWidth().padding(1.cssRem)

@@ -1,4 +1,4 @@
-package io.github.mayachen350.components.layouts
+package io.github.mayachen350.website.components.layouts
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.css.FontWeight
@@ -20,7 +20,7 @@ import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Div
-import io.github.mayachen350.toSitePalette
+import io.github.mayachen350.website.toSitePalette
 
 val MarkdownStyle = CssStyle {
     base { Modifier.fillMaxSize() }

@@ -1,4 +1,4 @@
-package io.github.mayachen350.components.sections
+package io.github.mayachen350.website.components.sections
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.css.TextAlign
@@ -19,10 +19,10 @@ import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.dom.Span
-import io.github.mayachen350.toSitePalette
+import io.github.mayachen350.website.toSitePalette
 
 val FooterStyle = CssStyle.base {
-    Modifier
+    Modifier.Companion
         .backgroundColor(colorMode.toSitePalette().nearBackground)
         .padding(topBottom = 1.5.cssRem, leftRight = 10.percent)
 }

@@ -1,4 +1,4 @@
-package io.github.mayachen350
+package io.github.mayachen350.website
 
 import com.varabyte.kobweb.compose.ui.graphics.Color
 import com.varabyte.kobweb.compose.ui.graphics.Colors

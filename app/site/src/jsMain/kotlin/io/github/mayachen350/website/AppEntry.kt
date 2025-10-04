@@ -1,4 +1,4 @@
-package io.github.mayachen350
+package io.github.mayachen350.website
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
