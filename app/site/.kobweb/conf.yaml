@@ -1,0 +1,14 @@
+site:
+  title: "Website"
+
+server:
+  files:
+    dev:
+      contentRoot: "build/processedResources/js/main/public"
+      script: "build/kotlin-webpack/js/developmentExecutable/mayachen350.js"
+      api: "build/libs/mayachen350.jar"
+    prod:
+      script: "build/kotlin-webpack/js/productionExecutable/mayachen350.js"
+      siteRoot: ".kobweb/site"
+
+  port: 8080
