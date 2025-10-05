@@ -26,13 +26,13 @@ fun initColorMode(ctx: InitSilkContext) {
     ctx.config.initialColorMode = ColorMode.loadFromLocalStorage(COLOR_MODE_KEY) ?: ColorMode.systemPreference
 }
 
-@InitSilk
-fun initStyles(ctx: InitSilkContext) {
-    ctx.stylesheet.apply {
-        registerStyleBase("html, body") { Modifier.fillMaxHeight() }
-        registerStyleBase("body") { Modifier.scrollBehavior(ScrollBehavior.Smooth) }
-    }
-}
+//@InitSilk
+//fun initStyles(ctx: InitSilkContext) {
+////    ctx.stylesheet.apply {
+////        registerStyleBase("html, body") { Modifier.fillMaxHeight() }
+////        registerStyleBase("body") { Modifier.scrollBehavior(ScrollBehavior.Smooth) }
+////    }
+//}
 
 @App
 @Composable
