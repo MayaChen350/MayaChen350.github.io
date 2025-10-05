@@ -16,7 +16,7 @@ kobweb {
     app {
         index {
             head.add {
-                link(href = "/reset.css", rel = "stylesheet")
+               // link(href = "/reset.css", rel = "stylesheet")
 
                 // Google font
                 link(href = "https://fonts.googleapis.com", rel = "preconnect")

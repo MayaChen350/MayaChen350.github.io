@@ -2,6 +2,7 @@ package io.github.mayachen350.website.pages
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.css.StyleVariable
+import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Color
 import com.varabyte.kobweb.compose.ui.modifiers.*
@@ -64,7 +65,6 @@ fun initHomePage(ctx: InitRouteContext) {
 fun HomePage() {
 
 }
-
 
 fun PeopleWhoKnowsWhatTheyAreDoingHomePage() {
 //    Row(HeroContainerStyle.toModifier()) {
