@@ -20,7 +20,6 @@ import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Div
-import io.github.mayachen350.website.toSitePalette
 
 val MarkdownStyle = CssStyle {
     base { Modifier.fillMaxSize() }
@@ -77,7 +76,6 @@ val MarkdownStyle = CssStyle {
         Modifier
             .display(DisplayStyle.Block)
             .fillMaxWidth()
-            .backgroundColor(colorMode.toSitePalette().nearBackground)
             .border(1.px, LineStyle.Solid, colorMode.toPalette().color)
             .borderRadius(0.25.cssRem)
             .padding(0.5.cssRem)

@@ -33,7 +33,6 @@ import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.*
 import io.github.mayachen350.website.components.widgets.IconButton
-import io.github.mayachen350.website.toSitePalette
 
 val NavHeaderStyle = CssStyle.base {
     Modifier.fillMaxWidth().padding(1.cssRem)
@@ -152,7 +151,6 @@ private fun SideMenu(menuState: SideMenuState, close: () -> Unit, onAnimationEnd
                     // things without moving their finger / cursor much.
                     .padding(top = 1.cssRem, leftRight = 1.cssRem)
                     .gap(1.5.cssRem)
-                    .backgroundColor(ColorMode.current.toSitePalette().nearBackground)
                     .animation(
                         SideMenuSlideInAnim.toAnimation(
                             duration = 200.ms,

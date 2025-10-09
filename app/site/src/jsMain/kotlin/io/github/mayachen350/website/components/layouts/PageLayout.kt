@@ -1,31 +1,23 @@
 package io.github.mayachen350.website.components.layouts
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import com.varabyte.kobweb.compose.dom.svg.*
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.ColumnScope
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
-import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.PageContext
 import com.varabyte.kobweb.core.data.getValue
 import com.varabyte.kobweb.core.layout.Layout
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.style.toAttrs
-import com.varabyte.kobweb.silk.theme.colors.ColorMode
-import kotlinx.browser.document
+import io.github.mayachen350.website.components.sections.NavHeader
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.fr
-import org.jetbrains.compose.web.css.percent
-import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.css.vh
-import io.github.mayachen350.website.components.sections.Footer
-import io.github.mayachen350.website.components.sections.NavHeader
-import io.github.mayachen350.website.toSitePalette
+import org.jetbrains.compose.web.dom.Div
 
 val PageContentStyle = CssStyle {
     base { Modifier.fillMaxSize().padding(leftRight = 2.cssRem, top = 4.cssRem) }
@@ -67,6 +59,6 @@ fun PageLayout(ctx: PageContext, content: @Composable ColumnScope.() -> Unit) {
             }
         }
         // Associate the footer with the row that will get pushed off the bottom of the page if it can't fit.
-        Footer(Modifier.fillMaxWidth().gridRow(2))
+//        Footer(Modifier.fillMaxWidth().gridRow(2))
     }
 }

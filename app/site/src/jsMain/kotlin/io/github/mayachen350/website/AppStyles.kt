@@ -14,6 +14,9 @@ import com.varabyte.kobweb.silk.init.registerStyleBase
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.addVariantBase
 import com.varabyte.kobweb.silk.style.base
+import com.varabyte.kobweb.silk.style.breakpoint.BreakpointSizes
+import com.varabyte.kobweb.silk.style.layer.SilkLayer
+import com.varabyte.kobweb.silk.style.layer.add
 import com.varabyte.kobweb.silk.theme.colors.palette.color
 import com.varabyte.kobweb.silk.theme.colors.palette.toPalette
 import com.varabyte.kobweb.silk.theme.modifyStyleBase
@@ -21,6 +24,8 @@ import org.jetbrains.compose.web.css.*
 
 @InitSilk
 fun initSiteStyles(ctx: InitSilkContext) {
+    ctx.stylesheet.cssLayers.add("custom_reset", after = SilkLayer.RESET)
+
     // This site does not need scrolling itself, but this is a good demonstration for how you might enable this in your
     // own site. Note that we only enable smooth scrolling unless the user has requested reduced motion, which is
     // considered a best practice.
@@ -30,20 +35,35 @@ fun initSiteStyles(ctx: InitSilkContext) {
         }
     }
 
-    ctx.stylesheet.registerStyleBase("body") {
-        Modifier
-            .fontFamily(
-                "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-                "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif"
-            )
-            .fontSize(18.px)
-            .lineHeight(1.5)
-    }
+//    ctx.stylesheet.registerStyle("body") {
+//        base {
+//            Modifier
+//                .fontFamily(
+//                    "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+//                    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif"
+//                )
+//                .fontSize(50.px)
+//                .lineHeight(1.5)
+//        }
+//    }
 
     // Silk dividers only extend 90% by default; we want full width dividers in our site
 //    ctx.theme.modifyStyleBase(HorizontalDividerStyle) {
 //        Modifier.fillMaxWidth()
 //    }
+}
+
+@InitSilk
+// TODO EVENTUALLY: Make better breakpoints
+fun initBreakpoints(ctx: InitSilkContext) {
+    ctx.theme.breakpoints = BreakpointSizes(
+        // Original scss breakpoints
+        sm = 600.px,
+        md = 960.px,
+        lg = 1280.px,
+        xl = 1920.px,
+        xxl = 5000.px,
+    )
 }
 
 val HeadlineTextStyle = CssStyle.base {

@@ -1,6 +1,10 @@
 import com.varabyte.kobweb.gradle.application.util.configAsKobwebApplication
+import com.varabyte.kobweb.gradle.core.util.importCss
+import kotlinx.html.HTMLTag
 import kotlinx.html.link
 import kotlinx.html.meta
+import kotlinx.html.style
+import kotlinx.html.unsafe
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
@@ -16,7 +20,9 @@ kobweb {
     app {
         index {
             head.add {
-               // link(href = "/reset.css", rel = "stylesheet")
+                style {
+                    importCss("/reset.css", layerName = "custom_reset")
+                }
 
                 // Google font
                 link(href = "https://fonts.googleapis.com", rel = "preconnect")
@@ -36,6 +42,16 @@ kobweb {
                 meta(name = "og:image", content = "https://avatars.githubusercontent.com/u/145165822")
                 meta(name = "theme-color", content = "#d7060b") {
                     attributes["data-react-helmet"] = "true"
+                }
+
+                unsafe {
+                    raw(
+                        "<style>\n" +
+                                ":root {\n" +
+                                "font-size: 62.5%;\n" +
+                                "}" +
+                                "</style>\n"
+                    )
                 }
             }
             // TODO: Add favicon one day
