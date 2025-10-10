@@ -11,6 +11,7 @@ plugins {
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kobweb.application)
     alias(libs.plugins.kobwebx.markdown)
+    kotlin("plugin.serialization") version "2.2.20"
 }
 
 group = "io.github.mayachen350.website"
@@ -79,6 +80,10 @@ kotlin {
             // Uncomment the following if you want access to a large set of font-awesome icons:
             // implementation(libs.silk.icons.fa)
             implementation(libs.kobwebx.markdown)
+
+            implementation(libs.ktor)
+            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
+            implementation(libs.content.negotiation)
         }
 
         // Uncomment the following if you pass `includeServer = true` into the `configAsKobwebApplication` call.

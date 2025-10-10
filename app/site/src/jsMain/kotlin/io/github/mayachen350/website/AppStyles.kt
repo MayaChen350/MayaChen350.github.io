@@ -35,18 +35,6 @@ fun initSiteStyles(ctx: InitSilkContext) {
         }
     }
 
-//    ctx.stylesheet.registerStyle("body") {
-//        base {
-//            Modifier
-//                .fontFamily(
-//                    "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-//                    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif"
-//                )
-//                .fontSize(50.px)
-//                .lineHeight(1.5)
-//        }
-//    }
-
     // Silk dividers only extend 90% by default; we want full width dividers in our site
 //    ctx.theme.modifyStyleBase(HorizontalDividerStyle) {
 //        Modifier.fillMaxWidth()
