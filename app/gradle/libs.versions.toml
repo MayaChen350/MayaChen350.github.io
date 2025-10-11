@@ -2,7 +2,7 @@
 jetbrains-compose = "1.8.0"
 kobweb = "0.23.3"
 kotlin = "2.2.20"
-ktor = "3.3.0"
+ksoup = "0.2.5-js"
 
 [libraries]
 compose-html-core = { module = "org.jetbrains.compose.html:html-core", version.ref = "jetbrains-compose" }
@@ -16,8 +16,8 @@ kobwebx-serialization-kotlinx = { module = "com.varabyte.kobwebx:kobwebx-seriali
 silk-foundation = { module = "com.varabyte.kobweb:silk-foundation", version.ref = "kobweb" }
 silk-icons-fa = { module = "com.varabyte.kobwebx:silk-icons-fa", version.ref = "kobweb" }
 silk-icons-mdi = { module = "com.varabyte.kobwebx:silk-icons-mdi", version.ref = "kobweb" }
-ktor = { module = "io.ktor:ktor-client-core", version.ref = "ktor"}
-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor"}
+ksoup = { module = "com.fleeksoft.ksoup:ksoup", version.ref = "ksoup" }
+ksoup-network = { module = "com.fleeksoft.ksoup:ksoup-network", version.ref = "ksoup" }
 
 [plugins]
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
