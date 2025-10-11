@@ -72,7 +72,7 @@ private fun GridCell(color: Color, row: Int, column: Int, width: Int? = null, he
 fun initIndexSilk(ctx: InitSilkContext) {
     ctx.stylesheet.registerStyle("body") {
         val backgroundGradient: Gradient =
-            radialGradient(SitePalette.primaryColor, Color.rgb(0x120032))
+            linearGradient(Color.rgb(0x120032), Color.rgb(0x8396e1))
 
         base {
             Modifier

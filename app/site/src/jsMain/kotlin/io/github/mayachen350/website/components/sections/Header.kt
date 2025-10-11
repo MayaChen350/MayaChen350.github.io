@@ -1,13 +1,18 @@
 package io.github.mayachen350.website.components.sections
 
 import androidx.compose.runtime.*
+import com.varabyte.kobweb.compose.css.TextAlign
+import com.varabyte.kobweb.compose.css.functions.LinearGradient
+import com.varabyte.kobweb.compose.css.functions.linearGradient
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.graphics.Color
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
+import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.style.CssStyle
@@ -15,6 +20,7 @@ import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.style.breakpoint.displayIfAtLeast
 import com.varabyte.kobweb.silk.style.toAttrs
 import com.varabyte.kobweb.silk.style.toModifier
+import com.varabyte.kobweb.silk.style.until
 import io.github.mayachen350.data.LfmResponse
 import io.github.mayachen350.utils.nullIfBlank
 import io.github.mayachen350.website.SitePalette
@@ -35,6 +41,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.cssRem
+import org.jetbrains.compose.web.css.deg
+import org.jetbrains.compose.web.css.hsla
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.dom.Aside
 import org.jetbrains.compose.web.dom.H1
@@ -70,18 +78,21 @@ val LastFmBoxStyle = CssStyle {
     base {
         Modifier
             .fillMaxHeight()
-            .width(40.percent)
-            .backgroundColor(SitePalette.primaryColor)
-            .color(SitePalette.accentColorOne)
+            .fillMaxWidth()
+            .background(SitePalette.primaryColor)
+//            .backgroundImage(linearGradient(Color.rgb(0x8396e1), SitePalette.secondaryColorOne, Color.rgb(0x22)))
+            .color(Color.rgb(0x8396e1))
             .fontFamily("Space", "Mono", "monospace")
+            .borderBottom(0.25.cssRem, LineStyle.Ridge, Color.rgb(0x8396e1))
     }
 
-    Breakpoint.MD { Modifier.fontSize(1.cssRem) }
-    Breakpoint.SM {
+    until(Breakpoint.MD) { Modifier.fontSize(1.cssRem) }
+
+    until(Breakpoint.SM) {
         Modifier
             .fontSize(1.cssRem)
             .fillMaxWidth()
-            .borderBottom(5.cssRem, LineStyle.Dotted, SitePalette.accentColorOne)
+
     }
 }
 
@@ -92,7 +103,7 @@ val LastFmBoxStyle = CssStyle {
  * - large
  * - extralarge
  * */
-private const val albumImageSize: String = "medium"
+private const val albumImageSize: String = "large"
 
 private const val errorAlbumLink: String = ""
 
@@ -115,7 +126,7 @@ private fun LastFmThing() {
                     if (data != null) {
                         withContext(Dispatchers.Main) {
                             isPlayingSong = data.isListening
-                            songName = data.artistName
+                            songName = data.trackName
                             artistName = data.artistName
                             imageLink = data.albumLink
                         }
@@ -126,9 +137,36 @@ private fun LastFmThing() {
         }
 
         Image(src = imageLink)
-        Column(verticalArrangement = Arrangement.Center) {
-            SpanText(if (isPlayingSong) "Now listening to:" else "Last listened to", Modifier.fontSize(1.5.cssRem))
-            SpanText(songName, Modifier.fontWeight(700))
+        Column(
+            modifier = Modifier.fillMaxSize().textAlign(TextAlign.Center),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+        ) {
+
+
+            Column {
+                SpanText(if (isPlayingSong) "Now listening to:" else "Last listened to", Modifier.fontSize(1.5.cssRem))
+                SpanText(songName, Modifier.fontWeight(700).fontSize(4.cssRem).letterSpacing(0.5.cssRem))
+                SpanText("By $artistName", Modifier.fontWeight(500).fontSize(2.cssRem))
+            }
+
+        }
+    }
+}
+
+@Composable
+fun Header() {
+    Header {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(15.9.cssRem)
+                .background(SitePalette.secondaryColorOne),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Aside(Modifier.fillMaxHeight().width(100.percent).toAttrs()) {
+                LastFmThing()
+            }
         }
     }
 }
@@ -168,21 +206,6 @@ private suspend fun fetchLastFmData(): LastFmNowListeningInfo? = coroutineScope 
         .asList().firstOrNull() { it.getAttribute("size") == albumImageSize }
         ?.textContent?.nullIfBlank() ?: errorAlbumLink
 
-
-    //    val responseTrackData: Element? =
-//        Ksoup.parseGetRequest(url = url, parser = Parser.xmlParser())
-//            .getElementsByTag("lfm").first()?.run { if (attribute("status")?.value == "ok") this else null }
-//            ?.getElementsByTag("recenttracks")?.first()
-//            ?.getElementsByTag("track")?.first()
-//
-//    if (responseTrackData === null) return@coroutineScope responseTrackData
-//
-//    isPlayingSongFetched = responseTrackData.attr("nowplaying") == "true"
-//    artistNameFetched = responseTrackData.getElementsByTag("artist").first()?.data()?.nullIfBlank() ?: "Unknown artist"
-//    trackNameFetched = responseTrackData.getElementsByTag("name").first()?.data()?.nullIfBlank() ?: "Unknown track"
-//    imageLinkFetched =
-//        responseTrackData.getElementsByTag("image").firstOrNull { it.attribute("size")?.value == albumImageSize }
-//            ?.data() ?: errorAlbumLink
     LastFmNowListeningInfo(isPlayingSongFetched, trackNameFetched, artistNameFetched, imageLinkFetched)
         .also { console.log("Final result: $it") }
 }
@@ -194,16 +217,3 @@ data class LastFmNowListeningInfo(
     val artistName: String,
     val albumLink: String
 )
-
-@Composable
-fun Header() {
-    Header {
-        Row(
-            modifier = Modifier.fillMaxWidth().background(SitePalette.secondaryColorOne),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            H1(HeaderTitleStyle.toAttrs()) { Text("My Page") }
-            Aside { LastFmThing() }
-        }
-    }
-}
