@@ -1,10 +1,6 @@
 package io.github.mayachen350.website.components.sections
 
 import androidx.compose.runtime.*
-import com.fleeksoft.ksoup.Ksoup
-import com.fleeksoft.ksoup.network.parseGetRequest
-import com.fleeksoft.ksoup.nodes.Element
-import com.fleeksoft.ksoup.parser.Parser
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
@@ -19,9 +15,20 @@ import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.style.breakpoint.displayIfAtLeast
 import com.varabyte.kobweb.silk.style.toAttrs
 import com.varabyte.kobweb.silk.style.toModifier
+import io.github.mayachen350.data.LfmResponse
 import io.github.mayachen350.utils.nullIfBlank
 import io.github.mayachen350.website.SitePalette
+import io.ktor.client.HttpClient
+import io.ktor.client.call.body
+import io.ktor.client.engine.js.Js
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.request.get
+import io.ktor.http.Url
+import io.ktor.http.isSuccess
+import io.ktor.serialization.kotlinx.xml.xml
+import kotlinx.browser.window
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.await
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -33,6 +40,11 @@ import org.jetbrains.compose.web.dom.Aside
 import org.jetbrains.compose.web.dom.H1
 import org.jetbrains.compose.web.dom.Header
 import org.jetbrains.compose.web.dom.Text
+import org.w3c.dom.asList
+import org.w3c.dom.get
+import org.w3c.dom.parsing.DOMParser
+import org.w3c.dom.url.URL
+import kotlin.js.iterator
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.seconds
 
@@ -129,24 +141,52 @@ private suspend fun fetchLastFmData(): LastFmNowListeningInfo? = coroutineScope 
     val artistNameFetched: String
     val trackNameFetched: String
     val imageLinkFetched: String
+    console.log("Fetching song from url")
 
-    val responseTrackData: Element? =
-        Ksoup.parseGetRequest(url = url, parser = Parser.xmlParser())
-            .getElementsByTag("lfm").first()?.run { if (attribute("status")?.value == "ok") this else null }
-            ?.getElementsByTag("recenttracks")?.first()
-            ?.getElementsByTag("track")?.first()
+    val responseTrackData = DOMParser().parseFromString(
+        window.fetch(url).await()
+            .also {
+                if (!it.ok) return@coroutineScope null.also {
+                    console.log("response was not ok")
+                }
+            }.text().await(),
+        "application/xml"
+    ).also { console.log(it) }.documentElement
 
-    if (responseTrackData === null) return@coroutineScope responseTrackData
+    if (responseTrackData === null) return@coroutineScope responseTrackData.also { console.log("response was null") }
 
-    isPlayingSongFetched = responseTrackData.attr("nowplaying") == "true"
-    artistNameFetched = responseTrackData.getElementsByTag("artist").first()?.data()?.nullIfBlank() ?: "Unknown artist"
-    trackNameFetched = responseTrackData.getElementsByTag("name").first()?.data()?.nullIfBlank() ?: "Unknown track"
-    imageLinkFetched =
-        responseTrackData.getElementsByTag("image").firstOrNull { it.attribute("size")?.value == albumImageSize }
-            ?.data() ?: errorAlbumLink
+    isPlayingSongFetched = responseTrackData.getElementsByTagName("track")[0]
+        ?.getAttribute("nowplaying") == "true"
 
+    artistNameFetched = responseTrackData.getElementsByTagName("artist")[0]
+        ?.textContent?.nullIfBlank() ?: "Unknown artist"
+
+    trackNameFetched = responseTrackData.getElementsByTagName("track")[0]
+        ?.getElementsByTagName("name")[0]?.textContent?.nullIfBlank() ?: "Unknown track"
+
+    imageLinkFetched = responseTrackData.getElementsByTagName("image")
+        .asList().firstOrNull() { it.getAttribute("size") == albumImageSize }
+        ?.textContent?.nullIfBlank() ?: errorAlbumLink
+
+
+    //    val responseTrackData: Element? =
+//        Ksoup.parseGetRequest(url = url, parser = Parser.xmlParser())
+//            .getElementsByTag("lfm").first()?.run { if (attribute("status")?.value == "ok") this else null }
+//            ?.getElementsByTag("recenttracks")?.first()
+//            ?.getElementsByTag("track")?.first()
+//
+//    if (responseTrackData === null) return@coroutineScope responseTrackData
+//
+//    isPlayingSongFetched = responseTrackData.attr("nowplaying") == "true"
+//    artistNameFetched = responseTrackData.getElementsByTag("artist").first()?.data()?.nullIfBlank() ?: "Unknown artist"
+//    trackNameFetched = responseTrackData.getElementsByTag("name").first()?.data()?.nullIfBlank() ?: "Unknown track"
+//    imageLinkFetched =
+//        responseTrackData.getElementsByTag("image").firstOrNull { it.attribute("size")?.value == albumImageSize }
+//            ?.data() ?: errorAlbumLink
     LastFmNowListeningInfo(isPlayingSongFetched, trackNameFetched, artistNameFetched, imageLinkFetched)
+        .also { console.log("Final result: $it") }
 }
+
 
 data class LastFmNowListeningInfo(
     val isListening: Boolean,

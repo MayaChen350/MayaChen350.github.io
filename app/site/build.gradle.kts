@@ -80,8 +80,11 @@ kotlin {
             // implementation(libs.silk.icons.fa)
             implementation(libs.kobwebx.markdown)
 
-            implementation(libs.ksoup)
-            implementation(libs.ksoup.network)
+            implementation(libs.ktor)
+            implementation(libs.ktor.content.negotiation)
+            implementation(libs.ktor.xml)
+//            implementation(libs.ksoup) // to use one day perhaps if it works on kotlin/js properly
+//            implementation(libs.ksoup.network)
         }
 
         // Uncomment the following if you pass `includeServer = true` into the `configAsKobwebApplication` call.
