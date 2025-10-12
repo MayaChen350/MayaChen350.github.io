@@ -1,41 +1,28 @@
 package io.github.mayachen350.website.pages
 
 import androidx.compose.runtime.Composable
-import com.varabyte.kobweb.compose.css.CSSPosition
-import com.varabyte.kobweb.compose.css.StyleVariable
-import com.varabyte.kobweb.compose.css.functions.Gradient
-import com.varabyte.kobweb.compose.css.functions.LinearGradient
-import com.varabyte.kobweb.compose.css.functions.RadialGradient
-import com.varabyte.kobweb.compose.css.functions.linearGradient
-import com.varabyte.kobweb.compose.css.functions.radialGradient
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Color
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.styleModifier
-import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.core.data.add
 import com.varabyte.kobweb.core.init.InitRoute
 import com.varabyte.kobweb.core.init.InitRouteContext
 import com.varabyte.kobweb.core.layout.Layout
+import com.varabyte.kobweb.silk.components.layout.Surface
 import com.varabyte.kobweb.silk.init.InitSilk
 import com.varabyte.kobweb.silk.init.InitSilkContext
-import com.varabyte.kobweb.silk.init.registerStyleBase
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.base
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
-import com.varabyte.kobweb.silk.style.extendedBy
-import com.varabyte.kobweb.silk.style.toModifier
 import io.github.mayachen350.website.SitePalette
 import io.github.mayachen350.website.components.layouts.PageLayoutData
-import org.jetbrains.compose.web.css.Position
+import io.github.mayachen350.website.components.sections.MeBeLike
 import org.jetbrains.compose.web.css.cssRem
-import org.jetbrains.compose.web.css.percent
-import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.css.vh
-import org.jetbrains.compose.web.dom.Div
 
 // Container that has a tagline and grid on desktop, and just the tagline on mobile
 val HeroContainerStyle = CssStyle {
@@ -77,7 +64,7 @@ fun initIndexSilk(ctx: InitSilkContext) {
         base {
             Modifier
                 .fontSize(1.8.cssRem)
-                .color(SitePalette.secondaryColorOne)
+                .color(SitePalette.primaryColor)
                 .fontFamily("Quintessential", "sans-serif")
                 .background(Color.rgb(0x191611))
         }
@@ -107,7 +94,9 @@ fun initHomePage(ctx: InitRouteContext) {
 @Layout(".components.layouts.MayaLayout")
 @Composable
 fun HomePage() {
-
+    Column(Modifier.fillMaxSize()) {
+        MeBeLike()
+    }
 }
 
 fun PeopleWhoKnowsWhatTheyAreDoingHomePage() {
