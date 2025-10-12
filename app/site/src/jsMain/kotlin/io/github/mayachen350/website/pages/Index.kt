@@ -13,6 +13,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Color
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
+import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.core.data.add
@@ -25,6 +26,7 @@ import com.varabyte.kobweb.silk.init.registerStyleBase
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.base
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
+import com.varabyte.kobweb.silk.style.extendedBy
 import com.varabyte.kobweb.silk.style.toModifier
 import io.github.mayachen350.website.SitePalette
 import io.github.mayachen350.website.components.layouts.PageLayoutData
@@ -49,38 +51,37 @@ val HomeGridStyle = CssStyle.base {
         .height(18.cssRem)
 }
 
-private val GridCellColorVar by StyleVariable<Color>()
-val HomeGridCellStyle = CssStyle.base {
-    Modifier
-        .backgroundColor(GridCellColorVar.value())
-        .boxShadow(blurRadius = 0.6.cssRem, color = GridCellColorVar.value())
-        .borderRadius(1.cssRem)
-}
 
-@Composable
-private fun GridCell(color: Color, row: Int, column: Int, width: Int? = null, height: Int? = null) {
-    Div(
-        HomeGridCellStyle.toModifier()
-            .setVariable(GridCellColorVar, color)
-            .gridItem(row, column, width, height)
-            .toAttrs()
-    )
-}
+fun Modifier.indexCssBackground(): Modifier =
+    this
+        .background(Colors.Black)
+        .opacity(0.8)
+        .styleModifier {
+            property(
+                "background",
+                "radial-gradient(circle, transparent 20%, #000000 20%, #000000 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #000000 20%, #000000 80%, transparent 80%, transparent) 25px 25px, linear-gradient(#EFC256 2px, transparent 2px) 0 -1px, linear-gradient(90deg, #EFC256 2px, #000000 2px) -1px 0"
+            )
+            property("background-size", "50px 50px, 50px 50px, 25px 25px, 25px 25px")
+        }
 
 
 @InitSilk
 fun initIndexSilk(ctx: InitSilkContext) {
     ctx.stylesheet.registerStyle("body") {
-        val backgroundGradient: Gradient =
-            linearGradient(Color.rgb(0x120032), Color.rgb(0x8396e1))
+//        val backgroundGradient: Gradient =
+//            radialGradient(RadialGradient.Shape.Ellipse) {
+//                add(Color.rgb(0xEFC256))
+//                add(Color.rgb(0x23201E))
+//            }
 
         base {
             Modifier
                 .fontSize(1.8.cssRem)
                 .color(SitePalette.secondaryColorOne)
-                .fontFamily("Nunito", "Sans", "sans-serif")
-                .backgroundImage(backgroundGradient)
+                .fontFamily("Quintessential", "sans-serif")
+                .background(Color.rgb(0x191611))
         }
+
 
         Breakpoint.LG {
             Modifier.fontSize(1.7.cssRem)

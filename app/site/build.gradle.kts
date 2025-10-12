@@ -30,7 +30,7 @@ kobweb {
                     attributes["crossorigin"] = "anonymous"
                 }
                 link(
-                    href = "https://fonts.googleapis.com/css2?family=Space+Mono&display=swapfamily=Nunito+Sans:wght@200&family=Sacramento&display=swap&family=Lumanosimo&display=swap",
+                    href = "https://fonts.googleapis.com/css2?family=Space+Mono&display=swapfamily=Nunito+Sans:wght@200&family=Sacramento&display=swap&family=Lumanosimo&family=Quintessential&display=swap",
                     rel = "stylesheet"
                 )
 

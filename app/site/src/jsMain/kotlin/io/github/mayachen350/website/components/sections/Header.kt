@@ -44,6 +44,7 @@ import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.deg
 import org.jetbrains.compose.web.css.hsla
 import org.jetbrains.compose.web.css.percent
+import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Aside
 import org.jetbrains.compose.web.dom.H1
 import org.jetbrains.compose.web.dom.Header
@@ -79,11 +80,11 @@ val LastFmBoxStyle = CssStyle {
         Modifier
             .fillMaxHeight()
             .fillMaxWidth()
-            .background(SitePalette.primaryColor)
+            .background(Color.rgb(0x090909))
 //            .backgroundImage(linearGradient(Color.rgb(0x8396e1), SitePalette.secondaryColorOne, Color.rgb(0x22)))
-            .color(Color.rgb(0x8396e1))
-            .fontFamily("Space", "Mono", "monospace")
-            .borderBottom(0.25.cssRem, LineStyle.Ridge, Color.rgb(0x8396e1))
+            .color(Color.rgb(0xFFFFFF))
+//            .fontFamily("Space", "Mono", "monospace")
+            .borderBottom(0.25.cssRem, LineStyle.Ridge, SitePalette.primaryColor)
     }
 
     until(Breakpoint.MD) { Modifier.fontSize(1.cssRem) }
@@ -136,20 +137,23 @@ private fun LastFmThing() {
             }
         }
 
-        Image(src = imageLink)
+        Image(src = imageLink, Modifier.maxHeight(100.percent))
         Column(
             modifier = Modifier.fillMaxSize().textAlign(TextAlign.Center),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-
-
-            Column {
-                SpanText(if (isPlayingSong) "Now listening to:" else "Last listened to", Modifier.fontSize(1.5.cssRem))
-                SpanText(songName, Modifier.fontWeight(700).fontSize(4.cssRem).letterSpacing(0.5.cssRem))
-                SpanText("By $artistName", Modifier.fontWeight(500).fontSize(2.cssRem))
-            }
-
+            SpanText(if (isPlayingSong) "Now listening to:" else "Last listened to", Modifier
+                .fontSize(1.5.cssRem)
+                .align(Alignment.Start))
+            SpanText(songName, Modifier
+                .color(SitePalette.primaryColor)
+                .fontWeight(700)
+                .fontSize(5.cssRem)
+                .letterSpacing(2.cssRem))
+            SpanText("By $artistName", Modifier
+                .fontWeight(500)
+                .fontSize(2.cssRem)
+                .align(Alignment.End))
         }
     }
 }

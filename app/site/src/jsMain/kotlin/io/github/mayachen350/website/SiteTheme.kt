@@ -26,7 +26,7 @@ private var accentColorTwoHue by mutableStateOf(253f);
 
 
  object SitePalette {
-    var primaryColor: Color = Color.rgb(0x000120)
+    var primaryColor: Color = Color.rgb(0xEFC256)
     var secondaryColorOne: Color = Color.hsl(secondaryColorOneHue.deg, 57.0f.percent, 55.30f.percent)
     var secondaryColorTwo: Color = Color.hsl(secondaryColorTwoHue.deg, 100.percent, 52.70f.percent)
     var accentColorOne: Color = Color.hsl(accentColorOneHue.deg, 100.percent, 84.10f.percent)
