@@ -80,7 +80,14 @@ val LastFmBoxStyle = CssStyle {
         Modifier
             .fillMaxHeight()
             .fillMaxWidth()
-            .background(Color.rgb(0x090909))
+//            .background() {
+//                val gradient = linearGradient(angle = 315.deg) {
+//                    add(Color.rgb(0xE6B434))
+//                    add(Color.rgb(0x090909), 65.percent)
+//                }
+//
+//                image(gradient)
+//            }
 //            .backgroundImage(linearGradient(Color.rgb(0x8396e1), SitePalette.secondaryColorOne, Color.rgb(0x22)))
             .color(Color.rgb(0xFFFFFF))
 //            .fontFamily("Space", "Mono", "monospace")
@@ -160,15 +167,14 @@ private fun LastFmThing() {
 
 @Composable
 fun Header() {
-    Header {
+    Header(Modifier.fillMaxWidth().toAttrs {  }) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(15.9.cssRem)
-                .background(SitePalette.secondaryColorOne),
+                .height(15.9.cssRem),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            Aside(Modifier.fillMaxHeight().width(100.percent).toAttrs()) {
+            Aside(Modifier.fillMaxHeight().fillMaxWidth().toAttrs()) {
                 LastFmThing()
             }
         }

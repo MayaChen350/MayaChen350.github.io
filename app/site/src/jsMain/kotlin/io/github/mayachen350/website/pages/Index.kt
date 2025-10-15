@@ -1,12 +1,23 @@
 package io.github.mayachen350.website.pages
 
 import androidx.compose.runtime.Composable
+import com.varabyte.kobweb.compose.css.BackgroundAttachment
+import com.varabyte.kobweb.compose.css.BackgroundImage
+import com.varabyte.kobweb.compose.css.BackgroundRepeat
+import com.varabyte.kobweb.compose.css.BackgroundSize
+import com.varabyte.kobweb.compose.css.CSSPosition
+import com.varabyte.kobweb.compose.css.ColorInterpolationMethod
+import com.varabyte.kobweb.compose.css.functions.Gradient
+import com.varabyte.kobweb.compose.css.functions.RadialGradient
+import com.varabyte.kobweb.compose.css.functions.linearGradient
+import com.varabyte.kobweb.compose.css.functions.radialGradient
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Color
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.styleModifier
+import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.core.data.add
 import com.varabyte.kobweb.core.init.InitRoute
@@ -17,12 +28,27 @@ import com.varabyte.kobweb.silk.init.InitSilk
 import com.varabyte.kobweb.silk.init.InitSilkContext
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.base
+import com.varabyte.kobweb.silk.style.between
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
+import com.varabyte.kobweb.silk.style.toAttrs
+import com.varabyte.kobweb.silk.style.until
+import io.github.mayachen350.website.Font
+import io.github.mayachen350.website.Fonts
 import io.github.mayachen350.website.SitePalette
 import io.github.mayachen350.website.components.layouts.PageLayoutData
+import io.github.mayachen350.website.components.sections.Header
 import io.github.mayachen350.website.components.sections.MeBeLike
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.vh
+import io.github.mayachen350.website.fontFamily
+import org.jetbrains.compose.web.css.CSSSizeValue
+import org.jetbrains.compose.web.css.CSSUnit
+import org.jetbrains.compose.web.css.Position
+import org.jetbrains.compose.web.css.deg
+import org.jetbrains.compose.web.css.keywords.auto
+import org.jetbrains.compose.web.css.percent
+import org.jetbrains.compose.web.css.px
+import org.jetbrains.compose.web.dom.Div
 
 // Container that has a tagline and grid on desktop, and just the tagline on mobile
 val HeroContainerStyle = CssStyle {
@@ -54,21 +80,32 @@ fun Modifier.indexCssBackground(): Modifier =
 
 @InitSilk
 fun initIndexSilk(ctx: InitSilkContext) {
+    ctx.stylesheet.registerStyle("html") {
+        base {
+            Modifier.background {
+                color(Color.rgb(0x090909))
+            }
+        }
+
+    }
+
     ctx.stylesheet.registerStyle("body") {
-//        val backgroundGradient: Gradient =
-//            radialGradient(RadialGradient.Shape.Ellipse) {
-//                add(Color.rgb(0xEFC256))
-//                add(Color.rgb(0x23201E))
-//            }
+        val backgroundMainColor = Color.rgb(0x191611)
+
+        val backgroundGradient: Gradient =
+            radialGradient(shape = RadialGradient.Shape.Ellipse, position = CSSPosition.TopLeft) {
+                add(backgroundMainColor)
+                add(Color.rgb(0x1C1919))
+            }
 
         base {
             Modifier
                 .fontSize(1.8.cssRem)
                 .color(SitePalette.primaryColor)
-                .fontFamily("Quintessential", "sans-serif")
-                .background(Color.rgb(0x191611))
-        }
 
+                .fontFamily(Fonts.QUINTESSENTIAL, "sans-serif")
+
+        }
 
         Breakpoint.LG {
             Modifier.fontSize(1.7.cssRem)
@@ -90,11 +127,64 @@ fun initHomePage(ctx: InitRouteContext) {
     ctx.data.add(PageLayoutData("Home"))
 }
 
+val cursedThingStyle = CssStyle {
+    fun Modifier.theBackground(stopPoint: CSSSizeValue<CSSUnit.percent>) = this.background {
+
+
+        val gradient = linearGradient(angle = 315.deg, ColorInterpolationMethod.Srgb) {
+            add(Color.rgb(0xE6B434))
+            add(Color.rgb(0x090909), stopPoint)
+
+        }
+
+        this.repeat(BackgroundRepeat.NoRepeat)
+        this.attachment(BackgroundAttachment.Fixed)
+
+        image(gradient)
+    }
+
+
+    base {
+        Modifier
+            .position(Position.Absolute)
+
+            .fillMaxHeight()
+            .right(0.cssRem)
+            .zIndex(-1)
+    }
+
+    Breakpoint.LG {
+        Modifier
+            .width(70.percent)
+            .theBackground(45.percent)
+    }
+
+    between(Breakpoint.SM,Breakpoint.LG) {
+        Modifier.fillMaxWidth().theBackground(65.percent)
+    }
+
+    until(Breakpoint.SM) {
+        Modifier.fillMaxWidth().theBackground(40.percent)
+    }
+}
+
+@Composable
+fun CursedThingsDoneThingsSomething() {
+    Div(
+        cursedThingStyle.toAttrs { }
+    ) {
+
+    }
+}
+
 @Page
 @Layout(".components.layouts.MayaLayout")
 @Composable
 fun HomePage() {
+
     Column(Modifier.fillMaxSize()) {
+        CursedThingsDoneThingsSomething()
+        Header()
         MeBeLike()
     }
 }

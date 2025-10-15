@@ -15,4 +15,4 @@ const horribleIdeas = [
 	"Remember you're genocides",
 ];
 
-document.querySelector("availabilities").appendChild()
+document.querySelector("availabilities").appendChild(undefined)

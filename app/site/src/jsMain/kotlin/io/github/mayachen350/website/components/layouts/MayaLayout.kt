@@ -7,6 +7,6 @@ import io.github.mayachen350.website.components.sections.Header
 @Composable
 @Layout
 fun MayaLayout(content: @Composable () -> Unit) {
-    Header()
+
     content()
 }
