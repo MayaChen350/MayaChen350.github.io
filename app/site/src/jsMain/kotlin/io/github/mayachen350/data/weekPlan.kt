@@ -11,7 +11,7 @@ val horribleIdeas = arrayOf(
     "Rewrite my OS in Haskell",
     "Convert my friends to Lisp",
     "Announce my unified theory",
-    "Buy a box of Crayolas to feast on",
+    "Buy a box of Crayolas as a snack",
     "Get in trial for false murder accusations again",
     "Put God in a ball",
     "Remember you're genocides",
@@ -23,4 +23,4 @@ val horribleIdeas = arrayOf(
     "Run out of mora",
     "Disobey my orders",
     "Obtain Waxed Lightly Weathered Cut Copper Stairs"
-);
+). apply { shuffle() }

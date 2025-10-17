@@ -2,9 +2,7 @@ package io.github.mayachen350.website.pages
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.css.BackgroundAttachment
-import com.varabyte.kobweb.compose.css.BackgroundImage
 import com.varabyte.kobweb.compose.css.BackgroundRepeat
-import com.varabyte.kobweb.compose.css.BackgroundSize
 import com.varabyte.kobweb.compose.css.CSSPosition
 import com.varabyte.kobweb.compose.css.ColorInterpolationMethod
 import com.varabyte.kobweb.compose.css.functions.Gradient
@@ -17,37 +15,21 @@ import com.varabyte.kobweb.compose.ui.graphics.Color
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.styleModifier
-import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.core.data.add
 import com.varabyte.kobweb.core.init.InitRoute
 import com.varabyte.kobweb.core.init.InitRouteContext
 import com.varabyte.kobweb.core.layout.Layout
-import com.varabyte.kobweb.silk.components.layout.Surface
 import com.varabyte.kobweb.silk.init.InitSilk
 import com.varabyte.kobweb.silk.init.InitSilkContext
-import com.varabyte.kobweb.silk.style.CssStyle
-import com.varabyte.kobweb.silk.style.base
-import com.varabyte.kobweb.silk.style.between
+import com.varabyte.kobweb.silk.style.*
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
-import com.varabyte.kobweb.silk.style.toAttrs
-import com.varabyte.kobweb.silk.style.until
-import io.github.mayachen350.website.Font
 import io.github.mayachen350.website.Fonts
 import io.github.mayachen350.website.SitePalette
 import io.github.mayachen350.website.components.layouts.PageLayoutData
 import io.github.mayachen350.website.components.sections.Header
 import io.github.mayachen350.website.components.sections.MeBeLike
-import org.jetbrains.compose.web.css.cssRem
-import org.jetbrains.compose.web.css.vh
-import io.github.mayachen350.website.fontFamily
-import org.jetbrains.compose.web.css.CSSSizeValue
-import org.jetbrains.compose.web.css.CSSUnit
-import org.jetbrains.compose.web.css.Position
-import org.jetbrains.compose.web.css.deg
-import org.jetbrains.compose.web.css.keywords.auto
-import org.jetbrains.compose.web.css.percent
-import org.jetbrains.compose.web.css.px
+import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.Div
 
 // Container that has a tagline and grid on desktop, and just the tagline on mobile
@@ -147,7 +129,6 @@ val cursedThingStyle = CssStyle {
     base {
         Modifier
             .position(Position.Absolute)
-
             .fillMaxHeight()
             .right(0.cssRem)
             .zIndex(-1)
@@ -156,11 +137,11 @@ val cursedThingStyle = CssStyle {
     Breakpoint.LG {
         Modifier
             .width(70.percent)
-            .theBackground(45.percent)
+            .theBackground(40.percent)
     }
 
     between(Breakpoint.SM,Breakpoint.LG) {
-        Modifier.fillMaxWidth().theBackground(65.percent)
+        Modifier.fillMaxWidth().theBackground(60.percent)
     }
 
     until(Breakpoint.SM) {

@@ -2,8 +2,6 @@ package io.github.mayachen350.website.components.sections
 
 import androidx.compose.runtime.*
 import com.varabyte.kobweb.compose.css.TextAlign
-import com.varabyte.kobweb.compose.css.functions.LinearGradient
-import com.varabyte.kobweb.compose.css.functions.linearGradient
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
@@ -18,42 +16,23 @@ import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.style.breakpoint.displayIfAtLeast
-import com.varabyte.kobweb.silk.style.toAttrs
 import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.style.until
-import io.github.mayachen350.data.LfmResponse
 import io.github.mayachen350.utils.nullIfBlank
 import io.github.mayachen350.website.SitePalette
-import io.ktor.client.HttpClient
-import io.ktor.client.call.body
-import io.ktor.client.engine.js.Js
-import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
-import io.ktor.client.request.get
-import io.ktor.http.Url
-import io.ktor.http.isSuccess
-import io.ktor.serialization.kotlinx.xml.xml
+import kotlinx.browser.document
 import kotlinx.browser.window
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.await
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
+import kotlinx.dom.addClass
+import kotlinx.dom.removeClass
 import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.cssRem
-import org.jetbrains.compose.web.css.deg
-import org.jetbrains.compose.web.css.hsla
 import org.jetbrains.compose.web.css.percent
-import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Aside
-import org.jetbrains.compose.web.dom.H1
 import org.jetbrains.compose.web.dom.Header
-import org.jetbrains.compose.web.dom.Text
 import org.w3c.dom.asList
 import org.w3c.dom.get
 import org.w3c.dom.parsing.DOMParser
-import org.w3c.dom.url.URL
-import kotlin.js.iterator
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.seconds
 
@@ -78,8 +57,7 @@ val HeaderTitleStyle = CssStyle {
 val LastFmBoxStyle = CssStyle {
     base {
         Modifier
-            .fillMaxHeight()
-            .fillMaxWidth()
+            .fillMaxSize()
 //            .background() {
 //                val gradient = linearGradient(angle = 315.deg) {
 //                    add(Color.rgb(0xE6B434))
@@ -94,13 +72,63 @@ val LastFmBoxStyle = CssStyle {
             .borderBottom(0.25.cssRem, LineStyle.Ridge, SitePalette.primaryColor)
     }
 
-    until(Breakpoint.MD) { Modifier.fontSize(1.cssRem) }
+    until(Breakpoint.MD) {
+        Modifier.height(13.5.cssRem).fontSize(2.cssRem)
+    }
 
     until(Breakpoint.SM) {
         Modifier
-            .fontSize(1.cssRem)
+            .height(10.cssRem)
+            .fontSize(1.5.cssRem)
             .fillMaxWidth()
 
+    }
+}
+
+val LastFmSongTitleStyle = CssStyle {
+    base {
+        Modifier
+            .color(SitePalette.primaryColor)
+            .fontWeight(700)
+            .fontSize(5.cssRem)
+            .letterSpacing(0.85.cssRem)
+            .fontSize(5.cssRem)
+    }
+
+    until(Breakpoint.MD) { Modifier.fontSize(4.cssRem) }
+
+    until(Breakpoint.SM) {
+        Modifier
+            .fontSize(2.5.cssRem)
+            .fillMaxWidth()
+
+    }
+}
+
+val LastFmSongTitleSmallerStyle = CssStyle {
+    until(Breakpoint.MD) {
+        Modifier
+            .fontSize(2.cssRem)
+            .letterSpacing(0.cssRem)
+    }
+}
+
+val LastFmSongTitleEvenSmallerStyle = CssStyle {
+    Breakpoint.LG {
+        Modifier
+            .letterSpacing(0.cssRem)
+    }
+
+    until(Breakpoint.LG) {
+        Modifier
+            .fontSize(2.cssRem)
+            .letterSpacing(0.cssRem)
+    }
+
+    until(Breakpoint.MD) {
+        Modifier
+            .fontSize(1.5.cssRem)
+            .letterSpacing(0.cssRem)
     }
 }
 
@@ -129,6 +157,7 @@ private fun LastFmThing() {
 
         LaunchedEffect(Unit) {
             scope.launch {
+                val lastFmSongTitleElement = document.getElementById("last-fm-song-title")
                 while (true) {
                     val data = fetchLastFmData()
                     if (data != null) {
@@ -137,6 +166,17 @@ private fun LastFmThing() {
                             songName = data.trackName
                             artistName = data.artistName
                             imageLink = data.albumLink
+
+                            if (songName.length > 25) {
+                                lastFmSongTitleElement?.removeClass("last-fm-song-title-smaller")
+                                lastFmSongTitleElement?.addClass("last-fm-song-title-even-smaller")
+                            } else if (songName.length > 15) {
+                                lastFmSongTitleElement?.addClass("last-fm-song-title-smaller")
+                                lastFmSongTitleElement?.removeClass("last-fm-song-title-even-smaller")
+                            } else {
+                                lastFmSongTitleElement?.removeClass("last-fm-song-title-smaller")
+                                lastFmSongTitleElement?.removeClass("last-fm-song-title-even-smaller")
+                            }
                         }
                     }
                     delay(delayLastFmStatusRefresh)
@@ -144,34 +184,37 @@ private fun LastFmThing() {
             }
         }
 
-        Image(src = imageLink, Modifier.maxHeight(100.percent))
+        val textPaddingSize = 2.5.cssRem
+
+        Image(src = imageLink, Modifier.height(100.percent).maxHeight(15.9.cssRem))
         Column(
-            modifier = Modifier.fillMaxSize().textAlign(TextAlign.Center),
+            modifier = Modifier
+                .fillMaxWidth()
+                .textAlign(TextAlign.Center),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            SpanText(if (isPlayingSong) "Now listening to:" else "Last listened to", Modifier
-                .fontSize(1.5.cssRem)
-                .align(Alignment.Start))
-            SpanText(songName, Modifier
-                .color(SitePalette.primaryColor)
-                .fontWeight(700)
-                .fontSize(5.cssRem)
-                .letterSpacing(2.cssRem))
-            SpanText("By $artistName", Modifier
-                .fontWeight(500)
-                .fontSize(2.cssRem)
-                .align(Alignment.End))
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                SpanText(
+                    if (isPlayingSong) "Right now I'm listening to:" else "Last song I listened to:"
+                )
+                SpanText(
+                    songName, LastFmSongTitleStyle.toModifier()
+                        .then(LastFmSongTitleSmallerStyle.toModifier())
+                        .then(LastFmSongTitleEvenSmallerStyle.toModifier())
+                        .id("last-fm-song-title")
+                )
+                SpanText("By $artistName")
+            }
         }
     }
 }
 
 @Composable
 fun Header() {
-    Header(Modifier.fillMaxWidth().toAttrs {  }) {
+    Header(Modifier.fillMaxWidth().toAttrs { }) {
         Row(
             modifier = Modifier
-                .fillMaxWidth()
-                .height(15.9.cssRem),
+                .fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Aside(Modifier.fillMaxHeight().fillMaxWidth().toAttrs()) {

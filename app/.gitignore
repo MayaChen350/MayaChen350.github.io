@@ -27,3 +27,6 @@ kotlin-js-store
 
 # Kotlin ignores
 .kotlin
+
+# Kobweb
+java_pid*.hprof
