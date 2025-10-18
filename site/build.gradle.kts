@@ -1,6 +1,5 @@
 import com.varabyte.kobweb.gradle.application.util.configAsKobwebApplication
 import com.varabyte.kobweb.gradle.core.util.importCss
-import kotlinx.html.HTMLTag
 import kotlinx.html.link
 import kotlinx.html.meta
 import kotlinx.html.style

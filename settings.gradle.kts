@@ -29,5 +29,4 @@ gradle.settingsEvaluated {
 }
 
 rootProject.name = "MayaChen350.github.io"
-
 include(":site")
