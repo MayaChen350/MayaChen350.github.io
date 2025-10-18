@@ -29,6 +29,8 @@ import io.github.mayachen350.website.SitePalette
 import io.github.mayachen350.website.components.layouts.PageLayoutData
 import io.github.mayachen350.website.components.sections.Header
 import io.github.mayachen350.website.components.sections.MeBeLike
+import io.github.mayachen350.website.components.sections.interestBox
+import io.github.mayachen350.website.components.sections.wallOfStuff
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.Div
 
@@ -167,6 +169,8 @@ fun HomePage() {
         CursedThingsDoneThingsSomething()
         Header()
         MeBeLike()
+
+        wallOfStuff()
     }
 }
 

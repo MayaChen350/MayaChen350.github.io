@@ -37,18 +37,9 @@ object SitePalette {
 }
 
 object Fonts {
+    const val SPACE_MONO = "Space Mono"
+    const val NUNITO_SANS = "Nunito Sans"
+    const val SACRAMENTO = "Sacramento"
+    const val LUMANOSIMO = "Lumanosimo"
     const val QUINTESSENTIAL = "Quintessential"
 }
-
-// TODO: Make this into const strings if lists end up useless
-enum class Font(val value: MutableList<String>) {
-    SPACE_MONO(mutableListOf("Space Mono")),
-    NUNITO_SANS(mutableListOf("Nunito Sans")),
-    SACRAMENTO(mutableListOf("Sacramento")),
-    LUMANOSIMO(mutableListOf("Lumanosimo")),
-    QUINTESSENTIAL(mutableListOf("Quintessential"));
-
-    operator fun plus(element: String) = value.apply { add(element) }
-}
-
-fun Modifier.fontFamily(font: Font): Modifier = this.fontFamily(font.value)

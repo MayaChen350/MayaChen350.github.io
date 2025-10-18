@@ -18,9 +18,8 @@ import com.varabyte.kobweb.silk.style.toAttrs
 import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.style.until
 import io.github.mayachen350.data.horribleIdeas
-import io.github.mayachen350.website.Font
+import io.github.mayachen350.website.Fonts
 import io.github.mayachen350.website.SitePalette
-import io.github.mayachen350.website.fontFamily
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.Div
 
@@ -86,7 +85,7 @@ val refCadre = CssStyle {
             .padding(all = 3.cssRem)
             .fontSize(2.cssRem)
             .color(Colors.GhostWhite)
-            .fontFamily(Font.LUMANOSIMO)
+            .fontFamily(Fonts.LUMANOSIMO)
             .background {
                 color(Color.rgb(0x191611))
             }

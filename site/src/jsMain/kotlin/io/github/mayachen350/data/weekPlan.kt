@@ -1,6 +1,6 @@
 package io.github.mayachen350.data
 
-val horribleIdeas = arrayOf(
+val horribleIdeas: Array<String> = arrayOf(
     "Everything is going to be okay",
     "It's hacking time",
     "'Cause hell is forever",
