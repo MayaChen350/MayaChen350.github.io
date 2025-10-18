@@ -21,7 +21,7 @@ kobweb {
         index {
             head.add {
                 style {
-                    importCss("/reset.css", layerName = "custom_reset")
+                    importCss("/reset.css", layerName = "reset")
                 }
 
                 // Google font
@@ -40,7 +40,7 @@ kobweb {
                 meta(name = "og:description", content = "unradical. yeah. ain't rocking. bogus")
                 meta(name = "og:url", content = "https://mayachen350.github.io")
                 meta(name = "og:image", content = "https://avatars.githubusercontent.com/u/145165822")
-                meta(name = "theme-color", content = "#d7060b") {
+                meta(name = "theme-color", content = "#efc256") {
                     attributes["data-react-helmet"] = "true"
                 }
 
@@ -79,10 +79,6 @@ kotlin {
             // Uncomment the following if you want access to a large set of font-awesome icons:
             // implementation(libs.silk.icons.fa)
             implementation(libs.kobwebx.markdown)
-
-            implementation(libs.ktor)
-            implementation(libs.ktor.content.negotiation)
-            implementation(libs.ktor.xml)
 //            implementation(libs.ksoup) // to use one day perhaps if it works on kotlin/js properly
 //            implementation(libs.ksoup.network)
         }

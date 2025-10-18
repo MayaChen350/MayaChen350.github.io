@@ -37,10 +37,6 @@ fun initStyles(ctx: InitSilkContext) {
 @Composable
 fun AppEntry(content: @Composable () -> Unit) {
     SilkApp {
-        LaunchedEffect(true) {
-            document.querySelector("html")?.removeAttribute("class")
-        }
-
         Surface(Modifier.fillMaxHeight()) {
             content()
         }

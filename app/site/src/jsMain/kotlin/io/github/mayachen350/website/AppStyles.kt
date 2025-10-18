@@ -3,6 +3,7 @@ package io.github.mayachen350.website
 import com.varabyte.kobweb.compose.css.ScrollBehavior
 import com.varabyte.kobweb.compose.css.TextAlign
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.graphics.Color
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.silk.components.forms.ButtonStyle
@@ -15,6 +16,7 @@ import com.varabyte.kobweb.silk.style.base
 import com.varabyte.kobweb.silk.style.breakpoint.BreakpointSizes
 import com.varabyte.kobweb.silk.style.layer.SilkLayer
 import com.varabyte.kobweb.silk.style.layer.add
+import com.varabyte.kobweb.silk.theme.colors.palette.background
 import com.varabyte.kobweb.silk.theme.colors.palette.color
 import com.varabyte.kobweb.silk.theme.colors.palette.toPalette
 import org.jetbrains.compose.web.css.*
@@ -31,6 +33,8 @@ fun initSiteStyles(ctx: InitSilkContext) {
             Modifier.scrollBehavior(ScrollBehavior.Smooth)
         }
     }
+
+    ctx.theme.palettes.light.background = Color.rgba(0x00000000)
 
     // Silk dividers only extend 90% by default; we want full width dividers in our site
 //    ctx.theme.modifyStyleBase(HorizontalDividerStyle) {
