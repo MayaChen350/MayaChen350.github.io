@@ -24,6 +24,15 @@ import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.Div
 
 val pfpStyle = CssStyle {
+    base {
+        Modifier
+            .padding(top = 1.5.cssRem)
+            .borderBottom {
+                style(LineStyle.Hidden)
+                color(Color.rgb(0x1883FF))
+            }
+    }
+
     Breakpoint.MD {
         Modifier
             .alignSelf(AlignSelf.Start)
@@ -34,7 +43,6 @@ val pfpStyle = CssStyle {
     until(Breakpoint.MD) {
         Modifier
             .alignSelf(AlignSelf.Center)
-            .padding(top = 1.5.cssRem)
     }
 }
 

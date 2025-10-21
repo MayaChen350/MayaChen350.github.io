@@ -130,7 +130,7 @@ val cursedThingStyle = CssStyle {
 
     base {
         Modifier
-            .position(Position.Absolute)
+            .position(Position.Fixed)
             .fillMaxHeight()
             .right(0.cssRem)
             .zIndex(-1)

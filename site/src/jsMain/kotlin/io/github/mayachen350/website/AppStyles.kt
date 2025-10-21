@@ -34,7 +34,7 @@ fun initSiteStyles(ctx: InitSilkContext) {
         }
     }
 
-    ctx.theme.palettes.light.background = Color.rgba(0x00000000)
+    ctx.theme.palettes.light.background = Colors.Transparent
 
     // Silk dividers only extend 90% by default; we want full width dividers in our site
 //    ctx.theme.modifyStyleBase(HorizontalDividerStyle) {
