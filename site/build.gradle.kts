@@ -4,8 +4,12 @@ import kotlinx.html.link
 import kotlinx.html.meta
 import kotlinx.html.style
 import kotlinx.html.unsafe
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
+import java.net.URL
 
 plugins {
+    kotlin("plugin.serialization") version "2.2.20"
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kobweb.application)
@@ -86,5 +90,33 @@ kotlin {
 //        jvmMain.dependencies {
 //            compileOnly(libs.kobweb.api) // Provided by Kobweb backend at runtime
 //        }
+    }
+}
+
+tasks.register("buildPoems") {
+    group = "Other"
+    description = "Build poems list json"
+
+    val poemsFile: String =
+        "https://raw.githubusercontent.com/MayaChen350/Mayascope/refs/heads/master/app/src/main/res/raw/poems.txt"
+    val selectedPoemIndexes: IntArray = intArrayOf(1, 2, 3, 4, 5).map { it - 1 }.toIntArray()
+
+    File(projectDir, "src/jsMain/resources/public/data/selected_poems.json").run {
+        parentFile.mkdirs()
+        writeText(
+            run {
+                val poems: List<List<String>> = URL(poemsFile).readText()
+                    .split("///")
+                    .map {
+                        it.trim().split("\n\n")
+                    }
+
+                Json.encodeToString(
+                    poems.filterIndexed { i, _ ->
+                        selectedPoemIndexes.contains(i)
+                    }
+                )
+            }
+        )
     }
 }
