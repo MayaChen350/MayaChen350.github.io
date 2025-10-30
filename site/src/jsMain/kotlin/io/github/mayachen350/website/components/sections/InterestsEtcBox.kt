@@ -1,6 +1,11 @@
 package io.github.mayachen350.website.components.sections
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import com.varabyte.kobweb.compose.css.BackgroundSize
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.TextAlign
@@ -14,11 +19,15 @@ import com.varabyte.kobweb.silk.style.toAttrs
 import io.github.mayachen350.data.interests
 import io.github.mayachen350.website.Fonts
 import io.github.mayachen350.website.SitePalette
+import io.github.mayachen350.website.components.widgets.IconButton
+import kotlinx.coroutines.launch
 import org.jetbrains.compose.web.css.AlignSelf
 import org.jetbrains.compose.web.css.DisplayStyle
 import org.jetbrains.compose.web.css.FlexWrap
 import org.jetbrains.compose.web.css.cssRem
+import org.jetbrains.compose.web.dom.Button
 import org.jetbrains.compose.web.dom.Li
+import org.jetbrains.compose.web.dom.Section
 import org.jetbrains.compose.web.dom.Text
 import org.jetbrains.compose.web.dom.Ul
 
@@ -64,25 +73,53 @@ val wallOfStuffStyle = CssStyle {
     }
 }
 
+enum class WallOfStuffState {
+    INTERESTS,
+    POEMS
+}
+
 @Composable
 fun wallOfStuff() {
-    SpanText(
-        "Interests", Modifier
-            .textAlign(TextAlign.Center)
-            .color(SitePalette.primaryColor)
-            .fontSize(3.cssRem)
-            .padding {
-                top(4.cssRem)
-                bottom(4.cssRem)
-            }
+    var state: WallOfStuffState by remember { mutableStateOf(WallOfStuffState.POEMS) }
+    val scope = rememberCoroutineScope()
+
+    Section {
+        when (state) {
+            WallOfStuffState.INTERESTS -> {
+                SpanText(
+                    "Interests", Modifier
+                        .textAlign(TextAlign.Center)
+                        .color(SitePalette.primaryColor)
+                        .fontSize(3.cssRem)
+                        .padding {
+                            top(4.cssRem)
+                            bottom(4.cssRem)
+                        }
 //            .background {
 //                color(Colors.Black)
 //            }
-            .fillMaxWidth()
-    )
-    Ul(wallOfStuffStyle.toAttrs()) {
-        interests.forEach {
-            interestBox(it)
+                        .fillMaxWidth()
+                )
+
+                Ul(wallOfStuffStyle.toAttrs()) {
+                    interests.forEach {
+                        interestBox(it)
+                    }
+                }
+            }
+
+            WallOfStuffState.POEMS -> Poems()
         }
     }
+
+    IconButton(
+        onClick = {
+            scope.launch {
+                state = WallOfStuffState.INTERESTS
+            }
+        }
+    ) {
+        Text("Click here")
+    }
+
 }

@@ -1,5 +1,7 @@
 import com.varabyte.kobweb.gradle.application.util.configAsKobwebApplication
 import com.varabyte.kobweb.gradle.core.util.importCss
+import kotlinx.html.LinkAs
+import kotlinx.html.fetchLink
 import kotlinx.html.link
 import kotlinx.html.meta
 import kotlinx.html.style
@@ -27,6 +29,7 @@ kobweb {
                     importCss("/reset.css", layerName = "reset")
                 }
 
+                fetchLink("/data/selected_poems.json", rel = "prefetch", type = "application/json")
                 // Google font
                 link(href = "https://fonts.googleapis.com", rel = "preconnect")
                 link(href = "https://fonts.gstatic.com", rel = "preconnect") {
@@ -74,6 +77,9 @@ kotlin {
 //        }
 
         jsMain.dependencies {
+
+            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
+
             implementation(libs.compose.runtime)
             implementation(libs.compose.html.core)
             implementation(libs.kobweb.core)

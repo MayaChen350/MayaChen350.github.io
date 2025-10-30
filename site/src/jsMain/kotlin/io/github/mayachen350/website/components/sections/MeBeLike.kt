@@ -156,10 +156,10 @@ private fun BunchOfReferences() {
 @Composable
 fun MeBeLike() {
     Div(firstSectionStyle.toAttrs()) {
-        Pfp(
-            "https://cdn.discordapp.com/avatars/491212588768821281/49242a69cf9e0f614ce44c259b8749a1.webp?size=256",
-            "Real (real) name: Antoinette C."
-        )
+//        Pfp(
+//            "https://cdn.discordapp.com/avatars/491212588768821281/49242a69cf9e0f614ce44c259b8749a1.webp?size=256",
+//            "Real (real) name: Antoinette C."
+//        )
         BunchOfReferences()
     }
 }
