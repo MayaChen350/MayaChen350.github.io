@@ -11,13 +11,14 @@ import org.w3c.dom.Text
 
 @Composable
 fun Poems() {
-    var poems: Poems by remember { mutableStateOf(listOf(listOf(""))) }
+    var poems: Poems by remember { mutableStateOf(arrayOf(arrayOf(""))) }
     var poemIndex by remember { mutableStateOf(0) }
 
     var buttonStates by remember { mutableStateOf(false to true) }
 
     LaunchedEffect(Unit) {
-        poems = fetchPoems()
+        poems = fetchPoems().also { console.log(it) }
+        console.log(poems)
     }
 
     LaunchedEffect(poemIndex) {
@@ -36,7 +37,6 @@ fun Poems() {
                 Text(it)
             }
         }
-        Text(poems[poemIndex][1])
 
         IconButton(
             onClick = {

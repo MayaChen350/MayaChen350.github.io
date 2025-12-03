@@ -9,10 +9,12 @@ import androidx.compose.runtime.setValue
 import com.varabyte.kobweb.compose.css.BackgroundSize
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.TextAlign
+import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
+import com.varabyte.kobweb.silk.components.forms.Button
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.toAttrs
@@ -80,14 +82,15 @@ enum class WallOfStuffState {
 
 @Composable
 fun wallOfStuff() {
-    var state: WallOfStuffState by remember { mutableStateOf(WallOfStuffState.POEMS) }
+    var state: WallOfStuffState by remember { mutableStateOf(WallOfStuffState.INTERESTS) }
     val scope = rememberCoroutineScope()
 
     Section {
         when (state) {
-            WallOfStuffState.INTERESTS -> {
+            WallOfStuffState.INTERESTS -> Column {
                 SpanText(
-                    "Interests", Modifier
+                    "Interests",
+                    Modifier
                         .textAlign(TextAlign.Center)
                         .color(SitePalette.primaryColor)
                         .fontSize(3.cssRem)
@@ -95,10 +98,10 @@ fun wallOfStuff() {
                             top(4.cssRem)
                             bottom(4.cssRem)
                         }
+                        .fillMaxWidth()
 //            .background {
 //                color(Colors.Black)
 //            }
-                        .fillMaxWidth()
                 )
 
                 Ul(wallOfStuffStyle.toAttrs()) {
@@ -112,11 +115,11 @@ fun wallOfStuff() {
         }
     }
 
-    IconButton(
+    Button(
         onClick = {
-            scope.launch {
+//            scope.launch {
                 state = WallOfStuffState.INTERESTS
-            }
+//            }
         }
     ) {
         Text("Click here")
