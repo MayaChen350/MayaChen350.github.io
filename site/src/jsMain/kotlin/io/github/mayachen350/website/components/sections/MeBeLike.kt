@@ -17,7 +17,7 @@ import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.style.toAttrs
 import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.style.until
-import io.github.mayachen350.data.horribleIdeas
+import io.github.mayachen350.website.data.horribleIdeas
 import io.github.mayachen350.website.Fonts
 import io.github.mayachen350.website.SitePalette
 import org.jetbrains.compose.web.css.*

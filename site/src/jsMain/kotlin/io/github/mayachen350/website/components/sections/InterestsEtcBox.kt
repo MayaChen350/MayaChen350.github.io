@@ -18,7 +18,7 @@ import com.varabyte.kobweb.silk.components.forms.Button
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.toAttrs
-import io.github.mayachen350.data.interests
+import io.github.mayachen350.website.data.interests
 import io.github.mayachen350.website.Fonts
 import io.github.mayachen350.website.SitePalette
 import io.github.mayachen350.website.components.widgets.IconButton

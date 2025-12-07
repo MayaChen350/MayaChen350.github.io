@@ -1,4 +1,4 @@
-package io.github.mayachen350.data
+package io.github.mayachen350.website.data
 
 val interests: Array<String> = arrayOf(
     "Programming (duh!)",

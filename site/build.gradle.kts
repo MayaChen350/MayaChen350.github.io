@@ -1,12 +1,6 @@
 import com.varabyte.kobweb.gradle.application.util.configAsKobwebApplication
 import com.varabyte.kobweb.gradle.core.util.importCss
-import kotlinx.html.LinkAs
-import kotlinx.html.fetchLink
-import kotlinx.html.link
-import kotlinx.html.meta
-import kotlinx.html.style
-import kotlinx.html.unsafe
-import kotlinx.serialization.Serializable
+import kotlinx.html.*
 import kotlinx.serialization.json.Json
 import java.net.URL
 

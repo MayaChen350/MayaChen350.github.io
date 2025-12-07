@@ -2,8 +2,8 @@ package io.github.mayachen350.website.components.sections
 
 import androidx.compose.runtime.*
 import com.varabyte.kobweb.compose.foundation.layout.Column
-import io.github.mayachen350.data.Poems
-import io.github.mayachen350.data.fetchPoems
+import io.github.mayachen350.website.data.Poems
+import io.github.mayachen350.website.data.fetchPoems
 import io.github.mayachen350.website.components.widgets.IconButton
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.web.dom.P

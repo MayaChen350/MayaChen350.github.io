@@ -1,4 +1,4 @@
-package io.github.mayachen350.data
+package io.github.mayachen350.website.data
 
 import kotlinx.browser.window
 import kotlinx.coroutines.await

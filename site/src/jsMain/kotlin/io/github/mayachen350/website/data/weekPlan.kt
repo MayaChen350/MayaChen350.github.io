@@ -1,4 +1,4 @@
-package io.github.mayachen350.data
+package io.github.mayachen350.website.data
 
 val horribleIdeas: Array<String> = arrayOf(
     "Everything is going to be okay",
