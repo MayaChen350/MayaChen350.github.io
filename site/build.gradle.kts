@@ -98,7 +98,7 @@ tasks.register("buildPoems") {
     description = "Build poems list json"
 
     val poemsFile: String =
-        "https://raw.githubusercontent.com/MayaChen350/Mayascope/refs/heads/master/app/src/main/res/raw/poems.txt"
+        "https://raw.githubusercontent.com/MayaChen350/Mayascope/refs/heads/master/composeApp/src/commonMain/composeResources/files/poems.txt"
     val selectedPoemIndexes: IntArray = intArrayOf(1, 2, 3, 4, 5).map { it - 1 }.toIntArray()
 
     File(projectDir, "src/jsMain/resources/public/data/selected_poems.json").run {
