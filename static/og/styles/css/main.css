@@ -258,7 +258,7 @@ header aside.lastfm div a {
 }
 .left-side .dog .milo,
 .left-side .dog img {
-  background-image: url(/images/doggo/20240114_162341b.jpg);
+  background-image: url(/static/og/images/doggo/20240114_162341b.jpg);
   height: 18rem;
   width: 309px;
   border: 2px var(--accent-color-2) solid;
