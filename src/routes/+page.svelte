@@ -4,6 +4,36 @@
     import TheRest from "$lib/sections/TheRest.svelte";
 </script>
 
+<style>
+    :global body {
+        background-color: rgb(9, 9, 9);
+        font-family: "Quintessential", sans-serif;
+        font-size: 1.8rem;
+        color: #efc256;
+    }
+
+
+    #cursed-thing {
+        position: fixed;
+        height: 100%;
+        right: 0;
+        z-index: -1;
+
+        width: 100%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-image: linear-gradient(315deg, rgb(230, 180, 52), rgb(9, 9, 9) 40%);
+
+        @media (min-width: 600px) and (max-width: 1280px) {
+            background-image: linear-gradient(315deg, rgb(230, 180, 52), rgb(9, 9, 9) 60%);
+        }
+
+        @media (min-width: 1280px) {
+            width: 70%;
+        }
+    }
+</style>
+
 <svelte:head>
     <title>Maya's page</title>
     <meta content="My page!!! Did you know that in terms of computer science, Porygon is..." name="description">
@@ -25,6 +55,7 @@
     </style>
 </svelte:head>
 
+<div id="cursed-thing"></div>
 <Lastfm/>
 <Profile/>
 <TheRest/>
