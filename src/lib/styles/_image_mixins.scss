@@ -1,0 +1,19 @@
+@mixin image-size(
+    $width: auto,
+    $height: auto,
+    $circle: false,
+    $square: false,
+    $size: 0
+) {
+    width: $width;
+    height: $height;
+
+    @if $circle == true {
+        border-radius: 50%;
+    }
+
+    @if $square {
+        height: $size;
+        width: $size;
+    }
+}
