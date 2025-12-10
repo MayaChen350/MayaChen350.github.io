@@ -3,11 +3,18 @@
     import {onMount} from "svelte";
 
     // Last song listened to, powered by Last.fm (My beloved)
-    let promisedData = $state(getRecentTracks());
+    let data = $state({
+        albumImageLink: "/og/images/svg/loading.svg",
+        isPlayingSong: false,
+        recentTrackName: "Loading...",
+        recentTrackArtist: "Loading...",
+        trackUrl: "Loading..."
+    });
 
-    onMount(() => {
-        setInterval(() => {
-                promisedData = getRecentTracks()
+    onMount(async () => {
+        data = await getRecentTracks()
+        setInterval(async () => {
+                data = await getRecentTracks()
             },
             30000);
     })
@@ -70,25 +77,16 @@
 </style>
 
 <div id="lastfm">
-    {#await promisedData}
-        <img id="album-image" src="/og/images/svg/loading.svg" alt="album artwork"/>
-        <div id="now-playing">
-            <p id="time-of-listen">Loading...</p>
-            <p id="recent-song-track"><a id="track-url">Loading track name...</a></p>
-            <p id="recent-song-artist">Loading artist...</p>
-        </div>
-    {:then data}
-        <img id="album-image" src={data.albumImageLink} alt="album artwork"/>
-        <div id="now-playing">
-            <p id="time-of-listen">
-                {#if data.isPlayingSong}
-                    Right now I'm listening to:
-                {:else}
-                    Last song I listened to:
-                {/if}
-            </p>
-            <p id="recent-song-track"><a id="track-url" href={data.trackUrl}>{data.recentTrackName}</a></p>
-            <p id="recent-song-artist">By {data.recentTrackArtist}</p>
-        </div>
-    {/await}
+    <img id="album-image" src={data.albumImageLink} alt="album artwork"/>
+    <div id="now-playing">
+        <p id="time-of-listen">
+            {#if data.isPlayingSong}
+                Right now I'm listening to:
+            {:else}
+                Last song I listened to:
+            {/if}
+        </p>
+        <p id="recent-song-track"><a id="track-url" href={data.trackUrl}>{data.recentTrackName}</a></p>
+        <p id="recent-song-artist">By {data.recentTrackArtist}</p>
+    </div>
 </div>

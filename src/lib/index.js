@@ -17,3 +17,16 @@ export async function getRecentTracks() {
         trackUrl: mostRecentTrack.url
     };
 }
+
+export async function getDiscordPfp() {
+    const response = await fetch(
+        "https://api.lanyard.rest/v1/users/491212588768821281"
+    );
+
+    const text = await response.text();
+    const json = JSON.parse(text);
+
+    const avatarID = json.data.discord_user.avatar;
+
+    return "https://cdn.discordapp.com/avatars/491212588768821281/" + avatarID + ".webp?size=256";
+}
