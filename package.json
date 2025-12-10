@@ -23,6 +23,7 @@
 		"vite": "^7.2.2"
 	},
 	"dependencies": {
-		"@sveltejs/adapter-static": "^3.0.10"
+		"@sveltejs/adapter-static": "^3.0.10",
+		"lodash": "^4.17.21"
 	}
 }

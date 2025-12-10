@@ -18,6 +18,8 @@
             },
             30000);
     })
+
+    // TODO: Text size depending of the text length
 </script>
 
 <style>

@@ -6,23 +6,53 @@
 <style>
     #first-section {
         width: 100%;
-        
-        @media (min-width: 960px) {
-            display: flex;
-            align-items: flex-start;
-            flex-direction: row;
+
+
+        #bio {
+            font-size: 1.95rem;
+
+            @media (max-width: 750px) {
+                font-size: 2.8rem;
+                font-weight: bold;
+                /*background-color: rgb(25, 22, 17);*/
+                color: ghostwhite;
+                padding: 3rem 7rem;
+                /*border-top: dotted 0.2rem rgb(239, 194, 86);*/
+                border-bottom: dotted 0.2rem rgb(239, 194, 86);
+            }
         }
 
-        :global(#profile) {
-            flex-grow: 1;
-        }
-        :global(#list-things) {
-            flex-grow: 3;
+        header {
+            @media (min-width: 750px) {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: row;
+
+                #bio {
+                    font-size: 2.7rem;
+                    padding: 3rem 3rem;
+
+                    p {
+                        max-width: 60rem;
+                    }
+                }
+            }
         }
     }
 </style>
 
 <div id="first-section">
-    <Pfp className=".pfp"/>
-    <ListThingie  />
+    <header>
+        <Pfp/>
+        <div id="bio">
+            <h2 style="font-size:1.29rem;text-align:start">About me</h2>
+            <p>My name is Maya.</p>
+            <br/>
+            <p>20 years old, programmer and transfem in my free time.</p>
+            <br/>
+            <p>You might also know me as a BIG fan of NiN, of Persona, or functional programming.</p>
+        </div>
+    </header>
+    <ListThingie/>
 </div>

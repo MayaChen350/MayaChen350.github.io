@@ -12,6 +12,17 @@
         color: #efc256;
     }
 
+    :has(> #the-content) {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #the-content {
+        width: 100%;
+        max-width: 900px;
+    }
 
     #cursed-thing {
         position: fixed;
@@ -57,5 +68,9 @@
 
 <div id="cursed-thing"></div>
 <Lastfm/>
-<Profile/>
-<TheRest/>
+<div>
+    <div id="the-content">
+        <Profile/>
+        <TheRest/>
+    </div>
+</div>

@@ -30,7 +30,7 @@
         setInterval(() => {
             socMediaIndex = socMediaIndex !== socialMedias.length - 1 ? socMediaIndex + 1 : 0;
             currSocMedia = socialMedias[socMediaIndex];
-        }, 10000)
+        }, 5000)
     })
 
 </script>
@@ -48,24 +48,13 @@
         text-align: center;
         font-size: 2rem;
 
-        /*display: flex;*/
-        /*flex-direction: column;*/
-        /*align-self: start;*/
-        /*align-items: center;*/
-
         padding: 1.5rem 0 0;
-        border-bottom-color: rgb(24, 131, 255);
-        border-bottom-style: hidden;
 
         img {
             width: 25rem;
             height: 25rem;
             border-radius: 50%;
         }
-
-        /*p {*/
-        /*    padding-top: 1.5rem;*/
-        /*}*/
     }
 </style>
 
