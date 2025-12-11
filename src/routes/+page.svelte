@@ -46,6 +46,7 @@
 </style>
 
 <svelte:head>
+    <base href="/"/>
     <title>Maya's page</title>
     <meta content="My page!!! Did you know that in terms of computer science, Porygon is..." name="description">
     <link href="/reset.css" rel="stylesheet"/>

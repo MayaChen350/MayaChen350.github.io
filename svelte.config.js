@@ -1,13 +1,7 @@
 import adapter from '@sveltejs/adapter-static';
-import {scss, sveltePreprocess} from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-    preprocess: sveltePreprocess({
-        scss: {
-
-        }
-    }),
     kit: {
         adapter: adapter({
             fallback: '404.html'

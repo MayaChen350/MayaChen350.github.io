@@ -8,7 +8,7 @@
         isPlayingSong: false,
         recentTrackName: "Loading...",
         recentTrackArtist: "Loading...",
-        trackUrl: "Loading..."
+        trackUrl: null
     });
 
     onMount(async () => {
