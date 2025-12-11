@@ -24,12 +24,16 @@
         color: ghostwhite;
         background-color: rgb(25, 22, 17);
 
+        @media (max-width: 900px) {
+            border-top: dotted 0.2rem rgb(239, 194, 86);
+            border-bottom: dotted 0.2rem rgb(239, 194, 86);
+        }
+
 
         @media (min-width: 900px) {
             border: 1px ridge rgb(239, 194, 86);
             border-radius: 20px;
         }
-
 
 
         h2 {

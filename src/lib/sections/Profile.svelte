@@ -17,8 +17,6 @@
                 /*background-color: rgb(25, 22, 17);*/
                 color: ghostwhite;
                 padding: 3rem 7rem;
-                /*border-top: dotted 0.2rem rgb(239, 194, 86);*/
-                border-bottom: dotted 0.2rem rgb(239, 194, 86);
             }
         }
 
