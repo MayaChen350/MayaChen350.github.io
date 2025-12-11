@@ -11,15 +11,31 @@
         trackUrl: null
     });
 
+    // Text size depending of the text length
+    let titleClassName = $state("")
+
+    async function setData() {
+        let result = await getRecentTracks()
+
+        if (result === data) return;
+
+        if (result.recentTrackName.length >= 25) {
+            console.log(result)
+            titleClassName = "last-fm-text-gt25"
+        } else if (result.recentTrackName.length >= 15)
+            titleClassName = "last-fm-text-gt15"
+        else
+            titleClassName = ""
+        data = result
+    }
+
     onMount(async () => {
-        data = await getRecentTracks()
+        await setData()
         setInterval(async () => {
-                data = await getRecentTracks()
+                await setData()
             },
             30000);
     })
-
-    // TODO: Text size depending of the text length
 </script>
 
 <style>
@@ -76,11 +92,47 @@
             }
         }
     }
+
+    /*Styles directly from the kobweb branch*/
+    /*https://github.com/MayaChen350/MayaChen350.github.io/blob/5eefe11b9758d93869e1b652c8a318f7caca5116/site/src/jsMain/kotlin/io/github/mayachen350/website/components/sections/Header.kt*/
+
+    /*Text length based classes:*/
+
+    .last-fm-text-gt25 {
+        p {
+            font-size: 1.15rem !important;
+        }
+
+        h3 {
+            letter-spacing: 0 !important;
+
+            @media (max-width: 1280px) {
+                font-size: 2rem !important;
+            }
+
+            @media (max-width: 960px) {
+                font-size: 1.5rem !important;
+            }
+        }
+    }
+
+    .last-fm-text-gt15 {
+        @media (max-width: 960px) {
+            p {
+                font-size: 1.25rem !important;
+            }
+
+            h3 {
+                font-size: 2.15rem !important;
+                letter-spacing: 0 !important;
+            }
+        }
+    }
 </style>
 
 <div id="lastfm">
     <img id="album-image" src={data.albumImageLink} alt="album artwork"/>
-    <div id="now-playing">
+    <div id="now-playing" class={titleClassName !== "" ? titleClassName : ""}>
         <p id="time-of-listen">
             {#if data.isPlayingSong}
                 Right now I'm listening to:
@@ -88,7 +140,9 @@
                 Last song I listened to:
             {/if}
         </p>
-        <p id="recent-song-track"><a id="track-url" href={data.trackUrl}>{data.recentTrackName}</a></p>
+        <h3 id="recent-song-track">
+            <a id="track-url" href={data.trackUrl}>{data.recentTrackName}</a>
+        </h3>
         <p id="recent-song-artist">By {data.recentTrackArtist}</p>
     </div>
 </div>
