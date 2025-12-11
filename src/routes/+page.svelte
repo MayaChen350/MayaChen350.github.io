@@ -24,15 +24,14 @@
         max-width: 900px;
     }
 
+    /*Secret thing behind the background's functioning*/
     #cursed-thing {
         position: fixed;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
         right: 0;
         z-index: -1;
 
-        width: 100%;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
         background-image: linear-gradient(315deg, rgb(230, 180, 52), rgb(9, 9, 9) 40%);
 
         @media (min-width: 600px) and (max-width: 1280px) {
@@ -41,6 +40,7 @@
 
         @media (min-width: 1280px) {
             width: 70%;
+            background-image: linear-gradient(315deg, rgb(230, 180, 52), rgb(9, 9, 9) 40%);
         }
     }
 </style>
