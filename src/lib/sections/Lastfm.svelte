@@ -20,7 +20,7 @@
         if (result === data) return;
 
         if (result.recentTrackName.length >= 25) {
-            console.log(result)
+            // console.log(result)
             titleClassName = "last-fm-text-gt25"
         } else if (result.recentTrackName.length >= 15)
             titleClassName = "last-fm-text-gt15"
