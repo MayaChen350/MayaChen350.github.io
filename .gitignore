@@ -21,3 +21,8 @@ Thumbs.db
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# My stuff
+
+# get this file with scripts/getJsonPoems.py
+selected_poems.json
