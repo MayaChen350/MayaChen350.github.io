@@ -11,31 +11,56 @@
     ]
     let currentMainContent = $state(mainContents[0]);
 
-    const menu = ["Interests", "Projects", "Poems"]
-    let menuIndex = $state(0)
-
-    // Fade in and out Animations
-    let animateClasses = $state([])
-    let setNewContentLock = false;
-
-    function setNewContent(newContent, whichButton) {
-        if (setNewContentLock) return;
-
-        animateClasses.push("anime-menu");
-        setTimeout(() => {
-                setNewMenu(whichButton);
-                currentMainContent = newContent
-                animateClasses.pop();
-            }, 1000
-        )
-    }
-
     // Menu buttons
     const WhichButton = Object.freeze({
         LEFT: 0,
         RIGHT: 1,
     })
 
+    const menu = ["Interests", "Projects", "Poems"]
+    let menuIndex = $state(0)
+
+    // Fade in and out Animations
+    const leftRightClasses = Object.freeze({
+        animation: ["anime-menu-left", "anime-menu-right"],
+        coming: ["coming-from-left", "coming-from-right"],
+    })
+    let animateClasses = $state([""])
+    let buttonFunctionmentLocks = {animationing: false, uncloseting: false, transitioning: false};
+
+    // Saving data in variables because im lazy
+    let lastContentIndex = 0;
+    /** @type {0|1} */
+    let lastButtonPressed = WhichButton.LEFT;
+
+    /**
+     * @param {number} newContentIndex
+     * @param {0|1} whichButton
+     */
+    function wipeContent(newContentIndex, whichButton) {
+        if (buttonFunctionmentLocks.animationing || buttonFunctionmentLocks.uncloseting ||
+            buttonFunctionmentLocks.transitioning) return;
+        buttonFunctionmentLocks.animationing = true;
+        buttonFunctionmentLocks.uncloseting = true;
+        buttonFunctionmentLocks.transitioning = true;
+
+
+        animateClasses = [leftRightClasses.animation[whichButton]];
+
+        // The set content is called at ontransitionend
+        lastContentIndex = newContentIndex;
+        lastButtonPressed = whichButton;
+    }
+
+    function setContent() {
+        animateClasses = [leftRightClasses.coming[lastButtonPressed]];
+        setNewMenu(lastButtonPressed);
+        currentMainContent = mainContents[lastContentIndex]
+    }
+
+    /**
+     * @param {0|1|null} whichButton
+     */
     function setNewMenu(whichButton) {
         if (whichButton === WhichButton.LEFT)
             menuIndex = menuIndex !== 0 ? menuIndex - 1 : menu.length - 1;
@@ -49,6 +74,13 @@
         0% {
             opacity: 0;
             left: -10%;
+        }
+    }
+
+    @keyframes slide-left {
+        0% {
+            opacity: 0;
+            left: 10%;
         }
     }
 
@@ -66,7 +98,7 @@
             align-items: center;
 
             button {
-                transition: 0.2s font-size;
+                transition-property: opacity;
                 font-size: 2.0rem;
                 text-decoration: underline solid ghostwhite;
 
@@ -76,19 +108,17 @@
                 }
 
                 position: relative;
-                left: 0;
 
-                &.anime-menu {
+                &.anime-menu-left, &.anime-menu-right {
                     font-size: 2.0rem;
                     opacity: 0;
-                    transition: opacity;
                     transition-duration: 0.5s;
+                    left: 0 !important;
                 }
 
-                &:not(.anime-menu) {
-                    transition: opacity;
-                    transition-delay: 1s;
-                    transition-duration: 1s;
+                &.coming-from-left, &.coming-from-right {
+                    transition-delay: 1s !important;
+                    transition-duration: 0.8s !important;
                     animation: none !important;
                 }
             }
@@ -96,34 +126,45 @@
             h2 {
                 position: relative;
                 left: 0;
+                right: 0;
                 font-size: 4.6rem;
-
-                &.anime-menu {
-                    left: 5%;
-                    opacity: 0;
-                    transition: opacity, left;
-                    transition-duration: 1s;
-                }
             }
         }
 
         #the-actual-content {
             position: relative;
             left: 0;
+            right: 0;
             font-size: 4.6rem;
-
-            &.anime-menu {
-                left: 5%;
-                opacity: 0;
-                transition: opacity, left;
-                transition-duration: 1s;
-            }
         }
 
-        :global(:not(.anime-menu)) {
+        :global(.anime-menu-left, .anime-menu-right) {
+            opacity: 0;
+            transition-duration: 1s;
+        }
+
+        :global(.anime-menu-left) {
+            left: 5%;
+            transition-property: opacity, left;
+        }
+
+        :global(.anime-menu-right) {
+            right: 5%;
+            transition-property: opacity, right;
+        }
+
+        :global(.coming-from-left, .coming-from-right) {
             transition: opacity;
-            transition-duration: 0.5s;
-            animation: slide-right 1.5s 1 0s normal ease none;
+            animation-duration: 1.5s;
+            animation-timing-function: ease;
+        }
+
+        :global(.coming-from-left) {
+            animation-name: slide-left;
+        }
+
+        :global(.coming-from-right) {
+            animation-name: slide-right;
         }
     }
 </style>
@@ -132,19 +173,26 @@
 <main>
     <div id="content-menu">
         <button class={animateClasses}
-                onclick={() => setNewContent(mainContents[menuIndex !== 0 ? menuIndex - 1 : menu.length - 1],  WhichButton.LEFT)}>
+                onclick={() => wipeContent(menuIndex !== 0 ? menuIndex - 1 : menu.length - 1,  WhichButton.LEFT)}
+                ontransitionend={() => {
+                    // Dual-lock system (that sounds very cool fr)
+                    if (!buttonFunctionmentLocks.uncloseting)
+                        buttonFunctionmentLocks.transitioning = false;
+                    else buttonFunctionmentLocks.uncloseting = false;
+                }}>
             {menu[menuIndex !== 0 ? menuIndex - 1 : menu.length - 1]}
         </button>
         <h2 class={animateClasses}>
             {menu[menuIndex]}
         </h2>
         <button class={animateClasses}
-                onclick={() => setNewContent(mainContents[menuIndex !== menu.length - 1 ? menuIndex + 1 : 0]/*, WhichButton.RIGHT*/)}>
+                onclick={() => wipeContent(menuIndex !== menu.length - 1 ? menuIndex + 1 : 0, WhichButton.RIGHT)}>
             {menu[menuIndex !== menu.length - 1 ? menuIndex + 1 : 0]}
         </button>
     </div>
-    <span ontransitionstart={() => setNewContentLock = true}
-          onanimationend={() => setNewContentLock = false}
+    <span ontransitionstart={() => buttonFunctionmentLocks.transitioning = true}
+          ontransitionend={() => setContent()}
+          onanimationend={() => buttonFunctionmentLocks.animationing = false}
           id="the-actual-content"
           class={animateClasses}>
         {@render currentMainContent()}
