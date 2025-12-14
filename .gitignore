@@ -26,3 +26,5 @@ vite.config.ts.timestamp-*
 
 # get this file with scripts/getJsonPoems.py
 selected_poems.json
+# get this file with scripts/getNumerals.py
+roman_num_poems.json
