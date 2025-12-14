@@ -10,7 +10,7 @@
         ListThingie,
         Poems
     ]
-    let currentMainContent = $state(mainContents[2]);
+    let currentMainContent = $state(mainContents[0]);
 
     // Menu buttons
     const WhichButton = Object.freeze({
@@ -19,7 +19,9 @@
     })
 
     const menu = ["Interests", "Projects", "Poems"]
-    let menuIndex = $state(2)
+    const menuSubtitle = ["Quirky arrangement of the things I like", "Amazing things you should check out right now fr", "Selection of the favorite poems I've written"]
+
+    let menuIndex = $state(0)
     let menuIndexDec = $derived(rotatingDec(menuIndex, menu.length))
     let menuIndexInc = $derived(rotatingInc(menuIndex, menu.length))
 
@@ -88,8 +90,6 @@
     }
 
     main {
-        padding-bottom: 3rem;
-
         #content-menu {
             color: ghostwhite;
             font-weight: 800;
@@ -104,6 +104,7 @@
                 transition-property: opacity;
                 font-size: 2.0rem;
                 text-decoration: underline solid ghostwhite;
+                cursor: pointer;
 
                 &:hover {
                     font-size: 2.8rem;
@@ -126,11 +127,14 @@
                 }
             }
 
-            h2 {
+            #content-title {
                 position: relative;
                 left: 0;
                 right: 0;
-                font-size: 4.6rem;
+
+                h2 {
+                    font-size: 4.6rem;
+                }
             }
         }
 
@@ -184,9 +188,12 @@
                 }}>
             {menu[menuIndexDec]}
         </button>
-        <h2 class={animateClasses}>
-            {menu[menuIndex]}
-        </h2>
+        <div id="content-title" class={animateClasses}>
+            <h2>
+                {menu[menuIndex]}
+            </h2>
+            <h4 id="menu-subtitle">{menuSubtitle[menuIndex]}</h4>
+        </div>
         <button class={animateClasses}
                 onclick={() => wipeContent(menuIndex !== menu.length - 1 ? menuIndex + 1 : 0, WhichButton.RIGHT)}>
             {menu[menuIndexInc]}

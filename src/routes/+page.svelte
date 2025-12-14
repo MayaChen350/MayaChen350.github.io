@@ -2,6 +2,7 @@
     import Lastfm from "$lib/sections/Lastfm.svelte";
     import Profile from "$lib/sections/Profile.svelte";
     import TheRest from "$lib/sections/TheRest.svelte";
+    import Footer from "$lib/sections/Footer.svelte";
 </script>
 
 <style>
@@ -73,6 +74,6 @@
     <div id="the-content">
         <Profile/>
         <TheRest/>
-        <!--TODO: Footer-->
+        <Footer/>
     </div>
 </div>
