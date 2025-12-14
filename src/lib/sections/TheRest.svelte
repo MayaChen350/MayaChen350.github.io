@@ -1,15 +1,16 @@
 <script>
     import Interests from "$lib/sections/mainContent/Interests.svelte"
     import ListThingie from "$lib/sections/profile/ListThingie.svelte";
-    import Pfp from "$lib/sections/profile/Pfp.svelte";
+    import Poems from "$lib/sections/mainContent/Poems.svelte";
+    import {rotatingDec, rotatingInc} from "$lib/utils.js";
 
     // Content things
     const mainContents = [
         Interests,
         ListThingie,
-        Pfp
+        Poems
     ]
-    let currentMainContent = $state(mainContents[0]);
+    let currentMainContent = $state(mainContents[2]);
 
     // Menu buttons
     const WhichButton = Object.freeze({
@@ -18,7 +19,9 @@
     })
 
     const menu = ["Interests", "Projects", "Poems"]
-    let menuIndex = $state(0)
+    let menuIndex = $state(2)
+    let menuIndexDec = $derived(rotatingDec(menuIndex, menu.length))
+    let menuIndexInc = $derived(rotatingInc(menuIndex, menu.length))
 
     // Fade in and out Animations
     const leftRightClasses = Object.freeze({
@@ -169,7 +172,6 @@
     }
 </style>
 
-<!--suppress JSValidateTypes -->
 <main>
     <div id="content-menu">
         <button class={animateClasses}
@@ -180,16 +182,17 @@
                         buttonFunctionmentLocks.transitioning = false;
                     else buttonFunctionmentLocks.uncloseting = false;
                 }}>
-            {menu[menuIndex !== 0 ? menuIndex - 1 : menu.length - 1]}
+            {menu[menuIndexDec]}
         </button>
         <h2 class={animateClasses}>
             {menu[menuIndex]}
         </h2>
         <button class={animateClasses}
                 onclick={() => wipeContent(menuIndex !== menu.length - 1 ? menuIndex + 1 : 0, WhichButton.RIGHT)}>
-            {menu[menuIndex !== menu.length - 1 ? menuIndex + 1 : 0]}
+            {menu[menuIndexInc]}
         </button>
     </div>
+    <!--suppress JSValidateTypes -->
     <span ontransitionstart={() => buttonFunctionmentLocks.transitioning = true}
           ontransitionend={() => setContent()}
           onanimationend={() => buttonFunctionmentLocks.animationing = false}
