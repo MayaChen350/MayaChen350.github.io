@@ -18,7 +18,7 @@ node_modules: package-lock.json
 package-lock.json: package.json
 	npm install
 
-$(BUILD_DIR): $(GEN_POEMS) $(GEN_ROMAN)
+$(BUILD_DIR): $(shell find src/ -type f) $(shell find static/ -type f) svelte.config.js vite.config.js $(GEN_POEMS) $(GEN_ROMAN)
 	npm run build
 
 $(GEN_POEMS): $(POEMS_SCRIPT) $(SHARED_SCRIPT)

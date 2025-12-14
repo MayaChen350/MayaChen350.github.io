@@ -43,7 +43,7 @@ if selectedPoemNumbers:
         romanNumbers.append(to_roman_numeral(poemNum))
 else:
     for i in range(len(poems)):
-        romanNumbers.append(to_roman_numeral(i))
+        romanNumbers.append(to_roman_numeral(i + 1))
 
 
 with open(romanNumFilePath, "x") as f:

@@ -73,5 +73,6 @@
     <div id="the-content">
         <Profile/>
         <TheRest/>
+        <!--TODO: Footer-->
     </div>
 </div>
