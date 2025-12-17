@@ -1,13 +1,13 @@
 <script>
     import Interests from "$lib/sections/mainContent/Interests.svelte"
-    import ListThingie from "$lib/sections/profile/ListThingie.svelte";
     import Poems from "$lib/sections/mainContent/Poems.svelte";
     import {rotatingDec, rotatingInc} from "$lib/utils.js";
+    import Projects from "$lib/sections/mainContent/Projects.svelte";
 
     // Content things
     const mainContents = [
         Interests,
-        ListThingie,
+        Projects,
         Poems
     ]
     let currentMainContent = $state(mainContents[0]);
