@@ -1,11 +1,15 @@
 <script>
     import dailyReferences from '$lib/data/daily_references.json' with {type: 'json'}
-    import pkg from "lodash/collection.js";
+    import lodashColl from "lodash/collection.js";
+    import lodash from "lodash";
 
-    const {shuffle} = pkg;
+    const {shuffle} = lodashColl;
+    const {random} = lodash;
 
     const days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
-    const listThings = shuffle(dailyReferences).slice(0, 7);
+    const listThings = random(0, dailyReferences.length) === 1
+        ? Array.from({length: 7}, () => "Everyday is exactly the same")
+        : shuffle(dailyReferences).slice(0, 7);
 </script>
 
 <style>
@@ -41,6 +45,11 @@
             font-weight: 700;
         }
 
+        h3 {
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
         ul {
             font-size: 2rem;
         }
@@ -53,6 +62,10 @@
 
             h2 {
                 font-size: 3rem;
+            }
+
+            h3 {
+                text-align: start;
                 padding-bottom: 1rem;
             }
         }
@@ -60,7 +73,10 @@
 </style>
 
 <div id="list-things">
-    <h2>Week Plan</h2>
+    <div>
+        <h2>Week Plan</h2>
+        <h3>Or something</h3>
+    </div>
     <ul>
         {#each listThings as thing, i}
             <li>{days[i]}: {thing}</li>

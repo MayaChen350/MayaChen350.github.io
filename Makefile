@@ -10,16 +10,16 @@ POEMS_SCRIPT := $(SCRIPT_DIR)/getJsonPoems.py
 ROMAN_SCRIPT := $(SCRIPT_DIR)/getNumerals.py
 SHARED_SCRIPT := $(SCRIPT_DIR)/shared.py
 
-all: $(BUILD_DIR) node_modules
+all: $(BUILD_DIR)
 
-node_modules: package-lock.json
+$(BUILD_DIR): $(shell find src/ -type f) $(shell find static/ -type f) svelte.config.js vite.config.js $(GEN_POEMS) $(GEN_ROMAN) node_modules/
+	npm run build
+
+node_modules/: package-lock.json
 	npm ci
 
 package-lock.json: package.json
 	npm install
-
-$(BUILD_DIR): $(shell find src/ -type f) $(shell find static/ -type f) svelte.config.js vite.config.js $(GEN_POEMS) $(GEN_ROMAN)
-	npm run build
 
 $(GEN_POEMS): $(POEMS_SCRIPT) $(SHARED_SCRIPT)
 	rm -f $(GEN_POEMS)

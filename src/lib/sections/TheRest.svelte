@@ -135,6 +135,12 @@
                 h2 {
                     font-size: 4.6rem;
                 }
+
+                @media (max-width: 750px) {
+                    #menu-subtitle {
+                        font-size: 1.49rem;
+                    }
+                }
             }
         }
 

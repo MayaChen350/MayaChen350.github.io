@@ -6,7 +6,7 @@
     onMount(() => {
             // Make the list finish by a third element always
             switch (interests.length % 3) {
-                case 0:
+                case 2:
                     allInterests.push("Other stuff")
                     break;
                 case 1:
@@ -28,15 +28,20 @@
     }
 
     ul {
-        font-size: 3rem;
+        padding-top: 5rem;
+        font-size: 2.7rem;
         text-align: center;
 
         column-count: 2;
 
         :nth-child(3n) {
-            padding: 2rem 0;
+            padding: 3.5rem 0;
             column-span: all;
             justify-content: center;
+        }
+
+        @media (min-width: 750px) {
+            font-size: 3rem;
         }
     }
 </style>

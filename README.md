@@ -1,38 +1,16 @@
-# sv
+# MayaChen350.github.io
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+My personal website
 
-## Creating a project
+The dev build is usually published at:  
+https://rococo-lokum-952aca.netlify.app/
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Build
 
-```sh
-# create a new project in the current directory
-npx sv create
+To build the webste, if your system allows it, runs `make`.
 
-# create a new project in my-app
-npx sv create my-app
-```
+Otherwise, do those steps:
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+1. Run `python` on `scripts/getJsonPoems.py` and `scripts/getNumerals.py`
+2. Run `npm install`
+3. Run `npm run build` if you want the static webpage or `npm run dev` 

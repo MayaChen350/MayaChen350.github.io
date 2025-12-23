@@ -1,6 +1,6 @@
 import requests
 
-selectedPoemNumbers = [8, 30, 31, 41, 42, 43, 50, 51, 54, 55, 58, 63]
+selectedPoemNumbers = [8, 29, 30, 40, 41, 42, 49, 50, 53, 54, 57, 62]
 # selectedPoemNumbers = None
 
 poemsFileLink = "https://raw.githubusercontent.com/MayaChen350/Mayascope/refs/heads/master/composeApp/src/commonMain/composeResources/files/poems.txt"

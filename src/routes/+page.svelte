@@ -47,10 +47,9 @@
 </style>
 
 <svelte:head>
-    <base href="/"/>
     <title>Maya's page</title>
     <meta content="My page!!! Did you know that in terms of computer science, Porygon is..." name="description">
-    <link href="/reset.css" rel="stylesheet"/>
+    <link href="reset.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono&amp;display=swapfamily=Nunito+Sans:wght@200&amp;family=Sacramento&amp;display=swap&amp;family=Lumanosimo&amp;family=Quintessential&amp;display=swap"
