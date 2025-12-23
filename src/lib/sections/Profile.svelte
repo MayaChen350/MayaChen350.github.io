@@ -36,21 +36,24 @@
                     }
                 }
             }
+
+            p:not(:last-child) {
+                margin-bottom: 4.2rem;
+            }
         }
     }
 </style>
 
-<div id="first-section">
+<section id="first-section">
     <header>
         <Pfp/>
-        <div id="bio">
+        <article id="bio">
             <h2 style="font-size:1.29rem;text-align:start">About me</h2>
-            <p>My name is Maya.</p>
-            <br/>
-            <p>20 years old, programmer and transfem in my free time.</p>
-            <br/>
-            <p>You might also know me as a BIG fan of NiN, of Persona, or functional programming.</p>
-        </div>
+            <p>My name is <strong>Maya</strong>.</p>
+            <p>20 years old, programmer and <i>transfem</i> in my free time.</p>
+            <p>You might also know me as a BIG fan of <abbr title="Nine Inch Nails">NiN</abbr>, of Persona, or
+                <i>functional programming</i>.</p>
+        </article>
     </header>
     <ListThingie/>
-</div>
+</section>

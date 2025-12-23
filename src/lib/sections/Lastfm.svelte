@@ -130,19 +130,19 @@
     }
 </style>
 
-<div id="lastfm">
+<article id="lastfm">
     <img id="album-image" src={data.albumImageLink} alt="album artwork"/>
     <div id="now-playing" class={titleClassName !== "" ? titleClassName : ""}>
-        <p id="time-of-listen">
+        <h2 id="time-of-listen">
             {#if data.isPlayingSong}
                 Right now I'm listening to:
             {:else}
                 Last song I listened to:
             {/if}
-        </p>
-        <h3 id="recent-song-track">
+        </h2>
+        <strong id="recent-song-track">
             <a id="track-url" href={data.trackUrl}>{data.recentTrackName}</a>
-        </h3>
+        </strong>
         <p id="recent-song-artist">By {data.recentTrackArtist}</p>
     </div>
-</div>
+</article>

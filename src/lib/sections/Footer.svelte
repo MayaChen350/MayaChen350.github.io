@@ -3,7 +3,7 @@
 </script>
 
 <style>
-    footer {
+    nav {
         font-family: "Space Mono", monospace;
         font-size: 1.5rem;
         color: ghostwhite;
@@ -24,8 +24,12 @@
 </style>
 
 <footer>
-    <a title="Source code" href="https://github.com/MayaChen350/MayaChen350.github.io/tree/svelte">
-        <img alt="github logo" width="20" src={githubIcon}/></a>
-    <a title="See my original page and its design" href="/og/index.html">Older Page</a>
-    <a title="Copy my discord username" href="javascript:navigator.clipboard.writeText('@giratina_shiny')">Contact me!</a>
+    <nav>
+       <a title="Source code" href="https://github.com/MayaChen350/MayaChen350.github.io/tree/svelte">
+            <img alt="github logo" width="20" src={githubIcon}/></a>
+        <a title="See my original page and its design" href="/og/index.html">Older Page</a>
+        <a title="Copy my discord username" href="javascript:navigator.clipboard.writeText('@giratina_shiny')">
+            Contact me!
+        </a>
+    </nav>
 </footer>

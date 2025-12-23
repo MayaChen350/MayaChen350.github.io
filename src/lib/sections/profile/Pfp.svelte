@@ -58,7 +58,7 @@
     }
 </style>
 
-<div class="pfp" id="profile">
+<article class="pfp" id="profile">
     <img width="100%" height="100%" src={currSocMedia.pfp} alt="profile pic"/>
-    <p id="soc-username"><a href={currSocMedia.link}>{currSocMedia.name}: {currSocMedia.username}</a></p>
-</div>
+    <h2 id="soc-username"><a href={currSocMedia.link}>{currSocMedia.name}: {currSocMedia.username}</a></h2>
+</article>

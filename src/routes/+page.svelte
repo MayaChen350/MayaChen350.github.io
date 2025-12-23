@@ -48,18 +48,29 @@
 
 <svelte:head>
     <title>Maya's page</title>
-    <meta content="My page!!! Did you know that in terms of computer science, Porygon is..." name="description">
-    <link href="reset.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&amp;display=swapfamily=Nunito+Sans:wght@200&amp;family=Sacramento&amp;display=swap&amp;family=Lumanosimo&amp;family=Quintessential&amp;display=swap"
-          rel="stylesheet">
-    <meta content="light dark" name="color-scheme">
-    <meta content="Maya's page" name="og:title">
-    <meta content="unradical. yeah. ain't rocking. bogus" name="og:description">
-    <meta content="https://mayachen350.github.io" name="og:url">
-    <meta content="https://avatars.githubusercontent.com/u/145165822" name="og:image">
+    <meta name="description" content="MayaChen350's personal webpage">
+    <meta name="color-scheme" content="dark">
+
+    <!--Google Font-->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Space+Mono&amp;display=swapfamily=Nunito+Sans:wght@200&amp;family=Sacramento&amp;display=swap&amp;family=Lumanosimo&amp;family=Quintessential&amp;display=swap"
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+
+    <!--Open Graph (og)-->
+    <meta name="og:title" content="Maya's page">
+    <meta name="og:type" content="website">
+    <meta name="og:url" content="https://mayachen350.github.io">
+    <meta name="og:image" content="https://avatars.githubusercontent.com/u/145165822">
+    <meta name="og:description" content="unradical. yeah. ain't rocking. bogus">
+    <meta name="og:locale" content="en_CA">
+
+    <!--Discord embed-->
     <meta content="#efc256" data-react-helmet="true" name="theme-color">
+
+    <!--Reset css-->
+    <link rel="stylesheet" href="reset.css">
     <style>
         :root {
             font-size: 62.5%;
@@ -67,12 +78,12 @@
     </style>
 </svelte:head>
 
-<div id="cursed-thing"></div>
+<span id="cursed-thing"></span>
 <Lastfm/>
 <div>
-    <div id="the-content">
+    <main id="the-content">
         <Profile/>
         <TheRest/>
-        <Footer/>
-    </div>
+    </main>
+    <Footer/>
 </div>

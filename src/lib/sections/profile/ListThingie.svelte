@@ -72,14 +72,14 @@
     }
 </style>
 
-<div id="list-things">
-    <div>
+<article id="list-things">
+    <hgroup>
         <h2>Week Plan</h2>
         <h3>Or something</h3>
-    </div>
+    </hgroup>
     <ul>
         {#each listThings as thing, i}
-            <li>{days[i]}: {thing}</li>
+            <li>{days[i]}: <em>{thing}</em></li>
         {/each}
     </ul>
-</div>
+</article>

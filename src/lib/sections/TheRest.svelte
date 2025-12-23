@@ -89,7 +89,7 @@
         }
     }
 
-    main {
+    section {
         #content-menu {
             color: ghostwhite;
             font-weight: 800;
@@ -182,30 +182,37 @@
     }
 </style>
 
-<main>
-    <div id="content-menu">
-        <button class={animateClasses}
-                onclick={() => wipeContent(menuIndex !== 0 ? menuIndex - 1 : menu.length - 1,  WhichButton.LEFT)}
-                ontransitionend={() => {
+<section>
+    <header>
+        <menu id="content-menu">
+            <li>
+                <button class={animateClasses}
+                        onclick={() => wipeContent(menuIndex !== 0 ? menuIndex - 1 : menu.length - 1,  WhichButton.LEFT)}
+                        ontransitionend={() => {
                     // Dual-lock system (that sounds very cool fr)
                     if (!buttonFunctionmentLocks.uncloseting)
                         buttonFunctionmentLocks.transitioning = false;
                     else buttonFunctionmentLocks.uncloseting = false;
                 }}>
-            {menu[menuIndexDec]}
-        </button>
-        <div id="content-title" class={animateClasses}>
-            <h2>
-                {menu[menuIndex]}
-            </h2>
-            <h4 id="menu-subtitle">{menuSubtitle[menuIndex]}</h4>
-        </div>
-        <button class={animateClasses}
-                onclick={() => wipeContent(menuIndex !== menu.length - 1 ? menuIndex + 1 : 0, WhichButton.RIGHT)}>
-            {menu[menuIndexInc]}
-        </button>
-    </div>
-    <!--suppress JSValidateTypes -->
+                    {menu[menuIndexDec]}
+                </button>
+            </li>
+            <li>
+                <hgroup id="content-title" class={animateClasses}>
+                    <h2>
+                        {menu[menuIndex]}
+                    </h2>
+                    <h3 id="menu-subtitle">{menuSubtitle[menuIndex]}</h3>
+                </hgroup>
+            </li>
+            <li>
+                <button class={animateClasses}
+                        onclick={() => wipeContent(menuIndex !== menu.length - 1 ? menuIndex + 1 : 0, WhichButton.RIGHT)}>
+                    {menu[menuIndexInc]}
+                </button>
+            </li>
+        </menu>
+    </header>
     <span ontransitionstart={() => buttonFunctionmentLocks.transitioning = true}
           ontransitionend={() => setContent()}
           onanimationend={() => buttonFunctionmentLocks.animationing = false}
@@ -213,4 +220,4 @@
           class={animateClasses}>
         {@render currentMainContent()}
     </span>
-</main>
+</section>

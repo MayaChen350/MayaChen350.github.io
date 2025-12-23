@@ -38,7 +38,7 @@
             display: flex;
             justify-content: space-evenly;
 
-            * {
+            li {
                 border: solid 0.005rem rgb(239, 194, 86);
                 padding: 0.3rem;
             }
@@ -59,7 +59,7 @@
     }
 </style>
 
-<div id="poems-box">
+<article id="poems-box">
     <div id="poem">
         {#each poems[poemIndex] as paragraph}
             <div class="paragraph">
@@ -70,14 +70,17 @@
             <br/>
         {/each}
     </div>
-    <div id="poem-menu">
-        <button class={poemIndex <= 0 ? "no-ty" : ""} onclick={() =>{ if (poemIndex > 0) poemIndex--}}>
-            PREV
-        </button>
-        <span id="poem-index">{romanNums[poemIndex]}</span>
-        <button class={poemIndex >= poems.length - 1 ? "no-ty" : ""}
-                onclick={() => { if (poemIndex < poems.length - 1) poemIndex++}}>
-            NEXT
-        </button>
-    </div>
-</div>
+    <menu id="poem-menu">
+        <li class={poemIndex <= 0 ? "no-ty" : ""}>
+            <button onclick={() =>{ if (poemIndex > 0) poemIndex--}}>
+                PREV
+            </button>
+        </li>
+        <li id="poem-index">{romanNums[poemIndex]}</li>
+        <li class={poemIndex >= poems.length - 1 ? "no-ty" : ""}>
+            <button onclick={() => { if (poemIndex < poems.length - 1) poemIndex++}}>
+                NEXT
+            </button>
+        </li>
+    </menu>
+</article>
