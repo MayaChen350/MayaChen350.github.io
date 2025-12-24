@@ -106,9 +106,11 @@
                 text-decoration: underline solid ghostwhite;
                 cursor: pointer;
 
-                &:hover {
-                    font-size: 2.8rem;
-                    text-decoration: none;
+                @media (min-width: 750px) {
+                    &:hover {
+                        font-size: 2.8rem;
+                        text-decoration: none;
+                    }
                 }
 
                 position: relative;
@@ -138,7 +140,8 @@
 
                 @media (max-width: 750px) {
                     #menu-subtitle {
-                        font-size: 1.49rem;
+                        padding: 0 2rem;
+                        font-size: 1.15rem;
                     }
                 }
             }

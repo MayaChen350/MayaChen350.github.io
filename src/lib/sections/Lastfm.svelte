@@ -99,11 +99,11 @@
     /*Text length based classes:*/
 
     .last-fm-text-gt25 {
-        p {
+        h2, p {
             font-size: 1.15rem !important;
         }
 
-        h3 {
+        #recent-song-track {
             letter-spacing: 0 !important;
 
             @media (max-width: 1280px) {
@@ -118,11 +118,11 @@
 
     .last-fm-text-gt15 {
         @media (max-width: 960px) {
-            p {
+            h2, p {
                 font-size: 1.25rem !important;
             }
 
-            h3 {
+            #recent-song-track {
                 font-size: 2.15rem !important;
                 letter-spacing: 0 !important;
             }

@@ -1,3 +1,6 @@
+<script>
+</script>
+
 <style>
     section {
         text-align: center;
@@ -5,11 +8,17 @@
         padding: 10rem 0;
 
         h3 {
-            font-size: 5rem;
+            font-size: 4rem;
         }
 
         p {
             font-size: 0.7rem;
+        }
+
+        @media (min-width: 750px) {
+            h3 {
+                font-size: 5rem;
+            }
         }
     }
 
