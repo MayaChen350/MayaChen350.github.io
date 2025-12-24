@@ -1,5 +1,5 @@
 <script>
-    import {getDiscordPfp} from "$lib";
+    import {getDiscordPfp, lanyardApiUrl} from "$lib";
     import {onMount} from "svelte";
 
     const socialMedias = [
@@ -36,11 +36,9 @@
 </script>
 
 <svelte:head>
-    {#each socialMedias as soc}
-        {#if soc.pfp}
-            <link rel="preload" as="image" href={soc.pfp}>
-        {/if}
-    {/each}
+    <link rel="preload" as="image" href={socialMedias[0].pfp}>
+    <link rel="preconnect" href={lanyardApiUrl}>
+    <link rel="prefetch" as="image" href={socialMedias[2].pfp}>
 </svelte:head>
 
 <style>
@@ -59,6 +57,6 @@
 </style>
 
 <article class="pfp" id="profile">
-    <img width="100%" height="100%" src={currSocMedia.pfp} alt="profile pic"/>
+    <img width="250" height="250" src={currSocMedia.pfp} alt="profile pic"/>
     <h2 id="soc-username"><a href={currSocMedia.link}>{currSocMedia.name}: {currSocMedia.username}</a></h2>
 </article>

@@ -1,5 +1,5 @@
 <script>
-    import {getRecentTracks} from "$lib/index.js"
+    import {getRecentTracks, lastFmApiUrl} from "$lib/index.js"
     import {onMount} from "svelte";
 
     // Last song listened to, powered by Last.fm (My beloved)
@@ -129,6 +129,10 @@
         }
     }
 </style>
+
+<svelte:head>
+    <link rel="preconnect" href={lastFmApiUrl}>
+</svelte:head>
 
 <article id="lastfm">
     <img id="album-image" src={data.albumImageLink} alt="album artwork"/>

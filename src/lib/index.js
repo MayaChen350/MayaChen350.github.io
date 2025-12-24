@@ -1,9 +1,12 @@
 // place files you want to import through the `$lib` alias in this folder.
 
+export const lastFmApiUrl = "https://ws.audioscrobbler.com";
+export const lanyardApiUrl = "https://api.lanyard.rest"
+const discordInfoApiUrl = lanyardApiUrl + "/v1/users/491212588768821281"
+
 export async function getRecentTracks() {
     const url =
-        "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=GChen3843&api_key=d7b26ab026668c5044cc4610d092bcd2&format=json";
-
+        lastFmApiUrl + "/2.0/?method=user.getrecenttracks&user=GChen3843&api_key=d7b26ab026668c5044cc4610d092bcd2&format=json"
     const response = await fetch(url);
     const text = await response.text();
 
@@ -19,9 +22,7 @@ export async function getRecentTracks() {
 }
 
 export async function getDiscordPfp() {
-    const response = await fetch(
-        "https://api.lanyard.rest/v1/users/491212588768821281"
-    );
+    const response = await fetch(discordInfoApiUrl);
 
     const text = await response.text();
     const json = JSON.parse(text);
