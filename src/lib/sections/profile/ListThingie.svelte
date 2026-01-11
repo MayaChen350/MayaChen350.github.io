@@ -46,7 +46,12 @@
         }
 
         h3 {
-            font-size: 1.5rem;
+            font-size: 1.7rem;
+            text-align: center;
+        }
+
+        h4 {
+            font-size: .85rem;
             text-align: center;
         }
 
@@ -60,13 +65,16 @@
             padding: 3rem;
             font-size: 2rem;
 
+            hgroup {
+                padding-bottom: 1rem;
+            }
+
             h2 {
                 font-size: 3rem;
             }
 
-            h3 {
+            h3, h4 {
                 text-align: start;
-                padding-bottom: 1rem;
             }
         }
     }
@@ -76,6 +84,7 @@
     <hgroup>
         <h2>Week Plan</h2>
         <h3>Or something</h3>
+        <h4>(Idk anymore)</h4>
     </hgroup>
     <ul>
         {#each listThings as thing, i}

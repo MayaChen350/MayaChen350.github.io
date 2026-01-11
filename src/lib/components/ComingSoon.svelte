@@ -1,6 +1,3 @@
-<script>
-</script>
-
 <style>
     section {
         text-align: center;
@@ -21,8 +18,6 @@
             }
         }
     }
-
-
 </style>
 
 <section>

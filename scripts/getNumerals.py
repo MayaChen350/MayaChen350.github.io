@@ -38,12 +38,8 @@ def to_roman_numeral(num):
 # This is me hating python below (why do I even use it)
 
 romanNumbers = []
-if selectedPoemNumbers:
-    for poemNum in selectedPoemNumbers:
-        romanNumbers.append(to_roman_numeral(poemNum))
-else:
-    for i in range(len(poems)):
-        romanNumbers.append(to_roman_numeral(i + 1))
+for i in range(len(poems)):
+    romanNumbers.append(to_roman_numeral(i + 1))
 
 
 with open(romanNumFilePath, "x") as f:

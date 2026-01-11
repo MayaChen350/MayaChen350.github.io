@@ -1,6 +1,6 @@
 <script>
     import _romanNums from "$lib/data/roman_num_poems.json";
-    import _poems from "$lib/data/selected_poems.json";
+    import _poems from "$lib/data/poems.json";
 
     let {poems = _poems, romanNums = _romanNums, poemIndex = 0} = $props();
 

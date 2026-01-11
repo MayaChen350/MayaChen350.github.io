@@ -1,5 +1,5 @@
 <script>
-    import Poems from "$lib/sections/mainContent/Poems.svelte";
+    import Poems from "$lib/components/Poems.svelte";
     import {onMount} from "svelte";
     import {browser} from "$app/environment";
 

@@ -176,7 +176,7 @@ const languageTextDefault =
 <p>I'm a programmer :p</p>
 <p>
 This section is severely outdated... but you can still check what I was saying
-about the languages above 2 years ago
+about the languages above several years ago
 </p>
 <br />
 <p>Just click on a language!</p>
