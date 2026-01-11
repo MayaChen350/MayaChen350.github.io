@@ -1,7 +1,31 @@
-# yes I have a secret design
-design.png
-placeholder*
+node_modules
+
+# Output
+.output
+.vercel
+.netlify
+.wrangler
+/.svelte-kit
+/build
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
 .env
-stuff
-model*.json
-ideas
+.env.*
+!.env.example
+!.env.test
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# My stuff
+
+# get thoses files with scripts/getJsonPoems.py
+poems.json
+selected_poems_indexes.json
+# get this file with scripts/getNumerals.py
+roman_num_poems.json

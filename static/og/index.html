@@ -1,0 +1,121 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Maya's page</title>
+        <meta name="color-scheme" content="light dark" />
+        <meta content="Maya's page" property="og:title" />
+        <meta
+            content="My page!!! Did you know that in terms of computer science, Porygon is..."
+            property="og:description"
+        />
+        <meta content="https://mayachen350.github.io" property="og:url" />
+        <meta
+            content="https://avatars.githubusercontent.com/u/145165822"
+            property="og:image"
+        />
+        <meta content="#d7060b" data-react-helmet="true" name="theme-color" />
+        <link rel="stylesheet" href="styles/css/main.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&family=Sacramento&display=swap&family=Lumanosimo&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            /*Defined in the js :3*/
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>My Page</h1>
+            <aside class="lastfm">
+                <img id="album-image" src="images/svg/loading.svg" />
+                <div class="last-fm-font-color">
+                    <p id="time-of-listen">Last song I listened to:</p>
+                    <a id="track-url"
+                        ><p id="recent-song-track">Loading song...</p></a
+                    >
+                    <p id="recent-song-artist">Loading artist...</p>
+                </div>
+            </aside>
+        </header>
+
+        <main>
+            <div class="left-side">
+                <div class="bio-choices">
+                    <a id="btn-normal-bio" href="#">Normal bio</a>
+                    <a id="btn-nerd-bio" href="#">Programming</a>
+                </div>
+                <div class="social-media">
+                    <img
+                        src="https://avatars.githubusercontent.com/u/145165822"
+                        id="pfp"
+                        alt="Profile picture"
+                    />
+                    <a
+                        id="social-media-username"
+                        class="yellow"
+                        href="https://github.com/MayaChen350"
+                        >GITHUB: MayaChen350</a
+                    >
+                </div>
+
+                <div class="availabilities white">
+                    <p class="yellow">My weeks:</p>
+                    <p>
+                        MON:
+                        <span style="font-size: 0.85em; font-style: italic"
+                            >Everything is going to be okay</span
+                        >
+                    </p>
+                    <p>
+                        TUE:
+                        <a
+                            style="text-decoration: underline"
+                            href="https://open.spotify.com/track/0JRx6dcwR8ugEdEFM8YApT?si=029cfd3b7491426a"
+                            >It's on</a
+                        >
+                    </p>
+                    <p>WED: It's hacking time</p>
+                    <p>THU: Cause hell is forever</p>
+                    <p>FRI: Free, at last!</p>
+                    <p>
+                        SAT:
+                        <span id="Oikophobia" style="color: #8c6d6d"
+                            >Oikophobia</span
+                        >
+                    </p>
+                    <p>SUN: Resurrection</p>
+                </div>
+
+                <div class="dog">
+                    <div class="milo">
+                        <img
+                            src="images/doggo/20240114_162341.jpg"
+                            alt="Picture of my dog"
+                            id="dog-picture"
+                        />
+                    </div>
+                    <p>Random picture of my dog :3</p>
+                </div>
+            </div>
+
+            <div class="content">
+                <!-- Defined in /javascript/content.js -->
+            </div>
+
+            <div class="dog mobile">
+                <img
+                    src="images/doggo/20240114_162341.jpg"
+                    alt="Picture of my dog"
+                    id="dog-picture"
+                />
+                <p>Random picture of my dog :3</p>
+            </div>
+        </main>
+        <script src="javascript/content.js"></script>
+        <script src="javascript/main.js"></script>
+    </body>
+</html>
