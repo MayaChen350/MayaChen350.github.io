@@ -22,25 +22,21 @@ jobs:
         with:
   node-version: 20
   cache: npm
+      - name: Install dependencies
+        run: npm i
 
-    - name: Install dependencies
-      run: npm i
-
-    - name: Setup python (skull)
-      uses: actions/setup-python@v6
-
-    - name: Get poems
-      run: python scripts/getJsonPoems.py
+      - name: Make build-time stuff
+        run: make
 
     - name: build
       env:
   BASE_PATH: '/${{ github.event.repository.name }}'
-    run: |
+      run: |
   npm run build
 
-  - name: Upload Artifacts
-    uses: actions/upload-pages-artifact@v3
-    with:
+    - name: Upload Artifacts
+      uses: actions/upload-pages-artifact@v3
+      with:
   # this should match the `pages` option in your adapter-static options
   path: 'build/'
 
