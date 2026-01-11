@@ -1,14 +1,8 @@
 <script>
-    import poems from '$lib/data/selected_poems.json' with {type: 'json'}
-    import romanNums from '$lib/data/roman_num_poems.json' with {type: 'json'}
+    import _romanNums from "$lib/data/roman_num_poems.json";
+    import _poems from "$lib/data/selected_poems.json";
 
-    let poemIndex = $state(0);
-
-    // if (browser) onMount(() => {
-    //     const urlParms = new URLSearchParams(window.location.search);
-    //     if (urlParms.has('poem'))
-    //         poemIndex = urlParms.get('poem') - 1
-    // })
+    let {poems = _poems, romanNums = _romanNums, poemIndex = 0} = $props();
 
     // TODO later: Make the menu fades away when untouched
 </script>

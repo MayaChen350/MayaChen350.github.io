@@ -3,12 +3,13 @@
     import Poems from "$lib/sections/mainContent/Poems.svelte";
     import {rotatingDec, rotatingInc} from "$lib/utils.js";
     import Projects from "$lib/sections/mainContent/Projects.svelte";
+    import SelectedPoems from "$lib/sections/mainContent/SelectedPoems.svelte";
 
     // Content things
     const mainContents = [
         Interests,
         Projects,
-        Poems
+        SelectedPoems,
     ]
     let currentMainContent = $state(mainContents[0]);
 

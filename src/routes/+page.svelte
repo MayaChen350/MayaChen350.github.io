@@ -6,13 +6,6 @@
 </script>
 
 <style>
-    :global body {
-        background-color: rgb(9, 9, 9);
-        font-family: "Quintessential", sans-serif;
-        font-size: 1.8rem;
-        color: #efc256;
-    }
-
     :has(> #the-content) {
         width: 100%;
         display: flex;
@@ -51,13 +44,6 @@
     <meta name="description" content="MayaChen350's personal webpage">
     <meta name="color-scheme" content="dark">
 
-    <!--Google Font-->
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Space+Mono&amp;display=swapfamily=Nunito+Sans:wght@200&amp;family=Sacramento&amp;display=swap&amp;family=Lumanosimo&amp;family=Quintessential&amp;display=swap"
-    >
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-
     <!--Open Graph (og)-->
     <meta name="og:title" content="Maya's page">
     <meta name="og:type" content="website">
@@ -68,14 +54,6 @@
 
     <!--Discord embed-->
     <meta content="#efc256" data-react-helmet="true" name="theme-color">
-
-    <!--Reset css-->
-    <link rel="stylesheet" href="reset.css">
-    <style>
-        :root {
-            font-size: 62.5%;
-        }
-    </style>
 </svelte:head>
 
 <span id="cursed-thing"></span>
