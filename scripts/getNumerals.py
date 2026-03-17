@@ -1,5 +1,6 @@
 import json
-from shared import selectedPoemNumbers, poems
+import sys
+from shared import selectedPoemNumbers, getAmountPoems
 
 romanNumFilePath = "src/lib/data/roman_num_poems.json"
 
@@ -36,9 +37,10 @@ def to_roman_numeral(num):
 
 
 # This is me hating python below (why do I even use it)
+filePath = sys.argv[1] if len(sys.argv) > 1 else ""
 
 romanNumbers = []
-for i in range(len(poems)):
+for i in range(getAmountPoems(filePath)):
     romanNumbers.append(to_roman_numeral(i + 1))
 
 

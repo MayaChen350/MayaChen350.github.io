@@ -1,6 +1,9 @@
 BUILD_DIR := build
 GEN_JSONS := src/lib/data
 
+POEMS_TXT = $(abspath $(wildcard ../MayaChen350/.extras/poems.txt))
+$(info POEMS_TXT is: $(POEMS_TXT))
+
 GEN_POEMS := $(GEN_JSONS)/poems.json
 GEN_POEM_INDEXES := $(GEN_JSONS)/selected_poems_indexes.json
 GEN_ROMAN := $(GEN_JSONS)/roman_num_poems.json
@@ -24,10 +27,10 @@ node_modules/: package-lock.json
 package-lock.json: package.json
 	npm install
 
-$(GEN_POEMS) $(GEN_POEM_INDEXES): $(POEMS_SCRIPT) $(SHARED_SCRIPT)
+$(GEN_POEMS) $(GEN_POEM_INDEXES): $(POEMS_SCRIPT) $(SHARED_SCRIPT) $(POEMS_TXT) 
 	rm -f $(GEN_POEMS)
-	rm -f $(GEN_JSONS)/selected_poems_indexes.json
-	python $(POEMS_SCRIPT)
+	rm -f $(GEN_POEM_INDEXES)
+	python $(POEMS_SCRIPT) $(POEMS_TXT)
 
 $(GEN_ROMAN): $(ROMAN_SCRIPT) $(SHARED_SCRIPT)
 	rm -f $(GEN_ROMAN)
