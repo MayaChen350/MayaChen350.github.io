@@ -2,9 +2,14 @@ import requests
 
 selectedPoemNumbers = [8, 29, 30, 40, 41, 42, 49, 50, 53, 54, 57, 62, 65]
 
-poemsFileLink = "https://raw.githubusercontent.com/MayaChen350/Mayascope/refs/heads/master/composeApp/src/commonMain/composeResources/files/poems.txt"
+poemsFileLink = "https://raw.githubusercontent.com/MayaChen350/MayaChen350/refs/heads/main/.extras/poems.txt" 
 poemsFilePath = "src/lib/data/poems.json"
 selectedPoemsIndexesFilePath = "src/lib/data/selected_poems_indexes.json"
+
+
+def NotEmpty(string: str):
+    return string != ""
+
 
 def _getPoemsRaw(filePath="") -> list[str]:
     poemsTxt: str
@@ -14,86 +19,47 @@ def _getPoemsRaw(filePath="") -> list[str]:
     else:
         poemsTxt = requests.get(poemsFileLink).text
 
-    return poemsTxt.split("///")
+    poemsTexts = poemsTxt.split("///")
+    poemsTextsStripped = [p.strip() for p in poemsTexts]
+    return [p for p in poemsTextsStripped if NotEmpty(p)]
 
 
 def getAmountPoems(filePath="") -> int:
    return len(_getPoemsRaw(filePath))
 
-
 def getPoems(filePath=""):
-    poems = _getPoemsRaw(filePath)
-    structuredPoems = []
+    poems: list[str] = _getPoemsRaw(filePath)
 
-    # fuck this shitt
-    a = []
-    for poem in poems:
-        p = poem.strip()
-        if p != "":
-            a.append(p.split("\n\n"))
-    b = []
-    for x in a:
-        b2 = []
-        for y in x:
-            y0 = 
-            b2.append()
+    structuredPoems: list[ list[ list[str] ] ]  = []
 
+    # Each poem has:
+    lines: list[str] # or a paragraph 
+    # Contained in:
+    paragraphs: list[ list[str] ] # or a poem
 
+    for poemText in poems:
+       poemInParagraphs = poemText.split("\n\n")
 
-    # For each poem
-    for i, _ in enumerate(poems):
-        # Each poem is a list of paragraph of lines
+       paragraphs = []
+       for poemPara in poemInParagraphs:
+           poemParaCleaned = poemPara.strip()
+           if NotEmpty(poemParaCleaned) and not poemParaCleaned.startswith(("date", "title")):
 
-        poems[i] = poems[i].strip()
+               lines = []
+               poemParaCleanedLines = poemParaCleaned.split("\n")
+               for li in poemParaCleanedLines:
+                   lineCleaned = li.strip()
+                   if NotEmpty(lineCleaned):
+                       lines.append(lineCleaned)
 
-        # do not keep 
-        if not poems[i] != "":
-            paragraphs = poems[i].split("\n\n")
+               if len(lines) > 0:
+                 paragraphs.append(lines)
 
-            for j, _ in enumerate(paragraphs)
-                paragraphs[j] = paragraphs[j].strip()
-                if not paragraphs[j] != "" and not paragraphs[j].lower().startswith(("date", "title")):
-                    
-                    for k, _ in enumerate(paragraphs[j])
-                        paragraphs[j][k] = paragraphs
-
-
-
-
-            
-
-
-    # Split poems into paragraph
-    poemsInParagraphs = [p.strip().split("\n\n") for poem in poems if (p := poem.strip()).lower().startswith(("date", "title"))]
-
-    structuredPoems: list[list[list[str]]] = []
-
-    for poemParagraphs in poemsInParagraphs:
-        poemParagraphsInLines: list[list[str]] = [paragraph.split("\n") for paragraph in poemParagraphs]
-        for index, item in enumerate(my_list):
-
-
-        structuredPoems.append([for structuredPoem in poemParagraphsInLines if structuredPoem)
-
-    for poem in poems:
-        poem = poem.strip().split("\n\n")
-        # Split paragraph into lines
-        for paragraph in poem:
-            paragraph = paragraph.strip()
-            # Filter paragraph with poem info
-            if :
-                poem.remove(paragraph)
-            else:
-                # Split paragraph into lines
-                paragraph = paragraph.split("\n")
-                # Clean
-                for poemLine in paragraph:
-                    poemLine = poemLine.strip()
-                    if poemLine == "":
-                        paragraph.remove(poemLine)
+       if len(paragraphs) > 0:
+            structuredPoems.append(paragraphs)
 
     print("Fun fact: There are in total " + str(len(poems)) + " poems! Dang!")
-    return poems
+    return structuredPoems
 
 
 # poems = list(map(lambda it: it.strip().split("\n\n"), poems))

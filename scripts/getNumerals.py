@@ -1,6 +1,6 @@
 import json
 import sys
-from shared import selectedPoemNumbers, getAmountPoems
+from shared import getAmountPoems
 
 romanNumFilePath = "src/lib/data/roman_num_poems.json"
 
@@ -36,7 +36,6 @@ def to_roman_numeral(num):
     return res
 
 
-# This is me hating python below (why do I even use it)
 filePath = sys.argv[1] if len(sys.argv) > 1 else ""
 
 romanNumbers = []
