@@ -25,7 +25,7 @@
 
 <footer>
     <nav>
-       <a title="Source code" href="https://github.com/MayaChen350/MayaChen350.github.io/tree/svelte">
+       <a title="Source code" href="https://github.com/MayaChen350/MayaChen350.github.io">
             <img alt="github logo" width="20" src={githubIcon}/></a>
         <a title="See my original page and its design" href="/og/index.html">Older Page</a>
         <a title="Copy my discord username" href="javascript:navigator.clipboard.writeText('@giratina_shiny')">
