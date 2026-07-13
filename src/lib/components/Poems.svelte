@@ -48,6 +48,7 @@
 
             .paragraph {
                 text-align: left;
+                margin-bottom: 4.3rem;
             }
         }
     }
@@ -56,12 +57,11 @@
 <article id="poems-box">
     <div id="poem">
         {#each poems[poemIndex] as paragraph}
-            <div class="paragraph">
+            <p class="paragraph">
                 {#each paragraph as line}
-                    <p>{line}</p>
+                    {line}<br>
                 {/each}
-            </div>
-            <br/>
+            </p>
         {/each}
     </div>
     <menu id="poem-menu">
