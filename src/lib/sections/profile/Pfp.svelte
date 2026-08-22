@@ -58,5 +58,5 @@
 
 <article class="pfp" id="profile">
     <img width="250" height="250" src={currSocMedia.pfp} alt="profile pic"/>
-    <h2 id="soc-username"><a href={currSocMedia.link}>{currSocMedia.name}: {currSocMedia.username}</a></h2>
+    <h2 id="soc-username"><a href={currSocMedia.link} rel="me">{currSocMedia.name}: {currSocMedia.username}</a></h2>
 </article>
