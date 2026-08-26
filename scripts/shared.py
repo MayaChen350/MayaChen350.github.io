@@ -1,6 +1,6 @@
 import requests
 
-selectedPoemNumbers = [8, 29, 30, 40, 41, 42, 49, 50, 53, 54, 57, 62, 65, 68, 69, 70]
+selectedPoemNumbers = [8, 29, 30, 40, 41, 42, 49, 50, 53, 54, 57, 62, 65, 68, 69, 70, 71, 75]
 
 poemsFileLink = "https://raw.githubusercontent.com/MayaChen350/MayaChen350/refs/heads/main/.extras/poems.txt" 
 poemsFilePath = "src/lib/data/poems.json"
