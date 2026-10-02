@@ -1,20 +1,28 @@
 <script>
-    import dailyReferences from '$lib/data/daily_references.json' with {type: 'json'}
-    import lodashColl from "lodash/collection.js";
-    import lodash from "lodash";
-
-    const {shuffle} = lodashColl;
-    const {random} = lodash;
+    import dailyReferences from "$lib/data/daily_references.json" with { type: "json" };
+    import { randomInteger, shuffle } from "remeda";
 
     const days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
-    const listThings = random(0, dailyReferences.length) === 1
-        ? Array.from({length: 7}, () => "Everyday is exactly the same")
+    const listThings = randomInteger(0, dailyReferences.length)
+        ? Array.from({ length: 7 }, () => "Everyday is exactly the same")
         : shuffle(dailyReferences).slice(0, 7);
 </script>
 
+<article id="list-things">
+    <hgroup>
+        <h2>Week Plan</h2>
+        <h3>Or something</h3>
+        <h4>(Idk anymore)</h4>
+    </hgroup>
+    <ul>
+        {#each listThings as thing, i}
+            <li>{days[i]}: <em>{thing}</em></li>
+        {/each}
+    </ul>
+</article>
+
 <style>
     #list-things {
-
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -33,12 +41,10 @@
             border-bottom: dotted 0.2rem rgb(239, 194, 86);
         }
 
-
         @media (min-width: 900px) {
             border: 1px ridge rgb(239, 194, 86);
             border-radius: 20px;
         }
-
 
         h2 {
             font-size: 3.5rem;
@@ -51,7 +57,7 @@
         }
 
         h4 {
-            font-size: .85rem;
+            font-size: 0.85rem;
             text-align: center;
         }
 
@@ -73,22 +79,10 @@
                 font-size: 3rem;
             }
 
-            h3, h4 {
+            h3,
+            h4 {
                 text-align: start;
             }
         }
     }
 </style>
-
-<article id="list-things">
-    <hgroup>
-        <h2>Week Plan</h2>
-        <h3>Or something</h3>
-        <h4>(Idk anymore)</h4>
-    </hgroup>
-    <ul>
-        {#each listThings as thing, i}
-            <li>{days[i]}: <em>{thing}</em></li>
-        {/each}
-    </ul>
-</article>
