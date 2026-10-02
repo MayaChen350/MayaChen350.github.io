@@ -1,11 +1,12 @@
 <script>
     import dailyReferences from "$lib/data/daily_references.json" with { type: "json" };
     import { randomInteger, shuffle } from "remeda";
+    import { takeRandom } from "../../utils";
 
     const days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
     const listThings = randomInteger(0, dailyReferences.length)
         ? Array.from({ length: 7 }, () => "Everyday is exactly the same")
-        : shuffle(dailyReferences).slice(0, 7);
+        : takeRandom(dailyReferences, 7);
 </script>
 
 <article id="list-things">
