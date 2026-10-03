@@ -1,10 +1,10 @@
 <script>
     import dailyReferences from "$lib/data/daily_references.json" with { type: "json" };
-    import { randomInteger, shuffle } from "remeda";
+    import { randomInteger } from "remeda";
     import { takeRandom } from "../../utils";
 
     const days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
-    const listThings = randomInteger(0, dailyReferences.length)
+    const listThings = randomInteger(0, dailyReferences.length) == 7
         ? Array.from({ length: 7 }, () => "Everyday is exactly the same")
         : takeRandom(dailyReferences, 7);
 </script>
