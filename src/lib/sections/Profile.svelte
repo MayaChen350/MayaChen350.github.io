@@ -26,6 +26,8 @@
             </p>
             <p>
                 21 years old, programmer and <i>transfem</i> in my free time.
+                Working at
+                <a href="https://solync.org" target="_blank">solync.org</a>
                 <br />
             </p>
             <p>
@@ -54,6 +56,10 @@
 
         small {
             font-size: 0.6em;
+        }
+
+        a {
+            text-decoration: underline;
         }
 
         header {
@@ -98,7 +104,7 @@
             }
 
             p {
-                margin-bottom: 4.2rem;
+                margin-bottom: 3rem;
             }
         }
     }

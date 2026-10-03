@@ -1,6 +1,6 @@
 <script>
-    import {getRecentTracks, lastFmApiUrl} from "$lib/index.js"
-    import {onMount} from "svelte";
+    import { getRecentTracks, lastFmApiUrl } from "$lib/index.js";
+    import { onMount } from "svelte";
 
     // Last song listened to, powered by Last.fm (My beloved)
     let data = $state({
@@ -8,52 +8,70 @@
         isPlayingSong: false,
         recentTrackName: "Loading...",
         recentTrackArtist: "Loading...",
-        trackUrl: null
+        trackUrl: null,
     });
 
     // Text size depending of the text length
-    let titleClassName = $state("")
+    let titleClassName = $state("");
 
     async function setData() {
-        let result = await getRecentTracks()
+        let result = await getRecentTracks();
 
         if (result === data) return;
 
         if (result.recentTrackName.length >= 25) {
             // console.log(result)
-            titleClassName = "last-fm-text-gt25"
+            titleClassName = "last-fm-text-gt25";
         } else if (result.recentTrackName.length >= 15)
-            titleClassName = "last-fm-text-gt15"
-        else
-            titleClassName = ""
-        data = result
+            titleClassName = "last-fm-text-gt15";
+        else titleClassName = "";
+        data = result;
     }
 
     onMount(async () => {
-        await setData()
+        await setData();
         setInterval(async () => {
-                await setData()
-            },
-            30000);
-    })
+            await setData();
+        }, 30000);
+    });
 </script>
+
+<svelte:head>
+    <link rel="preconnect" href={lastFmApiUrl} />
+</svelte:head>
+
+<article id="lastfm">
+    <img id="album-image" src={data.albumImageLink} alt="album artwork" />
+    <div id="now-playing" class={titleClassName !== "" ? titleClassName : ""}>
+        <h2 id="time-of-listen">
+            {#if data.isPlayingSong}
+                Right now I'm listening to:
+            {:else}
+                Last song I listened to:
+            {/if}
+        </h2>
+        <strong id="recent-song-track">
+            <a id="track-url" href={data.trackUrl}>{data.recentTrackName}</a>
+        </strong>
+        <p id="recent-song-artist">By {data.recentTrackArtist}</p>
+    </div>
+</article>
 
 <style>
     #lastfm {
         width: 100%;
-        height: 10rem;
+        height: 7.5rem;
         color: rgb(255, 255, 255);
         border-bottom: 0.25rem ridge rgb(239, 194, 86);
 
         /*This was written in my Kobweb code but idk how really useful it was/is */
-        font-size: 1.5rem;
-        @media (min-width: 600px) /*and (max-width: 960px)*/ {
-            height: 13.5rem;
+        font-size: 1.2rem;
+        @media (min-width: 600px) /*and (max-width: 960px) */ {
             font-size: 2rem;
+            height: 13.5rem;
         }
 
         @media (min-width: 960px) {
-            width: 100%;
             height: 100%;
         }
 
@@ -76,17 +94,16 @@
 
             #recent-song-track {
                 width: 100%;
-                font-size: 2.5rem;
+                font-size: 2rem;
                 font-weight: 700;
-                letter-spacing: 0.85rem;
+                letter-spacing: 0.5rem;
                 color: rgb(239, 194, 86);
 
-                @media (min-width: 600px) and (max-width: 960px) {
-                    letter-spacing: 0;
-                    font-size: 2rem;
+                @media (min-width: 600px) {
+                    font-size: 3rem;
                 }
 
-                @media (min-width: 960px) {
+                @media (min-width: 1200px) {
                     font-size: 5rem;
                 }
             }
@@ -99,26 +116,24 @@
     /*Text length based classes:*/
 
     .last-fm-text-gt25 {
-        h2, p {
-            font-size: 1.15rem !important;
-        }
-
         #recent-song-track {
+            font-size: 3rem !important;
             letter-spacing: 0 !important;
 
             @media (max-width: 1280px) {
                 font-size: 2rem !important;
             }
 
-            @media (max-width: 960px) {
-                font-size: 1.5rem !important;
+            @media (max-width: 600px) {
+                font-size: 1.15rem !important;
             }
         }
     }
 
     .last-fm-text-gt15 {
         @media (max-width: 960px) {
-            h2, p {
+            h2,
+            p {
                 font-size: 1.25rem !important;
             }
 
@@ -129,24 +144,3 @@
         }
     }
 </style>
-
-<svelte:head>
-    <link rel="preconnect" href={lastFmApiUrl}>
-</svelte:head>
-
-<article id="lastfm">
-    <img id="album-image" src={data.albumImageLink} alt="album artwork"/>
-    <div id="now-playing" class={titleClassName !== "" ? titleClassName : ""}>
-        <h2 id="time-of-listen">
-            {#if data.isPlayingSong}
-                Right now I'm listening to:
-            {:else}
-                Last song I listened to:
-            {/if}
-        </h2>
-        <strong id="recent-song-track">
-            <a id="track-url" href={data.trackUrl}>{data.recentTrackName}</a>
-        </strong>
-        <p id="recent-song-artist">By {data.recentTrackArtist}</p>
-    </div>
-</article>
