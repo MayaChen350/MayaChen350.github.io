@@ -25,6 +25,7 @@ export function takeRandom(array, sampleSize) {
     for (let index = 0; index < sampleSize; index++) {
         let index = randomInteger(0, array.length - 1)
         while (usedIndexes.has(index)) index = randomInteger(0, array.length - 1)
+        usedIndexes.add(index);
 
         resultArray.push(array[index])
     }
