@@ -17,7 +17,7 @@ SHARED_SCRIPT := $(SCRIPT_DIR)/shared.py
 all: $(BUILD_DIR)
 
 $(BUILD_DIR): $(shell find src/ -type f) $(shell find static/ -type f) \
-svelte.config.js vite.config.js node_modules/ \
+ vite.config.js node_modules/ \
 $(GEN_POEMS) $(GEN_ROMAN) $(GEN_POEM_INDEXES)
 	npm run build
 
