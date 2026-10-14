@@ -1,55 +1,82 @@
-<script>
-    import Interests from "$lib/sections/mainContent/Interests.svelte"
+<script lang="ts">
+    import Interests from "$lib/sections/mainContent/Interests.svelte";
     import Poems from "$lib/components/Poems.svelte";
-    import {rotatingDec, rotatingInc} from "$lib/utils.js";
+    import { rotatingDec, rotatingInc } from "$lib/utils.js";
     import Projects from "$lib/sections/mainContent/Projects.svelte";
     import SelectedPoems from "$lib/sections/mainContent/SelectedPoems.svelte";
+    import type { Snippet } from "svelte";
+    import ComingSoon from "../components/ComingSoon.svelte";
+    type Section = {
+        title: string;
+        subtitle: string;
+        content: Snippet;
+    };
 
     // Content things
-    const mainContents = [
-        Interests,
-        Projects,
-        SelectedPoems,
-    ]
-    let currentMainContent = $state(mainContents[0]);
+    const mainContents: Section[] = [
+        {
+            title: "Interests",
+            subtitle: "Quirky arrangement of the things I like",
+            content: Interests,
+        },
+        {
+            title: "Tension High",
+            subtitle:
+                "(Name might change) My endless character and video game writing project",
+            content: ComingSoon,
+        },
+        {
+            title: "Projects",
+            subtitle: "Amazing things you should check out right now fr",
+            content: Projects,
+        },
+        {
+            title: "Poems",
+            subtitle: "Selection of the favorite poems I've written",
+            content: SelectedPoems,
+        },
+    ];
+
+    let menuIndex = $state(0);
+    let currentMainContent = $derived(mainContents.at(menuIndex)!.content);
 
     // Menu buttons
-    const WhichButton = Object.freeze({
+    type Button = 0 | 1;
+    const Button = {
         LEFT: 0,
         RIGHT: 1,
-    })
+    } as const;
 
-    const menu = ["Interests", "Projects", "Poems"]
-    const menuSubtitle = ["Quirky arrangement of the things I like", "Amazing things you should check out right now fr", "Selection of the favorite poems I've written"]
-
-    let menuIndex = $state(0)
-    let menuIndexDec = $derived(rotatingDec(menuIndex, menu.length))
-    let menuIndexInc = $derived(rotatingInc(menuIndex, menu.length))
+    let menuIndexDec = $derived(rotatingDec(menuIndex, mainContents.length));
+    let menuIndexInc = $derived(rotatingInc(menuIndex, mainContents.length));
 
     // Fade in and out Animations
-    const leftRightClasses = Object.freeze({
+    const leftRightClasses = {
         animation: ["anime-menu-left", "anime-menu-right"],
         coming: ["coming-from-left", "coming-from-right"],
-    })
-    let animateClasses = $state([""])
-    let buttonFunctionmentLocks = {animationing: false, uncloseting: false, transitioning: false};
+    } as const;
+    let animateClasses = $state([""]);
+    let buttonFunctionmentLocks = {
+        animationing: false,
+        uncloseting: false,
+        transitioning: false,
+    };
 
     // Saving data in variables because im lazy
     let lastContentIndex = 0;
-    /** @type {0|1} */
-    let lastButtonPressed = WhichButton.LEFT;
+    let lastButtonPressed: Button = Button.LEFT;
 
-    /**
-     * @param {number} newContentIndex
-     * @param {0|1} whichButton
-     */
-    function wipeContent(newContentIndex, whichButton) {
-        if (buttonFunctionmentLocks.animationing || buttonFunctionmentLocks.uncloseting ||
-            buttonFunctionmentLocks.transitioning) return;
-        buttonFunctionmentLocks.animationing = true;
-        buttonFunctionmentLocks.uncloseting = true;
-        buttonFunctionmentLocks.transitioning = true;
-
+    function wipeContent(newContentIndex: number, whichButton: 0 | 1) {
+        if (
+            buttonFunctionmentLocks.animationing ||
+            buttonFunctionmentLocks.uncloseting ||
+            buttonFunctionmentLocks.transitioning
+        )
+            return;
+        buttonFunctionmentLocks.animationing =
+            buttonFunctionmentLocks.uncloseting =
+            buttonFunctionmentLocks.transitioning =
+                true;
 
         animateClasses = [leftRightClasses.animation[whichButton]];
 
@@ -61,19 +88,78 @@
     function setContent() {
         animateClasses = [leftRightClasses.coming[lastButtonPressed]];
         setNewMenu(lastButtonPressed);
-        currentMainContent = mainContents[lastContentIndex]
+        currentMainContent = mainContents[lastContentIndex].content;
     }
 
-    /**
-     * @param {0|1|null} whichButton
-     */
-    function setNewMenu(whichButton) {
-        if (whichButton === WhichButton.LEFT)
-            menuIndex = menuIndex !== 0 ? menuIndex - 1 : menu.length - 1;
-        else /*if (whichButton === WhichButton.RIGHT)*/
-            menuIndex = menuIndex !== menu.length - 1 ? menuIndex + 1 : 0;
+    function setNewMenu(whichButton: Button) {
+        if (whichButton === Button.LEFT)
+            menuIndex =
+                menuIndex !== 0 ? menuIndex - 1 : mainContents.length - 1;
+        /*if (whichButton === Button.RIGHT)*/ else
+            menuIndex =
+                menuIndex !== mainContents.length - 1 ? menuIndex + 1 : 0;
     }
 </script>
+
+<section>
+    <header>
+        <menu id="content-menu">
+            <li>
+                <button
+                    class={animateClasses}
+                    onclick={() =>
+                        wipeContent(
+                            menuIndex !== 0
+                                ? menuIndex - 1
+                                : mainContents.length - 1,
+                            Button.LEFT,
+                        )}
+                    ontransitionend={() => {
+                        // Dual-lock system (that sounds very cool fr)
+                        if (!buttonFunctionmentLocks.uncloseting)
+                            buttonFunctionmentLocks.transitioning = false;
+                        else buttonFunctionmentLocks.uncloseting = false;
+                    }}
+                >
+                    {mainContents[menuIndexDec].title}
+                </button>
+            </li>
+            <li>
+                <hgroup id="content-title" class={animateClasses}>
+                    <h2>
+                        {mainContents[menuIndex].title}
+                    </h2>
+                    <h3 id="menu-subtitle">
+                        {mainContents[menuIndex].subtitle}
+                    </h3>
+                </hgroup>
+            </li>
+            <li>
+                <button
+                    class={animateClasses}
+                    onclick={() =>
+                        wipeContent(
+                            menuIndex !== mainContents.length - 1
+                                ? menuIndex + 1
+                                : 0,
+                            Button.RIGHT,
+                        )}
+                >
+                    {mainContents[menuIndexInc].title}
+                </button>
+            </li>
+        </menu>
+    </header>
+    <span
+        ontransitionstart={() => (buttonFunctionmentLocks.transitioning = true)}
+        ontransitionend={() => setContent()}
+        onanimationend={() => (buttonFunctionmentLocks.animationing = false)}
+        id="the-actual-content"
+        class={animateClasses}
+    >
+        {@render currentMainContent()}
+    </span>
+</section>
 
 <style>
     @keyframes slide-right {
@@ -103,7 +189,7 @@
 
             button {
                 transition-property: opacity;
-                font-size: 2.0rem;
+                font-size: 2rem;
                 text-decoration: underline solid ghostwhite;
                 cursor: pointer;
 
@@ -116,14 +202,16 @@
 
                 position: relative;
 
-                &.anime-menu-left, &.anime-menu-right {
-                    font-size: 2.0rem;
+                &.anime-menu-left,
+                &.anime-menu-right {
+                    font-size: 2rem;
                     opacity: 0;
                     transition-duration: 0.5s;
                     left: 0 !important;
                 }
 
-                &.coming-from-left, &.coming-from-right {
+                &.coming-from-left,
+                &.coming-from-right {
                     transition-delay: 1s !important;
                     transition-duration: 0.8s !important;
                     animation: none !important;
@@ -185,43 +273,3 @@
         }
     }
 </style>
-
-<section>
-    <header>
-        <menu id="content-menu">
-            <li>
-                <button class={animateClasses}
-                        onclick={() => wipeContent(menuIndex !== 0 ? menuIndex - 1 : menu.length - 1,  WhichButton.LEFT)}
-                        ontransitionend={() => {
-                    // Dual-lock system (that sounds very cool fr)
-                    if (!buttonFunctionmentLocks.uncloseting)
-                        buttonFunctionmentLocks.transitioning = false;
-                    else buttonFunctionmentLocks.uncloseting = false;
-                }}>
-                    {menu[menuIndexDec]}
-                </button>
-            </li>
-            <li>
-                <hgroup id="content-title" class={animateClasses}>
-                    <h2>
-                        {menu[menuIndex]}
-                    </h2>
-                    <h3 id="menu-subtitle">{menuSubtitle[menuIndex]}</h3>
-                </hgroup>
-            </li>
-            <li>
-                <button class={animateClasses}
-                        onclick={() => wipeContent(menuIndex !== menu.length - 1 ? menuIndex + 1 : 0, WhichButton.RIGHT)}>
-                    {menu[menuIndexInc]}
-                </button>
-            </li>
-        </menu>
-    </header>
-    <span ontransitionstart={() => buttonFunctionmentLocks.transitioning = true}
-          ontransitionend={() => setContent()}
-          onanimationend={() => buttonFunctionmentLocks.animationing = false}
-          id="the-actual-content"
-          class={animateClasses}>
-        {@render currentMainContent()}
-    </span>
-</section>
