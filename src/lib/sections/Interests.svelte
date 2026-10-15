@@ -1,6 +1,8 @@
 <script>
     import interests from "$lib/data/interests.json" with { type: "json" };
     import { onMount } from "svelte";
+    import ContentMenu from "./ContentMenu.svelte";
+    import { Content } from "../menu";
 
     let allInterests = $state(interests);
     onMount(() => {
@@ -17,6 +19,7 @@
     });
 </script>
 
+<ContentMenu contentType={Content.Interests} />
 <ul>
     {#each allInterests as interest}
         <li>{@html interest}</li>

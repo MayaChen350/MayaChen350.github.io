@@ -1,5 +1,7 @@
 <script>
     import ComingSoon from "$lib/components/ComingSoon.svelte";
+    import { Content } from "../../../lib/menu";
+    import ContentMenu from "../../../lib/sections/ContentMenu.svelte";
 </script>
 
 <!--Projects -->
@@ -17,4 +19,6 @@
     Language, license, status (ON HOLD, ACTIVE, BURNOUT, INACTIVE)
 -->
 
-<ComingSoon/>
+<ContentMenu contentType={Content.TensionHigh} />
+<ComingSoon />
+

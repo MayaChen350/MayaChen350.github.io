@@ -1,8 +1,9 @@
 <script>
     import Lastfm from "$lib/sections/Lastfm.svelte";
     import Profile from "$lib/sections/Profile.svelte";
-    import TheRest from "$lib/sections/TheRest.svelte";
     import Footer from "$lib/sections/Footer.svelte";
+
+    let { children } = $props();
 </script>
 
 <svelte:head>
@@ -33,7 +34,7 @@
 <div>
     <main id="the-content">
         <Profile />
-        <TheRest />
+        {@render children()}
     </main>
     <Footer />
 </div>
@@ -86,4 +87,3 @@
         }
     }
 </style>
-
