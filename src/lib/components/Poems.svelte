@@ -37,7 +37,7 @@
                 padding: 0.3rem;
             }
 
-            .no-ty {
+            li:has(> button:disabled) {
                 opacity: 50%;
             }
         }
@@ -65,16 +65,22 @@
         {/each}
     </div>
     <menu id="poem-menu">
-        <li class={poemIndex <= 0 ? "no-ty" : ""}>
-            <button onclick={() =>{ if (poemIndex > 0) poemIndex--}}>
+      <>
+      {const isDisabled = $derived(poemIndex == 0)}
+        <li>
+            <button {isDisabled || "disabled"} onclick={() => { poemIndex--}}>
                 PREV
             </button>
         </li>
+     </>
         <li id="poem-index">{romanNums[poemIndex]}</li>
-        <li class={poemIndex >= poems.length - 1 ? "no-ty" : ""}>
-            <button onclick={() => { if (poemIndex < poems.length - 1) poemIndex++}}>
+     <>
+     {const isDisabled = $derived(poemIndex >= poems.length - 1)}
+        <li>
+            <button onclick={() => { poemIndex++}}>
                 NEXT
             </button>
         </li>
+     </>
     </menu>
 </article>
